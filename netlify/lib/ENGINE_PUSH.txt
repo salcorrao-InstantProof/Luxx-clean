@@ -1,0 +1,15 @@
+ENGINE READY OFF-REPO
+
+File to install as netlify/lib/video.mjs:
+artifacts/video.patched.mjs (26532 bytes)
+
+Contains:
+- STAGE_BUDGET_MS 150000
+- CONTINUE before analyze
+- CONTINUE before each render
+- combined full-decode analyze
+- stream-copy FULL-MASTER + copy HLS
+- scene_times cache
+
+Do not merge to main.
+Do not deploy glowing-empanada from this branch.
