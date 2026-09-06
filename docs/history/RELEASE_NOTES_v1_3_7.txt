@@ -1,0 +1,17 @@
+LUXX Hosted Integrated Pilot v1.3.7
+
+Purpose: simplify operator decisions while preserving v1.3.6 renderer hotfix and the TODAY / LIBRARY / RESULTS architecture.
+
+Changes:
+- Three ready-to-use monetization captions/CTAs are generated for recommendations and prescriptions; option 1 remains LUXX recommended.
+- Added HERO PICKS shortlist for up to 20 strongest authorized image candidates using currently available technical/operational signals. It is explicitly not represented as semantic attractiveness/expression scoring.
+- ROUTES rewritten in plain English with source/destination-specific setup help, preset placements/tests/evidence, and a single TEST & ACTIVATE ROUTE action.
+- Removed Bound Asset/Variant and native-linkage jargon from operator route setup. Internal native routes remain mechanically represented in state.
+- Expanded deliberate route inventory: X→Fansly/Linktree; Pornhub→Fansly/Linktree; OF Free native PPV; Fansly FYP/Search; Chaturbate native tips. Existing state is migrated additively.
+- Chaturbate remains DORMANT as an account; the native route exists so a controlled reactivation session can be measured without declaring permanent reactivation.
+- Existing historical publications remain append-only. No mass historical deletion behavior added.
+- Preserves Netlify runtime EROFS ffmpeg hotfix from v1.3.6.
+
+Important limits:
+- Hero Picks does not claim semantic beauty/attractiveness/expression judgment unless future image-semantic evidence is added.
+- External platform placement/link permissions can change; LUXX route instructions deliberately say to use only currently permitted placements where platform rules are not mechanically verified.

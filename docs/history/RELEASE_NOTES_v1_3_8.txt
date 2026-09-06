@@ -1,0 +1,34 @@
+LUXX Hosted Integrated Pilot v1.3.8
+PLACEMENT-SPECIFIC ROUTE REVISION
+
+Purpose
+-------
+Make tracking routes correspond to the exact audience placement instead of combining Bio, Pinned Post, regular Post, Video Description, Profile, Message, or Linktree Button into one ambiguous route.
+
+Changes
+-------
+- X routes are now separate for BIO, PINNED_POST, and POST across the current OF Free, Fansly, and Linktree destinations.
+- Pornhub routes are separate for CREATOR_PROFILE and VIDEO_DESCRIPTION.
+- OnlyFans Free -> Paid is separate for BIO, PINNED_POST, POST, and MESSAGE.
+- OnlyFans internal PPV is split into native post and native message routes.
+- OnlyFans Paid uses native feed and native PPV-message routes.
+- Fansly internal FYP, Suggestions, Search, and native monetization routes are separate.
+- Linktree destinations use one route per button.
+- Chaturbate remains native-tips only until an external-link placement is verified against current platform policy.
+- Route setup no longer asks the operator to choose a placement. The placement is part of the route itself.
+- The UI tells the operator the exact tracking-link name to create and where to paste it.
+- Existing v1.3.7 route records are preserved as legacy audit history. When an old route has a deterministically identifiable placement, its setup is migrated into the matching v1.3.8 route.
+- Daily prescription selection prefers the operational route for that platform (for example, X regular Post and Pornhub Video Description) rather than an arbitrary first route.
+
+Preserved
+---------
+- TODAY / LIBRARY / RESULTS
+- baseline lock and append-only history
+- attribution ceilings
+- v1.3.6 Netlify ffmpeg EROFS runtime hotfix
+- v1.3.7 CTA options, Hero Picks, and simplified route verification
+
+Tracking rule
+-------------
+ONE SOURCE + ONE PLACEMENT + ONE DESTINATION = ONE ROUTE.
+Do not reuse one destination tracking link across Bio, Pinned Post and regular Post when unique tracking links are available.

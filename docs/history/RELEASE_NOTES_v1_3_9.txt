@@ -1,0 +1,13 @@
+LUXX Hosted Integrated Pilot v1.3.9
+
+Operator attribution update:
+- Two equal-power operator labels: Creator and Executive Producer.
+- Current operator is selected on-device and remembered locally.
+- Marked-posted actions store operator_role and include it in the append-only audit event.
+- Results view and CSV export surface the recorded operator.
+
+X/Twitter tracking:
+- Existing placement-specific X routes remain intact: X Bio, X Pinned Post, and X Regular Post can each use a distinct tracking URL to a chosen destination.
+- LUXX does not automatically edit or post to X; the actual tracked URL must still be pasted into the corresponding X placement unless an authorized X integration is added later.
+
+No permission differences were added between Creator and Executive Producer.

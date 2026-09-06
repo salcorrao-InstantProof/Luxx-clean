@@ -1,0 +1,7 @@
+LUXX v1.4.5
+
+- Resumable image optimization: skips already-completed orientation-safe images, retries each failure once, shows live progress, and reports real failures instead of returning a misleading zero.
+- Current upright derivatives receive strong recommendation preference so older sideways derivatives stop winning.
+- Branch reference selection now ranks concept relevance before visual score and downranks clearly mismatched boat/lake batches for indoor/book/couch concepts when metadata supports that distinction.
+- If metadata cannot establish concept, LUXX says so instead of pretending to understand scene semantics.
+- Retains exact-duplicate cleanup, authorization-all control, persistent visual score handling, crop safety/original fallback, and orientation normalization.

@@ -1,0 +1,28 @@
+LUXX v1.7.0 RC3 — ZERO-SURPRISE RELEASE
+Launch date: Monday, September 7, 2026
+
+1. This is a RELEASE CANDIDATE FOR REVIEW. Do not deploy it until it has been
+   independently inspected.
+
+2. When it is approved, redeploy THIS ZIP to the SAME existing Netlify LUXX site.
+   Do NOT create a new site. The URL and the passcode stay the same. A new site
+   would leave the existing Blob-stored media and locked baseline behind.
+
+3. Set LUXX_PASSCODE and LUXX_SESSION_SECRET in Netlify environment variables
+   BEFORE deploying. Nothing is embedded in this package.
+   See YOUR_LUXX_PASSCODE.txt for the exact steps.
+
+4. Before Monday, two things must be done inside the app, in SETUP:
+     a. CAM AVAILABILITY — enter the creator's confirmed weekdays and her earliest
+        start and latest end. Until this is set, TODAY schedules no LIVE job and
+        invents no cam time. Saturday and Sunday cannot be enabled.
+     b. IMPORT BASELINE, then review the imported values, then CAPTURE BASELINE,
+        then LOCK BASELINE. Import never captures and never locks by itself, and it
+        refuses to overwrite a locked baseline.
+
+5. PRODUCE is OFF. No shoot is prescribed until a Library or funnel gap is
+   documented against the reviewed Library. If inventory is sufficient, NO NEW
+   SHOOT NEEDED is the correct answer.
+
+Older release notes and validation records are historical only. They live in
+docs/history/ and are not instructions for this package.

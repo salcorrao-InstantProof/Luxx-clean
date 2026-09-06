@@ -1,0 +1,21 @@
+LUXX passcode: NOT SHIPPED IN THIS PACKAGE.
+
+v1.4.7 removed the embedded passcode AND the session signing secret from source.
+In v1.4.6 both were hardcoded in netlify/lib/embedded-secret.mjs, which meant anyone
+holding this ZIP could forge a valid session cookie for the live site.
+
+Set both in Netlify > Site configuration > Environment variables before deploying:
+
+  LUXX_PASSCODE          the passcode you want to type to open LUXX
+  LUXX_SESSION_SECRET    a long random string
+
+Generate a session secret with:
+  node -e "console.log(require('crypto').randomBytes(48).toString('base64url'))"
+
+Without both set, LUXX fails closed: /api/session reports configured:false and the
+login screen says the private configuration is missing.
+
+If you are upgrading an existing site, changing LUXX_SESSION_SECRET will sign out
+any existing sessions. That is expected. Media and state are unaffected.
+
+See RELEASE_NOTES_v1_4_7.txt.

@@ -1,0 +1,22 @@
+LUXX v1.4.0 — Visual Library + Prescription + Learning Upgrade
+
+Major changes from v1.3.9:
+- Image-first Library with large previews; tap/click media opens it directly.
+- Hero Picks with numeric score and Top Hero/Strong/Alternate/Supporting labels.
+- Automatic conservative photo optimization on upload: exposure/contrast/color/sharpen + ORIGINAL, 4:5, 9:16 crops; originals remain immutable.
+- One-click optimization of existing photos without re-uploading.
+- Batch authorization for visible non-quarantined images.
+- Exact duplicate upload detection by SHA-256; new exact duplicate bytes are removed and the existing master is preserved.
+- Privacy Shield surfaced in Library; posting derivatives strip embedded metadata. Visible location clues still require review.
+- Video thumbnail display uses generated master/variant poster where available; existing thumbnail migration preserved.
+- RESULTS now summarizes revenue, tracked clicks, conversions, route performance, and directional LUXX learning.
+- CTA engine now selects three choices from a much larger platform/objective catalog while showing only three to the operator.
+- Creator / Executive Producer roles retained with equal powers.
+- Placement-specific route tree from v1.3.9 retained.
+- Netlify ffmpeg EROFS runtime hotfix retained.
+
+Safety/measurement boundaries:
+- Hero score is a decision aid, not an objective attractiveness score or guaranteed performance prediction.
+- Near-duplicates are not auto-deleted; only exact byte-identical duplicates are auto-rejected.
+- Originals are preserved. Privacy-safe derivatives are recommended for posting.
+- Creator-specific learning remains directional until sufficient measured history exists.

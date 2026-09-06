@@ -1,0 +1,233 @@
+{
+  "pass": true,
+  "total": 45,
+  "passed": 45,
+  "failed": 0,
+  "tests": [
+    {
+      "name": "health public",
+      "pass": true,
+      "detail": "status 200"
+    },
+    {
+      "name": "session unauthenticated",
+      "pass": true,
+      "detail": "{\"ok\":true,\"configured\":false,\"authenticated\":false}"
+    },
+    {
+      "name": "unauthorized state",
+      "pass": true,
+      "detail": "status 401"
+    },
+    {
+      "name": "unauthorized assets",
+      "pass": true,
+      "detail": "status 401"
+    },
+    {
+      "name": "unauthorized upload-chunk",
+      "pass": true,
+      "detail": "status 401"
+    },
+    {
+      "name": "unauthorized thumbnail",
+      "pass": true,
+      "detail": "status 401"
+    },
+    {
+      "name": "unauthorized upload-complete",
+      "pass": true,
+      "detail": "status 401"
+    },
+    {
+      "name": "unauthorized asset-update",
+      "pass": true,
+      "detail": "status 401"
+    },
+    {
+      "name": "unauthorized asset-delete",
+      "pass": true,
+      "detail": "status 401"
+    },
+    {
+      "name": "unauthorized image-edit",
+      "pass": true,
+      "detail": "status 401"
+    },
+    {
+      "name": "unauthorized start-media-job",
+      "pass": true,
+      "detail": "status 401"
+    },
+    {
+      "name": "unauthorized kick-media-job",
+      "pass": true,
+      "detail": "status 401"
+    },
+    {
+      "name": "unauthorized process-media-job-background",
+      "pass": true,
+      "detail": "status 401"
+    },
+    {
+      "name": "unauthorized job",
+      "pass": true,
+      "detail": "status 401"
+    },
+    {
+      "name": "unauthorized variant-update",
+      "pass": true,
+      "detail": "status 401"
+    },
+    {
+      "name": "unauthorized download-manifest",
+      "pass": true,
+      "detail": "status 401"
+    },
+    {
+      "name": "unauthorized media-chunk",
+      "pass": true,
+      "detail": "status 401"
+    },
+    {
+      "name": "unauthorized hls",
+      "pass": true,
+      "detail": "status 401"
+    },
+    {
+      "name": "unauthorized action",
+      "pass": true,
+      "detail": "status 401"
+    },
+    {
+      "name": "unauthorized export-data",
+      "pass": true,
+      "detail": "status 401"
+    },
+    {
+      "name": "unauthorized import-data",
+      "pass": true,
+      "detail": "status 401"
+    },
+    {
+      "name": "legacy renderer endpoint retired",
+      "pass": true,
+      "detail": "status 410"
+    },
+    {
+      "name": "chunk invalid index rejected",
+      "pass": true,
+      "detail": "status 400"
+    },
+    {
+      "name": "chunk size ceiling enforced",
+      "pass": true,
+      "detail": "status 413"
+    },
+    {
+      "name": "missing chunk blocks completion",
+      "pass": true,
+      "detail": "status 400"
+    },
+    {
+      "name": "missing asset update rejected",
+      "pass": true,
+      "detail": "status 404"
+    },
+    {
+      "name": "missing variant update rejected",
+      "pass": true,
+      "detail": "status 404"
+    },
+    {
+      "name": "missing job rejected",
+      "pass": true,
+      "detail": "status 404"
+    },
+    {
+      "name": "missing download asset rejected",
+      "pass": true,
+      "detail": "status 404"
+    },
+    {
+      "name": "path traversal media key rejected",
+      "pass": true,
+      "detail": "status 400"
+    },
+    {
+      "name": "missing HLS rejected",
+      "pass": true,
+      "detail": "status 404"
+    },
+    {
+      "name": "missing action op rejected",
+      "pass": true,
+      "detail": "status 400"
+    },
+    {
+      "name": "unknown action op rejected",
+      "pass": true,
+      "detail": "status 400"
+    },
+    {
+      "name": "malformed import rejected",
+      "pass": true,
+      "detail": "status 400"
+    },
+    {
+      "name": "method restriction upload-chunk",
+      "pass": true,
+      "detail": "status 405"
+    },
+    {
+      "name": "method restriction thumbnail",
+      "pass": true,
+      "detail": "status 405"
+    },
+    {
+      "name": "method restriction upload-complete",
+      "pass": true,
+      "detail": "status 405"
+    },
+    {
+      "name": "method restriction asset-update",
+      "pass": true,
+      "detail": "status 405"
+    },
+    {
+      "name": "method restriction image-edit",
+      "pass": true,
+      "detail": "status 405"
+    },
+    {
+      "name": "method restriction start-media-job",
+      "pass": true,
+      "detail": "status 405"
+    },
+    {
+      "name": "method restriction kick-media-job",
+      "pass": true,
+      "detail": "status 405"
+    },
+    {
+      "name": "method restriction process-media-job-background",
+      "pass": true,
+      "detail": "status 405"
+    },
+    {
+      "name": "method restriction variant-update",
+      "pass": true,
+      "detail": "status 405"
+    },
+    {
+      "name": "method restriction action",
+      "pass": true,
+      "detail": "status 405"
+    },
+    {
+      "name": "method restriction import-data",
+      "pass": true,
+      "detail": "status 405"
+    }
+  ]
+}

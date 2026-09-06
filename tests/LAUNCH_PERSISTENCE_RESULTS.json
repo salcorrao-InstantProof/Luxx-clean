@@ -1,0 +1,10 @@
+{
+  "pass": true,
+  "total": 4,
+  "checks": [
+    "GATE 5 — checklist, baseline and historical records survive reopening the app",
+    "GATE 6 — a retried write on a stale revision is refused and state is not erased",
+    "GATE 6b — concurrent imports cannot duplicate a historical record",
+    "append-only audit trail intact after setup operations"
+  ]
+}

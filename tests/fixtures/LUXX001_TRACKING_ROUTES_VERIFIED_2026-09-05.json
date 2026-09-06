@@ -1,0 +1,47 @@
+{
+  "schema": "LUXX_TRACKING_ROUTE_CONFIG_CANDIDATE",
+  "schema_version": "1.0",
+  "creator_id": "LUXX001",
+  "prepared_date": "2026-09-05",
+  "activation_policy": {
+    "CONFIGURED": "Tracking URL exists and is bound to the intended source/placement/destination route.",
+    "VERIFIED": "Configured URL was manually opened and confirmed to land on the intended destination.",
+    "ACTIVE": "Verified URL is actually installed in the specified live placement.",
+    "rule": "Do not mark a route ACTIVE merely because its URL works. Activate only after baseline lock and live placement."
+  },
+  "routes": [
+    { "route_id": "X_BIO_TO_OF_FREE_01", "source": "X", "placement": "BIO", "destination": "ONLYFANS_FREE", "tracking_url": "https://onlyfans.com/luxx4free/c6", "state": "VERIFIED" },
+    { "route_id": "PH_PROFILE_TO_OF_FREE_01", "source": "PORNHUB", "placement": "PROFILE", "destination": "ONLYFANS_FREE", "tracking_url": "https://onlyfans.com/luxx4free/c7", "state": "VERIFIED" },
+    { "route_id": "X_PINNED_TO_OF_FREE_01", "source": "X", "placement": "PINNED_POST", "destination": "ONLYFANS_FREE", "tracking_url": "https://onlyfans.com/luxx4free/c8", "state": "VERIFIED" },
+    { "route_id": "X_POST_TO_OF_FREE_01", "source": "X", "placement": "NORMAL_POST", "destination": "ONLYFANS_FREE", "tracking_url": "https://onlyfans.com/luxx4free/c9", "state": "VERIFIED" },
+    { "route_id": "PH_VIDEO_DESC_TO_OF_FREE_01", "source": "PORNHUB", "placement": "VIDEO_DESCRIPTION", "destination": "ONLYFANS_FREE", "tracking_url": "https://onlyfans.com/luxx4free/c10", "state": "VERIFIED" },
+    { "route_id": "OF_FREE_BIO_TO_OF_PAID_01", "source": "ONLYFANS_FREE", "placement": "BIO", "destination": "ONLYFANS_PAID", "tracking_url": "https://onlyfans.com/luxx4pleasure/c4", "state": "VERIFIED" },
+    { "route_id": "OF_FREE_MESSAGE_TO_OF_PAID_01", "source": "ONLYFANS_FREE", "placement": "MESSAGE", "destination": "ONLYFANS_PAID", "tracking_url": "https://onlyfans.com/luxx4pleasure/c5", "state": "VERIFIED" },
+    { "route_id": "OF_FREE_POST_TO_OF_PAID_01", "source": "ONLYFANS_FREE", "placement": "NORMAL_POST", "destination": "ONLYFANS_PAID", "tracking_url": "https://onlyfans.com/luxx4pleasure/c6", "state": "VERIFIED" },
+    { "route_id": "OF_FREE_PINNED_TO_OF_PAID_01", "source": "ONLYFANS_FREE", "placement": "PINNED_POST", "destination": "ONLYFANS_PAID", "tracking_url": "https://onlyfans.com/luxx4pleasure/c7", "state": "VERIFIED" }
+  ],
+  "reserved_unassigned_urls": [
+    {
+      "url": "https://onlyfans.com/luxx4pleasure/c8",
+      "state": "UNASSIGNED_RESERVED",
+      "reason": "Created while discussing OF_PAID_FEED_01. OF_PAID_FEED_01 is an internal/native measurement route and does not require an outbound tracking URL. Do not use this URL unless it is deliberately assigned to a future distinct route."
+    }
+  ],
+  "native_routes_without_tracking_url": [
+    { "route_id": "OF_PAID_FEED_01", "measurement": "NATIVE_ONLYFANS", "tracking_url": null },
+    { "route_id": "OF_PAID_PPV_MESSAGE_01", "measurement": "NATIVE_ONLYFANS", "tracking_url": null },
+    { "route_id": "MV_LISTING_01", "measurement": "NATIVE_MANYVIDS", "tracking_url": null },
+    { "route_id": "CB_NATIVE_TIPS_01", "measurement": "NATIVE_CHATURBATE", "tracking_url": null }
+  ],
+  "pending": [
+    "Copy Fansly internal route IDs verbatim from the final RC3 package before configuring Fansly.",
+    "Keep Fansly DARK / NOT CONFIGURED for Week 1.",
+    "Do not create a Chaturbate external route until outbound placement is verified.",
+    "Do not mark any verified route ACTIVE until baseline is locked and the URL is installed in its exact live placement."
+  ],
+  "notes": [
+    "One source + one placement + one destination = one route.",
+    "All nine tracking URLs above were manually reported by the operator as successfully landing on the intended OnlyFans account.",
+    "This is canonical route data prepared before inspection of the final RC3 import/config schema; mechanical field mapping may be required."
+  ]
+}

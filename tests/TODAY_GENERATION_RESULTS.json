@@ -1,0 +1,11 @@
+{
+  "pass": true,
+  "total": 5,
+  "checks": [
+    "5 repeated RECOMMENDs on a quiet library read 0 assets",
+    "an upload moves the generation and forces a recompute",
+    "a ledger write moves the generation without any library change",
+    "the generation settles again once recomputed",
+    "delete-and-replace / in-place edit is caught by etag, not just count"
+  ]
+}

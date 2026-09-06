@@ -1,0 +1,9 @@
+{
+  "pass": true,
+  "wrong_status": 401,
+  "correct_status": 200,
+  "session_status": 200,
+  "secure_cookie": true,
+  "http_only_cookie": true,
+  "login_rate_limit": "10/min/ip"
+}

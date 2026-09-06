@@ -1,0 +1,81 @@
+================================================================
+FOR THE OPERATOR — READ THIS PART
+================================================================
+WHAT YOU WILL NOTICE
+  The Library no longer reloads everything every few seconds, so it should feel steadier with
+  a large photo bank. Cropped versions now look faded, are marked CROP · COMPOSITION NOT
+  CHECKED, and have GOOD CROP / BAD CROP buttons. RESULTS has new panels including LUXX
+  grading its own advice.
+
+WHAT YOU MUST NOT DO
+  Do not deploy to a new Netlify site. Deploy to the SAME site or you will orphan the stored
+  media and state. Set LUXX_PASSCODE and LUXX_SESSION_SECRET in Netlify environment variables
+  first — the build will now REFUSE to deploy without them.
+
+WHAT IS STILL NOT SAFE TO TRUST
+  Automatic cropping: LUXX checks a crop is the right SHAPE, never that it looks good. It
+  cannot see faces, hands or feet. Crops are manual-only on purpose.
+  Concept matching for Branch Shoots: still filename and notes matching, not image content.
+  Posting times: a default unless you set your timezone and have 16+ measured results.
+
+================================================================
+ENGINEERING DETAIL
+================================================================
+LUXX v1.5.0 — READ PATH + EVIDENCE
+Built on v1.4.9. Responds to a second independent review of v1.4.8.
+
+1. THE POLL NO LONGER REBUILDS THE LIBRARY (the main defect)
+   v1.4.8 unified the read path but did not change its SHAPE: the 4s poll still hydrated every
+   asset on a timer. Batching made that faster, not cheaper.
+   A blob listing already carries a per-object etag, so one list() call now produces a
+   signature that detects any change with ZERO asset reads. The client hydrates only when the
+   signature moves. Deliberately NOT a maintained index blob: nothing to keep in sync means no
+   drift class to debug.
+   New endpoint: GET /api/assets-index -> {count, signature}.
+
+2. IDENTITY DECOUPLED FROM SORT ORDER
+   v1.4.8 sorted keys descending and relied on a base36 timestamp inside the asset id to mean
+   "newest first". That coupled identity to the clock. Paging is now by key purely because it
+   is stable and total, which is the only property paging correctness needs. The response says
+   so: paging_order: KEY_STABLE_NOT_CHRONOLOGICAL. Display order is uploaded_at and is applied
+   by the client once it holds the complete set.
+
+3. THE INVARIANT TEST
+   tests/library-invariant-test.mjs, exactly as the reviewer specified: poll, upload, poll
+   again, assert the client library equals the server count and that nothing vanished without a
+   delete event. Runs against 130 assets so it crosses the 120 page boundary that broke v1.4.7.
+   Also asserts a partial page cannot masquerade as the whole library.
+
+4. CROP HONESTY MADE HARD TO SKIM PAST
+   Policy was right; presentation could still undo it. Crop cards are now faded and dashed,
+   carry a grey CROP · COMPOSITION NOT CHECKED chip rather than anything green, and no crop can
+   be auto-promoted to BEST VERSION.
+
+5. DEPLOY REFUSES WITHOUT CREDENTIALS
+   Failing closed at first request still publishes a site nobody can log into. build-check.mjs
+   now refuses the deploy when LUXX_PASSCODE or LUXX_SESSION_SECRET is missing, or when the
+   secret is under 32 characters. Enforced only when NETLIFY=true so local and CI builds run.
+
+6. A FALSIFIABLE NEXT STEP INSTEAD OF A PERMANENT APOLOGY
+   Acknowledging the intelligence ceiling would become the ceiling. So the MEASUREMENT is built
+   before the claim: GOOD CROP / BAD CROP records an append-only creator judgement, and
+   cropEvidence() states up front what would license the next claim —
+     "LUXX may begin auto-recommending a cropped variant only once a crop-quality signal
+      predicts these KEPT/REJECTED labels better than chance on at least 20 judged crops."
+   No detector was added. When one is, it gets scored against real labels instead of asserted.
+   Nothing here makes LUXX smarter. It makes the next step disprovable.
+
+NOT DONE — deliberately deferred
+   TODAY is still built from a live full scan rather than a precomputed prescription object.
+   The reviewer is right that this is the remaining shape problem. It is a bigger change than
+   this pass should carry, and it is now the top item for the next one.
+
+TESTS
+   domain            51/51  (+2 crop evidence and append-only)
+   failure/security  45/45
+   API/functions     26/26
+   integration       8/8
+   library invariant 6/6    (new)
+   crop promotion    PASS
+   video planning    PASS
+   build check       PASS

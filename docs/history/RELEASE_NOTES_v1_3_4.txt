@@ -1,0 +1,40 @@
+LUXX Hosted Integrated Pilot v1.3.4 — VIDEO DERIVATIVE START FIX
+Date: 2026-08-30
+Parent: v1.3.3
+
+Scope: repair the live video-processing handoff only. No navigation redesign.
+
+FIXED
+- Added authenticated kick-media-job function.
+- kick-media-job creates a one-time worker token and invokes the background renderer independently of the browser session.
+- process-media-job accepts the one-time worker token, records worker acceptance, and runs in Netlify background mode.
+- Existing stale zero-derivative videos can create a new AUTO_VIDEO job and retry once.
+- New video uploads kick processing immediately after upload completion.
+- Manual video edits use the same kick path.
+- FFmpeg/ffprobe deployment paths are checked and executable bits are repaired when possible.
+- Job records now expose trigger attempts/errors instead of silently remaining queued.
+
+REAL VIDEO ACCEPTANCE TEST
+Source: Back fingering.MP4
+Bytes: 39,646,692
+Duration: 451.174911 seconds (~7:31)
+Upload chunks: 12
+Result: READY_FOR_REVIEW
+Generated derivatives:
+- MAIN-CUT: 300 seconds
+- TEASER-1: 20 seconds
+- TEASER-2: 20 seconds
+- TEASER-3: 20 seconds
+Kick-path end-to-end elapsed locally: ~27.5 seconds
+Direct media regression: PASS, including HLS and second-generation edit.
+
+TESTS
+- Domain tests: 34/34 PASS
+- API/function inventory: 22/22 PASS
+- Failure/security tests: 43/43 PASS
+- Real media regression: PASS
+- Build structure: PASS
+- Full npm test browser stage hit a local Playwright EPIPE/timeout after non-browser suites passed; this is not represented as a browser PASS.
+
+BOUNDARY
+A local environment cannot prove Netlify's live production background execution. After redeploying this ZIP to the SAME Netlify site, use the existing uploaded video or RETRY PROCESSING and verify that MAIN-CUT + teasers appear. Do not re-upload the entire media library until live acceptance passes.

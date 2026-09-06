@@ -1,0 +1,21 @@
+LUXX Simplified Revenue Pilot v1.3.5 — PRODUCTION VIDEO RENDERER PACKAGING FIX
+
+This release fixes the production-only video derivative defect found after v1.3.4 passed local tests but failed on the live Netlify site.
+
+ROOT CAUSE FOUND
+- v1.3.4 local tests forced /usr/bin/ffmpeg and /usr/bin/ffprobe.
+- That proved the derivative algorithm but did not prove the deploy artifact had usable renderer binaries.
+- v1.3.4 also relied on config.background rather than the explicit Netlify *-background filename convention.
+
+FIXES
+1. Replaces ffmpeg-static / ffprobe-static with npm-packaged platform installers.
+2. Adds a hard build-time executable check. A Netlify build now FAILS instead of publishing if FFmpeg/FFprobe are missing.
+3. Uses explicit process-media-job-background.mjs naming for Netlify background execution.
+4. Updates the renderer kick path to the explicit background endpoint.
+5. Adds authenticated /api/renderer-health diagnostics.
+6. Preserves existing Blobs media/state and same-site migrations.
+
+LIVE ACCEPTANCE
+After redeploying to the SAME Netlify site, open the existing video and use RETRY PROCESSING if needed. Do not re-upload the original unless its integrity check says the original is missing.
+
+PASSCODE: (historical - superseded by env vars in v1.4.7)

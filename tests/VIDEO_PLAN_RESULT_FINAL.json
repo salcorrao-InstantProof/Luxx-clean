@@ -1,0 +1,28 @@
+{
+  "pass": true,
+  "test": "video-plan",
+  "plan": {
+    "main": {
+      "start": 0,
+      "duration": 300,
+      "score": -18.8
+    },
+    "teasers": [
+      {
+        "start": 2,
+        "duration": 20,
+        "score": 13.2
+      },
+      {
+        "start": 140,
+        "duration": 20,
+        "score": 11.6
+      },
+      {
+        "start": 302,
+        "duration": 20,
+        "score": 11.6
+      }
+    ]
+  }
+}

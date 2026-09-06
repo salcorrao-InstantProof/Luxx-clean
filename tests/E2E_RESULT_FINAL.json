@@ -1,0 +1,57 @@
+{
+  "pass": true,
+  "asset_id": "VIDEO-E2E-001",
+  "source_size": 1886650,
+  "source_sha256": "b4bacc49b1c369c5941cc9aefd6a3b2afb90fc9a4a842878a0872cfbed5ca62e",
+  "parts": 1,
+  "main_cut": {
+    "variant_id": "MAIN-CUT",
+    "variant_type": "MAIN_CUT",
+    "start_seconds": 0,
+    "duration_seconds": 300,
+    "recipe": {
+      "trim_start": 0,
+      "trim_duration": 300,
+      "video_codec": "h264",
+      "audio_codec": "aac"
+    },
+    "rendered": true,
+    "rendered_at": "2026-08-30T19:19:41.057Z",
+    "sha256": "09348ff423505cc1bc84a93135c5047b9ea118379599a4960d09c38486777628",
+    "size": 2077855,
+    "hls_url": "/api/hls?asset=VIDEO-E2E-001&variant=MAIN-CUT",
+    "hls_segments": 7,
+    "download_parts": [
+      "variant/VIDEO-E2E-001/MAIN-CUT/part-000000"
+    ],
+    "output_name": "VIDEO-E2E-001_MAIN-CUT.mp4",
+    "evidence_label": "TECHNICAL HEURISTIC — not a proven revenue-best segment"
+  },
+  "teasers": [
+    {
+      "id": "TEASER-1",
+      "start": 0,
+      "duration": 20,
+      "sha256": "43d19328068122107add5337c99d839c4d34fd171dbc73d52f008ce9cc9d8043",
+      "hls_segments": 1,
+      "download_parts": 1
+    },
+    {
+      "id": "TEASER-2",
+      "start": 140,
+      "duration": 20,
+      "sha256": "bc204483613b18d4fe4d362bc4b42b42232ee7945fa4d19c010f20d852c60c94",
+      "hls_segments": 1,
+      "download_parts": 1
+    },
+    {
+      "id": "TEASER-3",
+      "start": 280,
+      "duration": 20,
+      "sha256": "9c279f12c397c96c79b034c65ad45033ce3f24114093e6d3a6aee679f7227b83",
+      "hls_segments": 1,
+      "download_parts": 1
+    }
+  ],
+  "restart_persistence": true
+}

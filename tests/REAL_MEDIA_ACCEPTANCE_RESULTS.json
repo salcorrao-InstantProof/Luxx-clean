@@ -1,0 +1,122 @@
+{
+  "pass": true,
+  "ran": true,
+  "label": "real creator master InShot_20251223_024840697-3.mov",
+  "is_creator_file": true,
+  "source": {
+    "file": "creator-master.mov",
+    "size_bytes": 335753127,
+    "sha256": "747bb9ca9ec41ff36c57ad94ccd6894be8e19c78715097adeea784cbd5a1ea23",
+    "duration_seconds": 956.946978,
+    "width": 360,
+    "height": 640,
+    "frame_rate": 30.0003,
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "container": "mov,mp4,m4a,3gp,3g2,mj2"
+  },
+  "checks": [
+    {
+      "id": "B",
+      "name": "stored master SHA-256 matches the supplied source",
+      "result": "PASS"
+    },
+    {
+      "id": "Q",
+      "name": "processing reports its real outcome, never a false success",
+      "result": "PASS"
+    },
+    {
+      "id": "C",
+      "name": "the source duration is preserved exactly as probed",
+      "result": "PASS"
+    },
+    {
+      "id": "A",
+      "name": "the stored FULL MASTER is the complete source",
+      "result": "PASS"
+    },
+    {
+      "id": "D",
+      "name": "a long source is never truncated to five minutes",
+      "result": "PASS"
+    },
+    {
+      "id": "E",
+      "name": "a poster frame is generated for the master",
+      "result": "PASS"
+    },
+    {
+      "id": "G",
+      "name": "ffprobe succeeds on every rendered derivative",
+      "result": "PASS"
+    },
+    {
+      "id": "F+H",
+      "name": "the production playback path produces a valid HLS playlist",
+      "result": "PASS"
+    },
+    {
+      "id": "I",
+      "name": "every teaser is a distinct, shorter derivative, not a copy of the master",
+      "result": "PASS"
+    },
+    {
+      "id": "J+K+L",
+      "name": "PH_TEASER refuses the full master and any legacy main cut",
+      "result": "PASS"
+    },
+    {
+      "id": "M",
+      "name": "derivative lineage points at the immutable master",
+      "result": "PASS"
+    },
+    {
+      "id": "N",
+      "name": "a fresh read of durable storage returns the same master and derivatives",
+      "result": "PASS"
+    },
+    {
+      "id": "O",
+      "name": "reprocessing does not create a second master or duplicate derivatives",
+      "result": "PASS"
+    },
+    {
+      "id": "P",
+      "name": "the master stays byte-identical after a derivative edit",
+      "result": "PASS"
+    }
+  ],
+  "failed": [],
+  "not_run_reason": null,
+  "variants": [
+    {
+      "variant_id": "FULL-MASTER",
+      "variant_type": "FULL_MASTER",
+      "seconds": 956.947,
+      "sha256": "3bfc9494eac7d4d1dfbf62094c91cbbae2515c27ac590cb0ab05c3646df582be",
+      "hls_segments": 115
+    },
+    {
+      "variant_id": "TEASER-1",
+      "variant_type": "TEASER",
+      "seconds": 20,
+      "sha256": "ab3f930991a5f99a10ada6e14cb93abcf9a1e5e371a94e7d6b106eb34991ac0d",
+      "hls_segments": 3
+    },
+    {
+      "variant_id": "TEASER-2",
+      "variant_type": "TEASER",
+      "seconds": 20,
+      "sha256": "1542cd122898363dd023a1bd2aafe725c8624f9086c7e4a96c297482d68d9670",
+      "hls_segments": 3
+    },
+    {
+      "variant_id": "TEASER-3",
+      "variant_type": "TEASER",
+      "seconds": 20,
+      "sha256": "6288c5b4a81c272e75efa17e54a4d9253c81672a99f22e88f79d0db3e4cf047b",
+      "hls_segments": 3
+    }
+  ]
+}

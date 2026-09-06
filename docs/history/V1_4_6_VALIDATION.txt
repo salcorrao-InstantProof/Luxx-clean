@@ -1,0 +1,18 @@
+LUXX v1.4.6 validation — 2026-08-31
+
+PASS — frontend inline JavaScript syntax check
+PASS — media-edit.mjs syntax check
+PASS — build-check.mjs syntax check
+PASS — domain tests 36/36
+PASS — failure/security tests 45/45
+PASS — API/function inventory 25/25
+PASS — EXIF orientation fixture parser: orientation 6 detected
+PASS — orientation render proof: raw 400x300 + EXIF 6 -> rendered 300x400 after explicit transpose
+PASS — local deploy build-check including orientation self-test (using local ffmpeg/ffprobe shims)
+
+Hard image rules in this release:
+- Only ORIENTATION_VERIFIED_V3 image derivatives can be selected as BEST VERSION.
+- Legacy V1/V2 image derivatives remain stored but are excluded from recommendation.
+- A new orientation-verified derivative invalidates the previous visual score and forces rescoring.
+- Image cards use object-fit: contain so the Library UI does not create a fake crop.
+- Forced automatic 4:5 / 9:16 crops remain disabled pending a reliable crop-safety method.

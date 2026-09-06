@@ -1,0 +1,19 @@
+LUXX v1.7.0 RC3 — ZERO-SURPRISE RELEASE
+Launch date: Monday, September 7, 2026
+
+DEPLOY THIS TO THE SAME NETLIFY SITE ALREADY IN USE.
+DO NOT CREATE A NEW SITE. THE URL AND PASSCODE STAY THE SAME.
+
+Why this matters more for this release than for any before it:
+
+- The launch baseline is captured and LOCKED on the existing site. A locked
+  baseline is the before-LUXX reference point and is never silently replaced.
+  A new site would start with no baseline and the Monday numbers would have
+  nothing to be measured against.
+- The creator's uploaded Library, its immutable masters and every derivative
+  live in that site's Blob stores.
+- The append-only action ledger, the frozen prescriptions and the audit trail
+  live there too. They cannot be reconstructed.
+
+A normal code redeploy replaces the code and leaves the site's Blob data alone.
+That is the intended upgrade path.

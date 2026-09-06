@@ -1,0 +1,46 @@
+{
+  "pass": true,
+  "engines": [
+    "chromium"
+  ],
+  "viewports": [
+    "iPhone 12/13/14 (390x844)",
+    "iPhone 14/15 Pro Max (430x932)"
+  ],
+  "screens": [
+    "iPhone 12/13/14 (390x844) \u00b7 TODAY (holds)",
+    "iPhone 12/13/14 (390x844) \u00b7 SETUP",
+    "iPhone 12/13/14 (390x844) \u00b7 LIBRARY",
+    "iPhone 12/13/14 (390x844) \u00b7 LIBRARY \u00b7 Details",
+    "iPhone 12/13/14 (390x844) \u00b7 LIBRARY \u00b7 video preview",
+    "iPhone 12/13/14 (390x844) \u00b7 LIBRARY \u00b7 historical review",
+    "iPhone 12/13/14 (390x844) \u00b7 LIBRARY \u00b7 tracking",
+    "iPhone 12/13/14 (390x844) \u00b7 TODAY \u00b7 READY TO APPROVE",
+    "iPhone 12/13/14 (390x844) \u00b7 TODAY \u00b7 MARK POSTED",
+    "iPhone 12/13/14 (390x844) \u00b7 RESULTS",
+    "iPhone 12/13/14 (390x844) \u00b7 RESULTS \u00b7 ENTER RESULT",
+    "iPhone 12/13/14 (390x844) \u00b7 RESULTS \u00b7 CORRECT",
+    "iPhone 14/15 Pro Max (430x932) \u00b7 TODAY (holds)",
+    "iPhone 14/15 Pro Max (430x932) \u00b7 SETUP",
+    "iPhone 14/15 Pro Max (430x932) \u00b7 LIBRARY",
+    "iPhone 14/15 Pro Max (430x932) \u00b7 LIBRARY \u00b7 Details",
+    "iPhone 14/15 Pro Max (430x932) \u00b7 LIBRARY \u00b7 video preview",
+    "iPhone 14/15 Pro Max (430x932) \u00b7 LIBRARY \u00b7 historical review",
+    "iPhone 14/15 Pro Max (430x932) \u00b7 LIBRARY \u00b7 tracking",
+    "iPhone 14/15 Pro Max (430x932) \u00b7 TODAY \u00b7 READY TO APPROVE",
+    "iPhone 14/15 Pro Max (430x932) \u00b7 TODAY \u00b7 MARK POSTED",
+    "iPhone 14/15 Pro Max (430x932) \u00b7 RESULTS",
+    "iPhone 14/15 Pro Max (430x932) \u00b7 RESULTS \u00b7 ENTER RESULT",
+    "iPhone 14/15 Pro Max (430x932) \u00b7 RESULTS \u00b7 CORRECT"
+  ],
+  "findings": [],
+  "page_errors": [],
+  "console_errors": [],
+  "webkit": "NOT RUN \u2014 Playwright WebKit is not installed in this environment: BrowserType.launch: Executable doesn't exist at /opt/pw-browsers/webkit-2215/pw_run.sh\n\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n\u2551 Looks like Playwright was just installed or upda",
+  "viewport_results": {
+    "chromium": {
+      "iPhone 12/13/14 (390x844)": "PASS",
+      "iPhone 14/15 Pro Max (430x932)": "PASS"
+    }
+  }
+}

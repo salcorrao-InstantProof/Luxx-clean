@@ -1,0 +1,149 @@
+{
+  "schema": "LUXX_TRACKING_ROUTE_CONFIG_CANDIDATE",
+  "schema_version": "1.1",
+  "creator_id": "LUXX001",
+  "prepared_date": "2026-09-05",
+  "supersedes": "LUXX001_TRACKING_ROUTES_VERIFIED_2026-09-05.json",
+  "sequence_note": "The candidate file said no route should be ACTIVE until after baseline lock. In practice the operator installed and tested several placements before the baseline was locked. That sequence is recorded here as it actually happened rather than rewritten: the routes below are ACTIVE because the link is installed in the live placement, and the baseline was still UNLOCKED at the time.",
+  "routes": [
+    {
+      "route_id": "X_BIO_TO_OF_FREE_01",
+      "tracking_url": "https://onlyfans.com/luxx4free/c6",
+      "state": "ACTIVE",
+      "placement_evidence": "Installed and tested in the live X bio.",
+      "installed_before_baseline_lock": true
+    },
+    {
+      "route_id": "X_POST_TO_OF_FREE_01",
+      "tracking_url": "https://onlyfans.com/luxx4free/c9",
+      "state": "ACTIVE",
+      "placement_evidence": "Installed and tested via a live X post.",
+      "installed_before_baseline_lock": true
+    },
+    {
+      "route_id": "X_PINNED_TO_OF_FREE_01",
+      "tracking_url": "https://onlyfans.com/luxx4free/c8",
+      "state": "VERIFIED",
+      "activation_blocker": "The existing X pinned post could not be edited, so the link is not installed in that placement."
+    },
+    {
+      "route_id": "PH_PROFILE_TO_OF_FREE_01",
+      "tracking_url": "https://onlyfans.com/luxx4free/c7",
+      "state": "ACTIVE",
+      "placement_field": "Official Website URL",
+      "placement_evidence": "Operator installed https://onlyfans.com/luxx4free/c7 in the Pornhub Core Profile Details -> Social Media -> Official Website URL field, replacing an untracked onlyfans.com/luxx4pleasure link. Destination test click landed on @luxx4free.",
+      "installed_before_baseline_lock": true
+    },
+    {
+      "route_id": "PH_VIDEO_DESC_TO_OF_FREE_01",
+      "tracking_url": "https://onlyfans.com/luxx4free/c10",
+      "state": "VERIFIED",
+      "activation_blocker": "The Pornhub existing-video editor exposed no editable description placement."
+    },
+    {
+      "route_id": "OF_FREE_BIO_TO_OF_PAID_01",
+      "tracking_url": "https://onlyfans.com/luxx4pleasure/c4",
+      "state": "ACTIVE",
+      "placement_evidence": "Installed and tested in the live OnlyFans Free bio.",
+      "installed_before_baseline_lock": true
+    },
+    {
+      "route_id": "OF_FREE_MESSAGE_TO_OF_PAID_01",
+      "tracking_url": "https://onlyfans.com/luxx4pleasure/c5",
+      "state": "VERIFIED",
+      "activation_blocker": "The link works. Live-send state is taken only from the execution ledger, never from URL verification."
+    },
+    {
+      "route_id": "OF_FREE_POST_TO_OF_PAID_01",
+      "tracking_url": "https://onlyfans.com/luxx4pleasure/c6",
+      "state": "VERIFIED",
+      "activation_blocker": "Awaiting an actual published post carrying this link."
+    },
+    {
+      "route_id": "OF_FREE_PINNED_TO_OF_PAID_01",
+      "tracking_url": "https://onlyfans.com/luxx4pleasure/c7",
+      "state": "VERIFIED",
+      "activation_blocker": "Awaiting an actual pinned post carrying this link."
+    },
+    {
+      "route_id": "LINKTREE_BUTTON_TO_OF_PAID_01",
+      "tracking_url": "https://onlyfans.com/luxx4pleasure/c9",
+      "state": "ACTIVE",
+      "placement_evidence": "Installed and tested as a live Linktree button.",
+      "installed_before_baseline_lock": true
+    },
+    {
+      "route_id": "LINKTREE_BUTTON_TO_OF_FREE_01",
+      "tracking_url": "https://onlyfans.com/luxx4free/c12",
+      "state": "ACTIVE",
+      "placement_evidence": "Installed and tested as a live Linktree button.",
+      "installed_before_baseline_lock": true
+    },
+    {
+      "route_id": "LINKTREE_BUTTON_TO_FANSLY_01",
+      "tracking_url": "https://fansly.com/Luxx4Pleasure/t5",
+      "state": "ACTIVE",
+      "placement_evidence": "Installed and tested as a live Linktree button.",
+      "installed_before_baseline_lock": true
+    },
+    {
+      "route_id": "LINKTREE_BUTTON_TO_X_01",
+      "tracking_url": "https://x.com/Luxx4Pleasure",
+      "state": "ACTIVE",
+      "placement_evidence": "Installed and tested as a live Linktree button.",
+      "installed_before_baseline_lock": true
+    },
+    {
+      "route_id": "LINKTREE_BUTTON_TO_MV_01",
+      "tracking_url": "https://tr.ee/luxx4pleasure-videos",
+      "state": "ACTIVE",
+      "placement_evidence": "Installed and tested as a live Linktree button. This is a destination link, not a per-video ManyVids tracker.",
+      "installed_before_baseline_lock": true
+    },
+    {
+      "route_id": "X_BIO_TO_FANSLY_01",
+      "tracking_url": "https://fansly.com/Luxx4Pleasure/t0",
+      "state": "VERIFIED",
+      "activation_blocker": "Fansly stays DARK for Week 1. Not installed."
+    },
+    {
+      "route_id": "X_PINNED_TO_FANSLY_01",
+      "tracking_url": "https://fansly.com/Luxx4Pleasure/t1",
+      "state": "VERIFIED",
+      "activation_blocker": "Fansly stays DARK for Week 1. Not installed."
+    },
+    {
+      "route_id": "X_POST_TO_FANSLY_01",
+      "tracking_url": "https://fansly.com/Luxx4Pleasure/t2",
+      "state": "VERIFIED",
+      "activation_blocker": "Fansly stays DARK for Week 1. Not installed."
+    },
+    {
+      "route_id": "PH_PROFILE_TO_FANSLY_01",
+      "tracking_url": "https://fansly.com/Luxx4Pleasure/t3",
+      "state": "ACTIVE",
+      "placement_evidence": "Operator confirmed https://fansly.com/Luxx4Pleasure/t3 is installed in the Pornhub Core Profile Details -> Social Media -> Fansly Profile URL field. This is a physically distinct field from Official Website URL, so it does not compete with PH_PROFILE_TO_OF_FREE_01.",
+      "installed_before_baseline_lock": true,
+      "placement_field": "Fansly Profile URL"
+    },
+    {
+      "route_id": "PH_VIDEO_DESC_TO_FANSLY_01",
+      "tracking_url": "https://fansly.com/Luxx4Pleasure/t4",
+      "state": "VERIFIED",
+      "activation_blocker": "No editable Pornhub video-description placement exists."
+    }
+  ],
+  "reserved_unassigned_urls": [
+    {
+      "url": "https://onlyfans.com/luxx4pleasure/c8",
+      "state": "UNASSIGNED_RESERVED",
+      "reason": "Created while discussing OF_PAID_FEED_01, which is a native measurement route and needs no outbound tracking URL."
+    },
+    {
+      "url": "https://onlyfans.com/luxx4free/c11",
+      "state": "UNASSIGNED_RESERVED",
+      "reason": "Superseded: the final Linktree Free tracker became c12."
+    }
+  ],
+  "pornhub_placement_note": "Pornhub exposes distinct physical link fields on Core Profile Details -> Social Media. Official Website URL carries c7 (primary, Week-1 spine Pornhub -> OnlyFans Free). Fansly Profile URL carries t3. Both are genuinely installed in separate fields; neither is inferred from the other. Instagram and TikTok fields are deliberately empty."
+}

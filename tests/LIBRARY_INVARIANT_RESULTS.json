@@ -1,0 +1,14 @@
+{
+  "pass": true,
+  "total": 8,
+  "checks": [
+    "130 assets survive a full paged read past the 120 boundary",
+    "a partial page cannot masquerade as the complete library",
+    "poll -> upload -> poll: nothing vanished without a delete event",
+    "an unchanged library yields a stable signature, so the poll does no work",
+    "a genuine delete is visible in both count and signature",
+    "paging at limit=7 covers the library exactly once",
+    "signature moving twice mid-hydrate is detectable and converges on the next read",
+    "a delete during hydrate cannot duplicate, corrupt, or resurrect an asset"
+  ]
+}

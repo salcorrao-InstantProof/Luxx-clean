@@ -1,0 +1,81 @@
+================================================================
+FOR THE OPERATOR — READ THIS PART
+================================================================
+WHAT YOU WILL NOTICE
+  TODAY should open faster and stay fast as the photo bank grows. Nothing about what LUXX
+  recommends has changed — only how cheaply it works it out.
+
+WHAT YOU MUST NOT DO
+  Deploy to the SAME Netlify site, never a new one, or you orphan the stored media and state.
+  Set LUXX_PASSCODE and LUXX_SESSION_SECRET first; the build refuses to deploy without them.
+
+WHAT IS STILL NOT SAFE TO TRUST
+  Auto-cropping (LUXX checks shape, never composition — crops stay manual-only).
+  Branch Shoot concept matching (filenames and notes, not image content).
+  Posting times, unless you have set your timezone and have 16+ measured results.
+
+================================================================
+ENGINEERING DETAIL
+================================================================
+LUXX v1.5.1 — TODAY AS AN OBJECT
+Built on v1.5.0. Responds to the third review. That review's instruction was explicit:
+"Next pass is TODAY as an object. Everything else is decoration until that scan dies."
+So that is what this pass is. No crop detector. No new intelligence.
+
+1. THE FULL SCAN IS DEAD
+   RECOMMEND fires on page load and after every mutation, and each one scanned every asset.
+   TODAY is now a stored object keyed by a generation:
+       generation = hash(library signature, state.rev)
+   The library signature comes from one list() call (keys + etags, zero asset reads). state.rev
+   increments on every ledger write. If neither moved, the prescription cannot have changed, so
+   the stored object is returned and NO asset is read.
+   Asset loading is also lazy now: only RANK, PRESCRIBE, APPROVE and the historical commands
+   pay for the media bank. Everything else reads none of it.
+   PROVEN, not asserted: tests/today-generation-test.mjs instruments the blob store and counts
+   real reads. Five repeated RECOMMENDs on a quiet library read 0 assets. In-place edits are
+   caught by etag, so delete-and-replace at an unchanged count still moves the generation.
+
+2. THE 50-CROP BAR, AND WHY 20 WAS WRONG
+   The reviewer was right that better-than-chance on 20 labels is a coin with a story. The bar
+   is now written into cropEvidence() itself:
+     - BALANCED ACCURACY, not raw accuracy (keeps and rejects will not be balanced)
+     - a HOLDOUT of >=20 crops the signal was not tuned on
+     - drawn from >=50 total judged crops with both verdicts well represented
+     - labels from the CREATOR, not from whoever built the signal
+     - and explicitly: clearing this bar authorises a conversation, not an automatic behaviour
+       change. Nothing is wired to the number.
+
+3. THE SELF-GRADE IS GONE
+   "IS LUXX ACTUALLY RIGHT? / LUXX grading its own advice" was a report card, and the reviewer
+   was right that a product which earned trust by refusing green chips should not spend it on
+   one. The panel is now WHAT YOUR RECOMMENDATIONS RESTED ON. It reports the evidence behind
+   the calls and, specifically, how many rested on fewer than 6 measured results — "those were
+   closer to a guess than a call." Same maths, no grade.
+
+4. SIGNATURE RACES ARE NOW TESTED
+   Two cases added: the signature moving TWICE mid-hydrate, and a delete landing while a
+   hydrate walks pages. A hydrate may legitimately lag by a frame; what it must never do is lag
+   SILENTLY, report more assets than exist, duplicate across pages, or resurrect a deleted
+   asset. All four are asserted, plus convergence on the next read.
+
+5. LISTING IS CHEAP, NOT FREE — SAID OUT LOUD
+   The scale limit is now written where the code is, not just in a review: list() enumerates
+   every key, so at several thousand objects the listing becomes the bill. The next step, when
+   it hurts, is a stored generation counter bumped by writers with the listing kept as periodic
+   reconciliation. Deliberately not built: a maintained counter adds a drift class, and drift is
+   worse than a listing until the listing actually hurts.
+
+TESTS
+   domain            51/51
+   failure/security  45/45
+   API/functions     26/26
+   integration       8/8
+   library invariant 8/8   (+2 race cases)
+   today generation  5/5   (new, counts real blob reads)
+   crop promotion    PASS
+   video planning    PASS
+   build check       PASS
+
+HOW TO DESCRIBE THIS RELEASE
+   Not "smarter". This is the version where asking whether anything changed stopped costing a
+   full read of the library, and where producing TODAY stopped costing one too.

@@ -1,0 +1,13 @@
+LUXX v1.4.1 — Optimized Visibility + Best Variant Wins
+
+- Asset cards show a green OPTIMIZED badge once ORIGINAL, 4:5, and 9:16 auto-optimized derivatives all exist.
+- Derivatives now render as visual cards with thumbnails/previews instead of opaque IDs only.
+- Each derivative is labeled by purpose/aspect and can be opened directly.
+- LUXX identifies a RECOMMENDED/BEST VERSION among available derivatives using optimization + destination-fit rules.
+- A derivative can be recommended over the master when its crop is a better fit for the intended destination.
+- Missing image-specific scoring evidence no longer produces a fake floor score. The UI shows NOT SCORED YET / Visual score pending instead.
+- Existing master/original remains immutable and preserved.
+- v1.4.0 Privacy Shield, route tracking, CTA choices, duplicate handling, operator roles, and Netlify ffmpeg runtime hotfix remain preserved.
+
+
+V1.4.2 patch note: improved subject-biased auto-cropping for 4:5 and 9:16 derivatives, refreshable optimization for existing photos, and recommendation tie-break preference for refreshed optimized variants.

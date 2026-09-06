@@ -1,0 +1,37 @@
+[build]
+  command = "npm run build"
+  publish = "public"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[functions.process-media-job-background]
+  external_node_modules = ["@ffmpeg-installer/ffmpeg", "@ffprobe-installer/ffprobe"]
+  included_files = ["node_modules/@ffmpeg-installer/**", "node_modules/@ffprobe-installer/**"]
+
+[functions.image-edit]
+  external_node_modules = ["@ffmpeg-installer/ffmpeg", "@ffprobe-installer/ffprobe"]
+  included_files = ["node_modules/@ffmpeg-installer/**", "node_modules/@ffprobe-installer/**"]
+
+[functions.privacy-audit]
+  external_node_modules = ["@ffmpeg-installer/ffmpeg", "@ffprobe-installer/ffprobe"]
+  included_files = ["node_modules/@ffmpeg-installer/**", "node_modules/@ffprobe-installer/**"]
+
+[functions.renderer-health]
+  external_node_modules = ["@ffmpeg-installer/ffmpeg", "@ffprobe-installer/ffprobe"]
+  included_files = ["node_modules/@ffmpeg-installer/**", "node_modules/@ffprobe-installer/**"]
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Cache-Control = "no-store"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200

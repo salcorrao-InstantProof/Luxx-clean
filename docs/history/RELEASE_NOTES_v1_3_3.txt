@@ -1,0 +1,33 @@
+LUXX Hosted Integrated Pilot v1.3.3
+Parent: LUXX Simplified Revenue Pilot v1.2.1
+
+IN-PLACE SAME-SITE UPGRADE
+- Do not create a new Netlify site.
+- Redeploy this source ZIP to the SAME Netlify project/site.
+- The production URL remains the same.
+- Site-wide durable media storage is not intentionally cleared by this code deploy.
+
+ADDED
+- Fansly platform account and clean-baseline experiment.
+- FANSLY_NATIVE_01 tracking/measurement route.
+- Linktree recorded as ROUTING HUB, not a content platform.
+- LINKTREE_TO_OF_FREE_01
+- LINKTREE_TO_OF_PAID_01
+- LINKTREE_TO_MV_01
+- LINKTREE_TO_FANSLY_01
+- Existing v1.3.2 live-media hardening retained: stale video retry, job progress/failure visibility, poster generation, durable-media verification, safe duplicate removal, Privacy Shield, embedded geolocation scan, metadata-stripped posting derivatives, browser geolocation disabled.
+
+LIVE ACCEPTANCE AFTER REDEPLOY
+1. Open the same LUXX URL.
+2. Confirm the existing photo and video are still present.
+3. Run VERIFY SAVED MEDIA on both.
+4. On the stuck video, use RETRY PROCESSING if it has not automatically resumed.
+5. Wait for MAIN-CUT and teaser derivatives and video poster.
+6. Open LIBRARY > ROUTES and configure/verify Fansly and Linktree routes.
+
+TEST STATUS AT PACKAGE TIME
+- Domain/integrity: 34/34 PASS
+- Server/API functions: 21/21 PASS
+- Failure/security: 41/41 PASS
+- Netlify build structure: PASS
+- Existing local browser harness still reports two 404s from its local test server; do not treat live iPhone behavior as certified until the acceptance steps above pass on Netlify.

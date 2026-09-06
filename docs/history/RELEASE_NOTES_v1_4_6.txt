@@ -1,0 +1,11 @@
+LUXX v1.4.6 — ORIENTATION VERIFICATION HOTFIX
+
+- Parses JPEG EXIF orientation before metadata stripping.
+- Disables FFmpeg auto-rotation correctly as an input option and applies an explicit pixel transform.
+- Verifies output dimensions against the source orientation before a derivative can become eligible.
+- Only ORIENTATION_VERIFIED_V3 image derivatives can be BEST VERSION or receive a current score.
+- Older V1/V2 optimized derivatives remain preserved for audit but are excluded from recommendation.
+- Clears stale visual score when a new orientation-verified derivative is created so the corrected image is rescored.
+- Privacy-safe image export now normalizes orientation before stripping metadata.
+- Library image cards use contain rather than cover so the UI itself does not visually fake a crop.
+- Forced 4:5 / 9:16 auto-crops remain disabled until crop safety can be proven.

@@ -1,0 +1,2 @@
+import {json,error,readJson} from '../lib/http.mjs';import {verifySession} from '../lib/auth.mjs';import {editImage} from '../lib/media-edit.mjs';
+export default async req=>{if(!verifySession(req))return error('Unauthorized',401);if(req.method!=='POST')return error('Method not allowed',405);const b=await readJson(req);try{return json({ok:true,...await editImage(b||{})});}catch(e){return error(String(e?.message||e),400);}};export const config={path:'/api/image-edit',background:false};

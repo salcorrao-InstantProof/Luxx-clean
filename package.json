@@ -1,0 +1,32 @@
+{
+  "name": "luxx-hosted-integrated-v1-7-0-rc3",
+  "version": "1.7.0-rc3",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "dependencies": {
+    "@netlify/blobs": "11.0.2",
+    "@ffmpeg-installer/ffmpeg": "1.1.0",
+    "@ffprobe-installer/ffprobe": "2.1.2"
+  },
+  "scripts": {
+    "test": "node tests/run-all.mjs",
+    "test:domain": "node tests/domain-tests.mjs",
+    "test:media": "node tests/media-tests.mjs",
+    "test:browser": "python3 tests/browser-tests.py",
+    "test:browser-real-api": "python3 tests/browser-real-api.py",
+    "test:launch-fix": "node tests/launch-fix-v170-test.mjs",
+    "test:cta": "node tests/cta-selection-test.mjs",
+    "test:rc3-audit": "node tests/rc3-audit-test.mjs",
+    "test:part2": "node tests/part2-audit-test.mjs",
+    "test:mobile": "python3 tests/mobile-acceptance.py",
+    "test:real-media": "node tests/real-media-acceptance.mjs",
+    "build": "node scripts/verify-root-ffmpeg-deps.mjs && node build-check.mjs",
+    "test:failure": "node tests/failure-tests.mjs",
+    "test:integration": "node tests/integration-v147.mjs",
+    "test:launch": "node tests/launch-gates-test.mjs && node tests/historical-intake-test.mjs && node tests/launch-persistence-test.mjs && node tests/launch-fix-v170-test.mjs && node tests/cta-selection-test.mjs",
+    "verify:ffmpeg-deps": "node scripts/verify-root-ffmpeg-deps.mjs"
+  }
+}

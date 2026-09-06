@@ -1,0 +1,8 @@
+LUXX v1.4.1 HOTFIX 1
+
+Fixes a packaging regression in v1.4.1 where the Library MEDIA toolbar function was omitted.
+Restores Upload, Batch Authorize, Optimize Existing Photos, and Import JSON controls.
+No persistent data reset. No route or media records are intentionally removed.
+
+
+V1.4.2 patch note: improved subject-biased auto-cropping for 4:5 and 9:16 derivatives, refreshable optimization for existing photos, and recommendation tie-break preference for refreshed optimized variants.

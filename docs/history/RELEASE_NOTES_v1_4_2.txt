@@ -1,0 +1,6 @@
+LUXX v1.4.2
+
+- Subject-biased auto-crop for 4:5 and 9:16 derivatives to reduce excess headroom and keep more of the subject/body in frame.
+- Optimize Existing Photos now refreshes existing images so improved crops can be generated without re-uploading.
+- Refreshed optimized variants get a slight recommendation preference so new crops can replace older bad ones.
+- UI shows subject-biased crop on derivative cards and recommended-version lines.

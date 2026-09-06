@@ -1,0 +1,9 @@
+{
+  "pass": true,
+  "test": "crop-promotion",
+  "checks": [
+    "full frame beats verified crop",
+    "crop alone is never auto-promoted",
+    "crop fit is negative"
+  ]
+}

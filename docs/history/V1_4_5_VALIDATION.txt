@@ -1,0 +1,8 @@
+LUXX v1.4.5 validation
+- Frontend inline JavaScript syntax: PASS (node --check)
+- Domain tests: PASS 36/36
+- API/function presence: PASS 25/25
+- Failure/security tests: PASS 45/45
+- Video-plan test: PASS
+- Full npm test run continued into media rendering and exceeded local command time limit after the above suites; no failing test was observed before timeout.
+- npm run build could not complete locally because package dependencies were not installed in this extracted review directory. Netlify installs package.json dependencies during deployment.

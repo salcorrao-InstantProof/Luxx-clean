@@ -1,0 +1,65 @@
+LUXX v1.4.9 — EVIDENCE REPORTING
+Built on v1.4.8. No new tabs. No new storage. No model calls. No recurring cost.
+
+Everything added here is a pure derivation over data LUXX has always captured and never read.
+Each one is only possible because the prescription is frozen at approval and the outcome ledger
+is append-only. A tool without those two properties cannot make these claims honestly, which is
+the point.
+
+1. IS LUXX ACTUALLY RIGHT? (calibrationReport)
+   LUXX grades its own advice. For every measured action it compares the prediction frozen at
+   approval against what actually happened, using concordant/discordant pair counting.
+   It reports one of: NOT ENOUGH DATA / NOT ENOUGH VARIATION / RANKING IS HOLDING UP /
+   NO BETTER THAN CHANCE / RANKING IS BACKWARDS.
+   RANKING IS BACKWARDS explicitly tells the creator to trust her own judgement over TODAY.
+
+   Two design points found while building it:
+   - It grades the PREDICTIVE part of the score only. The full candidate score includes the
+     fatigue penalty, which is a rotation mechanism, not a forecast. Grading the combined number
+     measured scheduling noise and produced a spurious negative correlation.
+   - Thresholds are gated on the number of MEASURED RESULTS (>=20), not on pair count. N results
+     produce ~N^2/2 pairs, so the pair count wildly overstates the evidence. The neutral band is
+     +/-0.45 because simulated pure noise still reached tau=0.29.
+   Validated against known ground truth: signal -> +0.85, pure noise -> +0.29 reported as
+   chance, no-variation -> refuses to grade.
+
+2. WHAT AN HOUR OF YOUR TIME IS WORTH (effortEconomics)
+   creator_effort_minutes has been captured on every executed action since v1.2 and read by
+   nothing except a small term in the score. LUXX now reports revenue per creator-hour overall
+   and per route, and refuses to quote a rate below 6 posts.
+
+3. WHEN YOU OVERRIDE LUXX, THAT IS DATA ABOUT LUXX (overrideSignal)
+   Decline and change reasons have always been required and stored, and never read. If you
+   override more than half the prescriptions for a destination, LUXX now says so in your words:
+   "You have overridden 67% of LUXX prescriptions for Fansly. LUXX is probably wrong about that
+   destination, not you."
+
+4. RECEIPTS (proofPack) — new DOWNLOAD RECEIPTS button in RESULTS
+   For every executed action: exactly what LUXX froze at approval, exactly what the creator did,
+   exactly what was measured, every correction with its reason, and the attribution precision.
+   Not a reconstruction. The frozen snapshot itself. Rows at PARTIAL or UNATTRIBUTED are marked
+   as not causally creditable to LUXX.
+
+5. SINCE BASELINE (sinceBaseline)
+   The locked baseline existed and RESULTS never used it. LUXX now reports activity since the
+   lock and states plainly how much of it can actually be credited: "No action yet carries EXACT
+   attribution, so no revenue can be causally credited to LUXX."
+
+WHY THIS IS THE DIFFERENTIATOR
+Competing creator tools report what happened and imply they caused it. LUXX now reports what it
+predicted, whether that prediction held, what the creator's time earned, where the creator keeps
+disagreeing with it, and which revenue it is NOT allowed to claim. The moat is not the
+recommender. It is that the ledger can prove or disprove the recommender.
+
+TESTS
+   domain           49/49  (was 43; +6 covering the refusal behaviour of every new report)
+   failure/security 45/45
+   API/functions    26/26
+   video planning   PASS
+   integration      8/8
+   crop promotion   PASS
+   build check      PASS
+
+The new tests assert what the reports REFUSE to say: no hourly rate under 6 posts, no
+self-grade under 20 results, no before/after claim without a locked baseline, and an explicit
+statement of the attribution limit in the receipts.

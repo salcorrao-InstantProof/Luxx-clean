@@ -1,0 +1,58 @@
+LUXX v1.4.8 — PILOT HARDENING
+Built on v1.4.7. Responds to an independent code review of the v1.4.7 ZIP. All four findings
+in that review were reproduced in the code and are fixed here. No scoring, rotation, tab
+structure, append-only history, attribution route or evidence-threshold change.
+
+1. LIBRARY SCALING — the 120-asset boundary (the urgent one)
+   FOUND: /api/assets paginated the RESPONSE but still read every asset from Blob storage and
+   sliced afterwards. /api/action still read every asset sequentially before building TODAY.
+   Worst of all, the 4-second poll called /assets ONCE with no cursor and assigned that first
+   page over the whole in-memory Library, so crossing 120 assets would make the live app appear
+   to lose everything past the first 120 until a full reload. That regression was introduced in
+   v1.4.7 by paginating the endpoint without updating the poller.
+   FIXED:
+     - assets.mjs sorts keys and reads ONLY the requested window. Asset ids embed a base36
+       timestamp, so a descending key sort is newest-first; the page is then re-sorted by
+       uploaded_at so ordering inside the page is exact.
+     - action.mjs reads assets in parallel batches of 20 instead of one at a time.
+     - The frontend now has ONE Library read path, fetchAllAssets(), used by both load() and
+       the 4s poll, so the two can never diverge again.
+   TESTS: paging with limit=2 and limit=3 must return every asset exactly once with no
+   duplicates, and the client paging loop must recover the full library.
+
+2. VERIFIED CROP IS NOT A GOOD CROP
+   FOUND: v1.4.7 correctly verified that a 4:5 / 9:16 output has the expected geometry, but the
+   crop is still centre/bias arithmetic with no idea where the face, hands or feet are. A badly
+   composed crop could still be marked VERIFIED_CROP and be auto-selected as BEST VERSION.
+   v1.4.7 made this reachable by letting AUTO BEST honour a requested aspect; v1.4.6 could not.
+   FIXED:
+     - AUTO BEST is pinned back to the full frame. A crop is now only ever an explicit manual
+       action.
+     - variantFit returns a negative fit for any non-ORIGINAL aspect, and bestThumbVariant now
+       filters negative-fit variants out entirely rather than sorting and taking the top one.
+       A crop can be produced, previewed and chosen by hand, but can never be auto-promoted.
+     - Crops are labelled "geometry verified, composition NOT checked. Manual use only."
+   TESTS: tests/crop-promotion-test.mjs extracts the real variantFit/bestThumbVariant from the
+   shipped HTML and asserts a full frame beats a verified crop, and that a crop alone is never
+   auto-promoted even when it is the only derivative.
+
+3. STALE CREDENTIAL / DEPLOYMENT DOCS
+   FOUND: the security change was correct but README/deployment files still said the passcode
+   was embedded and told you to open YOUR_LUXX_PASSCODE.txt.
+   FIXED: READ_ME_FIRST.txt, DO_THIS_FIRST.txt and docs/DEPLOYMENT.md now all state that
+   LUXX_PASSCODE and LUXX_SESSION_SECRET must be set as Netlify environment variables before
+   the first deploy, and that the app fails closed without them.
+
+4. INTELLIGENCE CEILING — acknowledged, unchanged
+   Photo semantics, branch concept matching and teaser meaning remain metadata/technical
+   heuristics. This is still explicitly out of scope. The review is right that this is
+   acceptable for a controlled pilot only because LUXX now states what it knows honestly.
+
+TESTS
+   domain           43/43
+   failure/security 45/45
+   API/functions    26/26
+   video planning   PASS
+   integration      8/8  (was 6/6; +2 pagination coverage)
+   crop promotion   PASS (new)
+   build check      PASS

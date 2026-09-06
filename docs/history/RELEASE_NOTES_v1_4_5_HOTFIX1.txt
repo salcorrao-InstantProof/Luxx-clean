@@ -1,0 +1,6 @@
+LUXX v1.4.5 HOTFIX1
+
+Build-only correction:
+- Fixed a false Netlify build failure caused by build-check.mjs searching for the literal string CLEAN EXACT DUPLICATE.
+- The duplicate cleanup button text is generated dynamically (for example CLEAN 7 EXACT DUPLICATES), so the checker now verifies the actual cleanExactDuplicates capability instead.
+- No Library data, media storage, optimizer logic, branch logic, scoring logic, or production state behavior was changed by this hotfix.

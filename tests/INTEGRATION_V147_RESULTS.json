@@ -1,0 +1,14 @@
+{
+  "pass": true,
+  "total": 8,
+  "checks": [
+    "all four aspect ratios render and pass crop verification",
+    "assets endpoint paginates without dropping or duplicating",
+    "concurrent writes are rejected with 409 instead of losing an update",
+    "timezone is validated and persisted",
+    "destination planning is only disabled by a deliberate override",
+    "derived usage is written back onto assets",
+    "paging with a small page size covers the library exactly once",
+    "client paging loop recovers every asset"
+  ]
+}

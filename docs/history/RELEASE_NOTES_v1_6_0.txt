@@ -1,0 +1,80 @@
+================================================================
+FOR THE OPERATOR — READ THIS PART
+================================================================
+WHAT LUXX IS NOW, IN ONE LINE
+  You already shot today's post. LUXX will tell you which one — and when it's just guessing.
+
+WHAT YOU WILL SEE
+  TODAY is now a short list of 3-7 real files from your own library. Each line says where to
+  post it, why it is on the list in terms of YOUR results, and carries one of two stamps:
+
+    CALL   6 or more measured results on that photo for that destination.
+    GUESS  fewer than 6. LUXX is going on technical quality and rotation, not on evidence
+           that the photo earns.
+
+  On a new library every line will say GUESS, and the headline will say so first. That is
+  correct. Every result you enter turns a guess into a call.
+
+WHAT LUXX WILL NEVER DO
+  Post for you. Message anyone. Run your page. Generate a photo or a body.
+  It names files that already exist on your drive and tells you how sure it is.
+
+WHAT YOU MUST NOT DO
+  Deploy to the SAME Netlify site. Set LUXX_PASSCODE and LUXX_SESSION_SECRET first.
+
+STILL NOT SAFE TO TRUST
+  Auto-cropping (shape is checked, composition never is — crops stay manual).
+  Branch Shoot concept matching (filenames and notes, not image content).
+  Posting times, unless your timezone is set and you have 16+ measured results.
+
+================================================================
+ENGINEERING DETAIL
+================================================================
+LUXX v1.6.0 — TODAY'S PICK
+
+TODAY was a single prescription. It is now the product: a short stamped list.
+
+1. THE LIST
+   buildTodayList() returns 3-7 lines, one per ASSET (deduplicated — a photo does not appear
+   five times because it is eligible on five destinations, which is a warehouse tour, not a
+   pick). Each line carries platform, placement, caption, why, and a stamp.
+
+2. THE STAMP
+   CALL_THRESHOLD = 6 measured results on that asset for that destination.
+   Below it, GUESS, with the reason spelled out rather than implied. A stamp with no
+   definition is decoration, so stamp_note states exactly what the stamp means on every line.
+   The headline leads with the count of guesses instead of burying it.
+
+3. THE REASON
+   pickReason() is written in the creator's results and her posting history:
+     "Your best performer on this route — 18 measured results; last posted 9 days ago."
+     "LUXX has never measured this photo; never posted through LUXX."
+   A test asserts the reason text contains no model language (model, algorithm, AI, score of,
+   confidence interval). The reason is evidence, not flattery.
+
+4. PICK ANY LINE, NOT JUST THE TOP ONE
+   PRESCRIBE_PICK approves the exact line the creator chose and revalidates it against the
+   live candidate set. A stale pick is refused with "reload TODAY and choose again" rather
+   than silently prescribing something else.
+
+5. COSTS NOTHING EXTRA
+   The list is computed from the same scan as RECOMMEND and stored under the same generation,
+   so the pick list never costs a second walk of the library. today-generation still proves
+   5 repeated calls on a quiet library read 0 assets.
+
+6. THE BUILD NOW REFUSES TO SHIP WITHOUT THE STAMP
+   build-check.mjs fails the deploy if TODAY'S PICK, stampCall, stampGuess or approvePick
+   vanish from the UI, or if the promise text and CALL_THRESHOLD vanish from the domain.
+   Verified by deliberately removing a marker and confirming the build refuses.
+   The stamp is the product. It must not be able to quietly regress into "suggested posts".
+
+TESTS
+   domain            57/57  (+6 covering the stamp contract)
+   failure/security  45/45
+   API/functions     26/26
+   integration       8/8
+   library invariant 8/8
+   today generation  5/5
+   crop promotion    PASS
+   video planning    PASS
+   build check       PASS  (now guards the stamp itself)

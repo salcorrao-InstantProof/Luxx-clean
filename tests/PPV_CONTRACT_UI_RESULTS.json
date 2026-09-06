@@ -1,0 +1,9 @@
+{
+  "pass": true,
+  "total": 3,
+  "checks": [
+    "CALL/GUESS never renders without the treatment named alongside it",
+    "RESULTS names the PPV treatment and never the hidden master",
+    "chargeback corrections reduce revenue without rewriting history"
+  ]
+}

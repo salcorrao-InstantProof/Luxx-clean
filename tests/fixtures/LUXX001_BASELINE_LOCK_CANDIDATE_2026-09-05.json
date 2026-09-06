@@ -1,0 +1,107 @@
+{
+  "schema": "LUXX_BASELINE_LOCK_CANDIDATE",
+  "schema_version": "1.0",
+  "creator_id": "LUXX001",
+  "creator_handle": "luxx4pleasure",
+  "baseline_date": "2026-09-05",
+  "state": "REVIEW_REQUIRED",
+  "lock_status": "UNLOCKED",
+  "truth_policy": {
+    "observed": "Directly collected from creator/account/public profile on 2026-09-05.",
+    "unknown": "Unknown or not measured. Must remain blank/null; never coerce to zero.",
+    "zero": "Use 0 only when an actual zero was observed.",
+    "call": "No metric in this baseline is a CALL. Baseline facts are OBSERVED only."
+  },
+  "platforms": {
+    "x": {
+      "account": "luxx4pleasure",
+      "url": "https://x.com/luxx4pleasure",
+      "metrics": {
+        "followers": { "value": 35, "truth_state": "OBSERVED" },
+        "posts": { "value": 51, "truth_state": "OBSERVED" }
+      },
+      "creator_rules": [ "NO_FACE" ]
+    },
+    "onlyfans_free": {
+      "account": "luxx4free",
+      "url": "https://onlyfans.com/luxx4free",
+      "metrics": {
+        "fans": { "value": 141, "truth_state": "OBSERVED" },
+        "posts": { "value": 98, "truth_state": "OBSERVED" },
+        "media": { "value": 144, "truth_state": "OBSERVED" }
+      }
+    },
+    "onlyfans_paid": {
+      "account": "luxx4pleasure",
+      "url": "https://onlyfans.com/luxx4pleasure",
+      "metrics": {
+        "paid_subscribers": { "value": 4, "truth_state": "OBSERVED" },
+        "subscription_price_usd": { "value": 9.99, "truth_state": "OBSERVED" },
+        "posts": { "value": 133, "truth_state": "OBSERVED" },
+        "media": { "value": 225, "truth_state": "OBSERVED" }
+      }
+    },
+    "pornhub": {
+      "account": "luxx4pleasure",
+      "url": "https://www.pornhub.com/model/luxx4pleasure",
+      "metrics": {
+        "subscribers": { "value": 362, "truth_state": "OBSERVED" },
+        "video_views": { "value": 8759, "truth_state": "OBSERVED" },
+        "profile_views": { "value": 9584, "truth_state": "OBSERVED" },
+        "videos": { "value": 8, "truth_state": "OBSERVED" }
+      },
+      "creator_rules": [ "NO_FACE" ]
+    },
+    "manyvids": {
+      "account": "luxx4pleasure",
+      "url": "https://www.manyvids.com/Profile/1009800030/luxx4pleasure/Store/Videos",
+      "metrics": {
+        "listings": { "value": 7, "truth_state": "OBSERVED" }
+      },
+      "listing_prices_usd": [
+        { "value": 3.99, "truth_state": "OBSERVED" },
+        { "value": 7.99, "truth_state": "OBSERVED" },
+        { "value": 4.99, "truth_state": "OBSERVED" },
+        { "value": 4.99, "truth_state": "OBSERVED" },
+        { "value": 6.39, "truth_state": "OBSERVED" },
+        { "value": 3.99, "truth_state": "OBSERVED" },
+        { "value": 4.99, "truth_state": "OBSERVED" }
+      ]
+    },
+    "fansly": {
+      "account": "Luxx4Pleasure",
+      "url": "https://fansly.com/Luxx4Pleasure",
+      "metrics": {
+        "subscribers": { "value": 0, "truth_state": "OBSERVED" },
+        "posts": { "value": 4, "truth_state": "OBSERVED" }
+      },
+      "week_1_state": "DARK"
+    },
+    "chaturbate": {
+      "account": "luxx4pleasure",
+      "url": "https://chaturbate.com/luxx4pleasure/",
+      "metrics": {
+        "followers": { "value": 1338, "truth_state": "OBSERVED" }
+      },
+      "week_1_external_route_state": "PENDING_PLACEMENT_VERIFICATION"
+    }
+  },
+  "creator_source_inventory": {
+    "photos": { "value": 446, "truth_state": "OBSERVED" },
+    "videos": { "value": 47, "truth_state": "OBSERVED" },
+    "total_media": { "value": 493, "truth_state": "DERIVED" },
+    "produce_default": "OFF"
+  },
+  "pre_lock_requirements": [
+    "Recheck every public/account metric immediately before CAPTURE BASELINE.",
+    "Do not activate public tracking placements before baseline lock.",
+    "Review imported values before CAPTURE BASELINE.",
+    "LOCK BASELINE only after review is complete."
+  ],
+  "notes": [
+    "This is a canonical baseline data payload prepared before final RC3 schema inspection.",
+    "Field names may need mechanical mapping to the final application's import schema after the RC3 ZIP is inspected.",
+    "No unknown field has been converted to zero.",
+    "No baseline metric is labeled CALL."
+  ]
+}

@@ -1,0 +1,6 @@
+LUXX v1.4.3
+
+- Added mass exact-duplicate cleanup for the existing Library. LUXX groups identical master hashes, keeps one canonical master, and deletes only redundant duplicates that are not protected by history.
+- Added client-side visual technical scoring for images using the currently recommended image version. Score factors include brightness, contrast, sharpness, subject coverage, headroom, and balance.
+- Visual scores appear progressively in the Library after previews load; unscored items continue to show Visual score pending until analyzed.
+- Preserved the subject-biased crop refresh, optimized badges, derivative previews, and best-variant recommendation behavior.

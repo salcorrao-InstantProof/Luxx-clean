@@ -1,0 +1,23 @@
+LUXX v1.3.6 — NETLIFY RUNTIME EROFS HOTFIX
+Date: 2026-08-31
+
+LIVE FAILURE PROVED
+The deployed process-media-job-background function resolved packaged FFmpeg correctly but failed before rendering with:
+
+PACKAGED_FFMPEG_UNAVAILABLE ... EROFS: read-only file system, chmod '/var/task/node_modules/@ffmpeg-installer/linux-x64/ffmpeg'
+
+ROOT CAUSE
+Netlify's deployed /var/task filesystem is read-only. v1.3.6 attempted fs.chmod() on the packaged ffmpeg and ffprobe binaries at live invocation time.
+
+PATCH SCOPE
+- netlify/lib/video.mjs only: removed live-runtime chmod of packaged ffmpeg and ffprobe.
+- Runtime still verifies both paths exist and executes `-version` before processing.
+- Build-time executable verification/chmod in scripts/verify-root-ffmpeg-deps.mjs and build-check.mjs is intentionally preserved because the build environment is writable.
+- No UI, funnel, authorization, tracking, media-planning, deletion, or data-model behavior changed.
+
+REDEPLOY ACCEPTANCE
+1. Build log must again show [LUXX_ROOT_DEPENDENCY_PROOF] PASS.
+2. Functions must bundle process-media-job-background.mjs.
+3. Retry the same video once.
+4. Function log must not show EROFS/chmod for ffmpeg or ffprobe.
+5. Asset must progress to generated derivatives for full end-to-end PASS.

@@ -1,0 +1,129 @@
+name: webkit-mobile
+
+# Mandatory release gate. WebKit is the engine iOS Safari uses and the creator operates
+# LUXX on an iPhone. Chromium must never stand in for this job.
+#
+# This is the workflow that went green on main, with proof steps added. The container,
+# the pip install path and the ffmpeg install are unchanged because that combination is
+# the one that actually worked; earlier failures were missing pip, PEP 668, missing
+# ffmpeg, and missing source paths.
+#
+# The WebKit revision is REPORTED FROM THE CONTAINER, never hardcoded. If a specific
+# revision is required, set EXPECTED_WEBKIT_REVISION and the job fails on a mismatch
+# instead of quietly accepting a different build.
+
+on:
+  push:
+    branches: [main, webkit-ci]
+  workflow_dispatch:
+    inputs:
+      expected_webkit_revision:
+        description: "Fail if the container's WebKit revision differs (leave blank to report only)"
+        required: false
+        default: ""
+
+jobs:
+  webkit:
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright:v1.56.0-noble
+    env:
+      # Makes a missing or non-launching WebKit a hard failure. Without this the suite
+      # reports NOT RUN and exits 0, which must never look like a pass in CI.
+      LUXX_REQUIRE_WEBKIT: "1"
+      EXPECTED_WEBKIT_REVISION: ${{ github.event.inputs.expected_webkit_revision }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Commit under test
+        run: |
+          echo "COMMIT_SHA=${GITHUB_SHA}"
+          echo "COMMIT_SHA=${GITHUB_SHA}" >> "$GITHUB_ENV"
+
+      - name: versions
+        run: |
+          node -v
+          python3 --version
+          npx playwright --version
+
+      - name: install node deps
+        run: npm ci
+
+      - name: install pip and ffmpeg
+        run: apt-get update && apt-get install -y python3-pip ffmpeg
+
+      - name: install python playwright
+        run: python3 -m pip install --break-system-packages playwright==1.56.0
+
+      - name: assert Playwright is exactly 1.56.0
+        run: |
+          set -e
+          VER=$(python3 -c "import importlib.metadata as m; print(m.version('playwright'))")
+          echo "playwright_python=$VER"
+          test "$VER" = "1.56.0" || { echo "EXPECTED playwright 1.56.0, GOT $VER"; exit 1; }
+
+      - name: assert WebKit launches and report its actual revision
+        run: |
+          set -e
+          python3 - <<'PY'
+          import os, re, pathlib
+          from playwright.sync_api import sync_playwright
+          with sync_playwright() as p:
+              exe = p.webkit.executable_path
+              print("WEBKIT_EXECUTABLE=", exe)
+              m = re.search(r"webkit[-_](\d+)", exe or "")
+              rev = m.group(1) if m else "unknown"
+              print("WEBKIT_REVISION=", rev)
+              b = p.webkit.launch(headless=True)          # fails the job if WebKit cannot launch
+              print("WEBKIT_VERSION=", b.version)
+              b.close()
+              pathlib.Path("webkit-revision.txt").write_text(
+                  f"revision={rev}\nexecutable={exe}\ncommit={os.environ.get('COMMIT_SHA','')}\n")
+              want = (os.environ.get("EXPECTED_WEBKIT_REVISION") or "").strip()
+              if want and rev != want:
+                  raise SystemExit(f"STOP: expected WebKit revision {want}, container has {rev}")
+              if not want:
+                  print("NOTE: no expected revision pinned; the revision above is reported, not asserted.")
+          PY
+
+      - name: mobile acceptance — WebKit required, 390x844 and 430x932
+        # The suite defines both viewports internally and runs Chromium then WebKit.
+        # LUXX_REQUIRE_WEBKIT makes the WebKit half mandatory.
+        run: python3 tests/mobile-acceptance.py
+
+      - name: per-viewport WebKit results
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, sys
+          f = pathlib.Path("tests/MOBILE_ACCEPTANCE_RESULTS.json")
+          if not f.exists():
+              sys.exit("no results artifact was produced")
+          d = json.loads(f.read_text())
+          print("engines:", d.get("engines"))
+          print("webkit:", d.get("webkit"))
+          print("webkit_executable:", d.get("webkit_executable"))
+          vr = d.get("viewport_results", {})
+          print("viewport_results:", json.dumps(vr, indent=2))
+          wk = vr.get("webkit", {})
+          for vp in ("iPhone 12/13/14 (390x844)", "iPhone 14/15 Pro Max (430x932)"):
+              print(f"WEBKIT {vp}: {wk.get(vp, 'NOT RUN')}")
+          if "webkit" not in (d.get("engines") or []):
+              sys.exit("WebKit did not run. Chromium is not an acceptable substitute.")
+          if any(wk.get(vp) != "PASS" for vp in
+                 ("iPhone 12/13/14 (390x844)", "iPhone 14/15 Pro Max (430x932)")):
+              sys.exit("WebKit did not pass both required viewports.")
+          PY
+
+      - name: upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: webkit-artifacts-${{ github.sha }}
+          path: |
+            tests/MOBILE_ACCEPTANCE_RESULTS.json
+            webkit-revision.txt
+            test-results
+            playwright-report
+            tests/output
+          if-no-files-found: warn
+          retention-days: 30

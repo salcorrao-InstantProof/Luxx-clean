@@ -1,0 +1,7 @@
+LUXX v1.4.5 HOTFIX2
+
+- Fixes photo optimization failure caused by explicit -autorotate on the packaged Netlify FFmpeg build.
+- FFmpeg default input orientation handling remains enabled; metadata is stripped only after decode/render.
+- No master originals are modified.
+- Resumable optimizer will retry only photos that still lack the current successful optimization derivative.
+- Preserves concept-ranked Branch Shoot selection, duplicate cleanup, persistent scoring, and safe original-frame crop fallback.

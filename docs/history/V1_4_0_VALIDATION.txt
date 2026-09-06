@@ -1,0 +1,20 @@
+LUXX v1.4.0 validation — 2026-08-31
+
+PASS — frontend JavaScript syntax check
+PASS — build-check syntax check
+PASS — upload-complete syntax check
+PASS — asset-batch-update syntax check
+PASS — media-edit syntax check
+PASS — domain syntax check
+PASS — domain tests 36/36
+PASS — failure/security tests 45/45
+PASS — exact duplicate SHA-256 upload auto-rejection test; existing master preserved
+
+Production dependency note:
+The release ZIP intentionally does not bundle node_modules. Netlify installs the pinned ffmpeg/ffprobe dependencies from package.json during deployment. The production build command retains the verified root dependency proof and v1.3.6 Netlify EROFS runtime hotfix.
+
+Important behavioral boundaries:
+- Exact byte-identical duplicates are auto-rejected; near-duplicates are retained for ranking/review.
+- Originals are immutable. Auto optimization creates derivatives.
+- Image Hero scores are decision aids using available operational/technical signals, not guaranteed performance or objective attractiveness scores.
+- Metadata is stripped from posting derivatives; visible location/background clues still require creator review.

@@ -1,0 +1,88 @@
+LUXX v1.4.7 — MINIMAL ACCURACY PATCH
+Built on v1.4.6 ORIENTATION_VERIFIED_HARD_GATE_2. No architecture change.
+
+WHY THIS RELEASE EXISTS
+An audit of v1.4.6 found that the TODAY recommender returned an identical score for every
+eligible asset, so the daily prescription was decided by blob storage order; that one measured
+result then moved that score by ~120 points and locked the asset in permanently; and that the
+anti-repetition term intended to prevent this had never worked because use_count was
+initialised to 0 and incremented nowhere. Separately, every image crop hard-failed, and the
+"learned" posting window reported UTC as the creator's local time.
+
+WHAT CHANGED
+
+1. Candidate scoring (netlify/lib/domain.mjs)
+   - Reads the already-persisted visual_score, so two photos now rank differently.
+   - Two-level shrinkage (SHRINK_K=8) toward a platform estimate computed from OTHER assets.
+     Previously an unmeasured asset inherited the platform average at full strength and tied
+     with the one proven winner.
+   - Measured history is capped at EVIDENCE_CAP=25. One $500 day moved the score ~120 before.
+   - Ties break on least-recently-used, never on list order.
+
+2. Fatigue / rotation
+   - Usage is DERIVED from the append-only action ledger (assetUsage), not a stored counter.
+   - Recency penalty exceeds EVIDENCE_CAP inside a 7-day window, so even a proven winner steps
+     aside and returns roughly weekly. Overuse uses a rolling 30-day window.
+   - Verified: 14 simulated days now use all 5 test assets; the best performer leads 8/14.
+
+3. Image crop (netlify/lib/media-edit.mjs)
+   - Orientation and crop are now separate, separately verified stages. v1.4.6 ran both in one
+     pass and compared the cropped output to the input, so every non-ORIGINAL aspect threw
+     ORIENTATION_VERIFICATION_FAILED. All of 1:1, 4:5 and 9:16 were unreachable.
+   - expectedCropDims() asserts the rendered geometry. Unsafe geometry falls back to the full
+     frame with an explicit label rather than shipping a crop LUXX cannot stand behind.
+
+4. Posting window
+   - hourInTimezone() replaces Date#getHours(), which was UTC on Netlify and labelled "local".
+   - Requires settings.creatorTimezone plus 16+ results and 3+ in the hour bucket. With no
+     timezone set, LUXX returns the labelled default and makes no learned-time claim.
+   - New PUT /api/settings endpoint and a timezone control in SETUP.
+
+5. Honest labelling
+   - heroLabel tiers now describe exposure/focus/framing. "TOP HERO PICK" requires 16+ results.
+   - Hero Picks no longer prints "Best for: OnlyFans Free" on every image; it lists eligible
+     destinations unless there is proven evidence for one.
+   - destinationConfidence() no longer flips to creator-specific at n=1.
+   - The CTA basis string no longer claims learning that does not happen. CTAs now rotate on
+     prior use and accept optional semantic tags.
+   - RESULTS thresholds count per route / per asset, never a global total.
+
+6. Reliability
+   - /api/assets paginated (limit + cursor), reads batched 20-wide, write-back bounded.
+   - /api/action takes an optimistic expected_rev and returns 409 on conflict; the client
+     reloads and retries once instead of silently losing a write.
+   - Video jobs are resumable: each variant is persisted as it completes and recorded on the
+     job. Verified: full render 19.3s, resume 3.7s.
+   - Teasers are selected from candidates across the whole duration. v1.4.6 forced one teaser
+     per equal-width time band, so the three best moments could not all be chosen.
+   - ffprobe now reads the display matrix, so portrait video is no longer recorded as landscape.
+   - HEIC/HEIF uploads are rejected at upload time with an actionable message when the bundled
+     ffmpeg cannot decode them, instead of silently producing an asset with no derivative.
+   - Saving asset DETAILS no longer silently flips eligibility to MANUAL.
+
+7. Credentials — ACTION REQUIRED BEFORE DEPLOY
+   netlify/lib/embedded-secret.mjs no longer ships a passcode or session signing secret.
+   Set BOTH in Netlify > Site configuration > Environment variables, then redeploy:
+       LUXX_PASSCODE          the passcode the creator types
+       LUXX_SESSION_SECRET    long random string, e.g.
+           node -e "console.log(require('crypto').randomBytes(48).toString('base64url'))"
+   Without them the app fails closed and the login screen says configuration is missing.
+
+TESTS
+   domain          43/43 (36 original + 7 new decision-quality regressions)
+   failure/security 45/45
+   API/functions   26/26 (adds /api/settings)
+   video planning  PASS
+   integration     6/6 (new: crop, pagination, 409, timezone, eligibility, derived usage)
+   build check     PASS
+
+NOT INCLUDED
+   The semantic tag pass described in the audit is NOT implemented. It adds an external model
+   dependency and a per-photo cost that is a product decision, not a bug fix. The hooks are in
+   place: asset.semantic.tags is read by both the CTA matcher and the branch matcher and is a
+   no-op when absent, so it can be added later without touching either.
+
+MIGRATION
+   State migrates automatically on first load: state.rev and settings.creatorTimezone are added.
+   No media is re-rendered. No existing derivative is invalidated. Masters are untouched.
+   Deploy to the SAME Netlify site to preserve Blob-stored media and state.

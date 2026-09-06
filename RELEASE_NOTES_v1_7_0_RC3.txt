@@ -1,0 +1,510 @@
+LUXX v1.7.0 RC3 — ZERO-SURPRISE RELEASE
+Launch date: Monday, September 7, 2026
+Status: RELEASE CANDIDATE FOR INDEPENDENT REVIEW. NOT DEPLOYED.
+
+RC3 is RC2A plus a full two-part zero-surprise audit: 21 defects found and fixed,
+real-media acceptance closed against the creator's own 15:57 master, and a second
+adversarial pass over the finished application. Everything below still applies.
+
+This is a patch on the existing v1.7.0 CREATOR PILOT application. It was not
+rebuilt. Primary navigation is unchanged and remains exactly three tabs:
+
+    TODAY    LIBRARY    RESULTS
+
+No fourth tab was added. No shoot engine, CRM, scheduler, messaging centre,
+autonomous posting, multi-creator system or analytics platform was added.
+Roles remain CREATOR and EXECUTIVE PRODUCER with identical powers; the role is
+audit identity only.
+
+Preserved unchanged: authorization/quarantine, immutable masters and derivative
+lineage, tracking routes, locked baseline architecture, append-only action
+history, frozen prescriptions, measurement corrections, persistence, optimistic
+concurrency, operator attribution, the Netlify storage model and the same-site
+deployment model.
+
+
+================================================================================
+1. CAM AVAILABILITY IS CONFIGURED, NEVER HARD-CODED
+================================================================================
+
+RC1 shipped a fixed cam window of 8:00-11:00 PM Central and fixed cam days, one
+of which was Saturday. None of it was ever confirmed by the creator.
+
+The constant is deleted. So is the LIVE entry in the frozen weekly schedule.
+
+New in SETUP -> CAM AVAILABILITY (no new navigation):
+  - allowed weekdays, chosen from Monday..Friday only
+  - earliest available start time
+  - latest available end time
+  - creator timezone, defaulting to the existing America/Chicago setting
+
+Saturday and Sunday are a hard constraint. They cannot be enabled from settings,
+from an import, or from a schedule entry, and a weekend cam session cannot be
+recorded.
+
+Before availability is configured:
+  - TODAY shows SETUP REQUIRED - CAM AVAILABILITY NOT FINALIZED
+  - no LIVE job is scheduled and no clock time appears anywhere
+  - the notice is deliberately NOT actionable
+
+After it is configured:
+  - LIVE appears only on the configured weekdays
+  - the LIVE card carries the configured window and nothing else
+  - the time remains GUESS / DEFAULT
+
+Availability is a constraint. It is not evidence. No cam time is called optimal
+until creator-specific measured results support that conclusion, and the cam
+summary says so in plain words.
+
+A cam session records: actual start, actual end, session minutes, creator effort
+minutes, followers at start, followers at end, follower delta, tips/tokens,
+native revenue, an optional theme, and notes. Cam remains native evidence only:
+LUXX does not claim Chaturbate caused OnlyFans revenue.
+
+Fixed while testing this: a datetime-local value has no timezone, and RC1 handed
+that bare wall clock to Date.parse, which reads it as UTC. A real 9:05 AM Central
+session resolved to 4:05 AM Central and was wrongly flagged as outside the
+window. Zoneless timestamps are now resolved in the creator's timezone.
+
+
+================================================================================
+2. CAM IDEAS ARE OPTIONAL GUIDANCE
+================================================================================
+
+A LIVE job may carry one short optional theme: Bookish / Nerdy Daytime, Getting
+Ready / Casual, Morning Coffee / Chat, or Behind-the-Scenes Shoot Planning.
+
+They are GUESS / DEFAULT ideas. No theme is claimed to monetize better until
+measured cam results support it. The theme actually used is recorded so early
+sessions can be compared, and the guidance is to keep them comparable rather
+than changing time, length, format and theme at once.
+
+No cam-planning product was built.
+
+
+================================================================================
+3. PRODUCE IS OFF UNTIL A GAP IS DOCUMENTED
+================================================================================
+
+The creator is uploading a large existing library. LUXX does not know that she
+needs new production, so it must not prescribe a shoot.
+
+PRODUCE ships OFF. It never appears because the day has spare capacity, and
+there is no PRODUCE entry anywhere in the weekly schedule.
+
+A documented gap requires a typed category, an evidence reference from the
+reviewed Library, and counted have vs counted needed. A claim that inventory is
+short when the count says otherwise is rejected outright. Categories available
+for future use: X face-safe teaser, Pornhub teaser derivative, PPV inventory,
+paid-wall inventory, vertical acquisition, creative variety. None of them is
+asserted.
+
+If inventory is sufficient, NO NEW SHOOT NEEDED is the correct answer and LUXX
+is able to give it. Existing authorized inventory comes first. No shoot engine
+was built.
+
+
+================================================================================
+4. BASELINE IMPORT — ONE UPLOAD, THEN A HUMAN
+================================================================================
+
+New in SETUP -> IMPORT BASELINE (no new navigation). Structured JSON is
+mandatory and supported; CSV is also accepted.
+
+    {"rows":[{"platform":"X","metric":"followers","value":36,
+              "unit":"count","evidence_reference":"x.png","notes":""}]}
+
+    platform,metric,value,unit,evidence_reference,notes
+
+Covers X, Pornhub, OnlyFans Free, OnlyFans Paid, ManyVids, Fansly, Chaturbate
+and Linktree. Carries platform, metric, exact value, unit, evidence reference,
+notes and explicit NOT AVAILABLE.
+
+The required flow is enforced:
+
+    IMPORT -> REVIEW -> CAPTURE BASELINE -> LOCK BASELINE
+
+  - the import validates the file and populates the existing baseline review
+    fields, preserving evidence references and notes
+  - it does NOT capture and does NOT lock
+  - it REFUSES to overwrite an already locked baseline, with a clear error
+  - NOT_AVAILABLE, N/A and empty stay NOT AVAILABLE. They are never zero
+  - a value that is neither a number nor a recognised unavailable token is
+    rejected rather than guessed
+  - the old August reference seeds on the account records are never read by the
+    import, so they cannot be promoted into the September launch baseline
+
+After lock the baseline is preserved historically and is never silently replaced
+by later current values. Progress belongs in RESULTS and the action ledger.
+
+
+================================================================================
+5. WEEK-1 PPV BELONGS ON ONLYFANS PAID
+================================================================================
+
+RC1 defined the Wednesday, Saturday and Sunday PPV jobs against OnlyFans FREE.
+All three now target OnlyFans PAID and resolve to OF_PAID_PPV_MESSAGE_01.
+OnlyFans Free remains nurture and conversion toward Paid.
+
+Supporting fix: candidates are now generated for every usable route on a
+platform rather than only the single highest-priority one. A paid-feed wall post
+and a PPV DM are different placements, therefore different routes, therefore
+different jobs. Approving a job now honours the job's intent, so a PPV pick can
+no longer be approved against the paid-feed route.
+
+
+================================================================================
+6. PPV EVIDENCE CONTRACT
+================================================================================
+
+The v1.6.1 treatment evidence contract is preserved and enforced. A locked-PPV
+buyer pays on the PRE-PURCHASE TREATMENT, so evidence belongs to the treatment
+class and never to the hidden master.
+
+Treatment identity: preview style, delivery mode/route, audience segment, price
+band, attribution scope. The treatment key contains no asset id, no filename and
+no master identity.
+
+CALL requires ALL of:
+  - the same treatment class
+  - the same attribution scope
+  - a real denominator
+  - at least the minimum qualifying sample (6) of comparable measured results
+  - AND favourable evidence under the existing bounded/shrunk scorer
+
+The minimum qualifying sample threshold PLUS favourable evidence. Reaching six
+observations does not produce a CALL on its own. Six zero-unlock sends remain
+GUESS. A PPV DM with no recorded sent_to remains GUESS, and LUXX never invents a
+denominator at recommendation time.
+
+Actual execution overrides the prescription. If the creator changes the preview,
+the segment, the price or the delivery route, the result accrues to what was
+actually used.
+
+
+================================================================================
+7. ASSET-EVIDENCE REGRESSIONS REMOVED
+================================================================================
+
+RC1 stamped asset-scoped language onto PPV lines: "measured results on this
+asset", "measured results on this photo", "strongest option across N measured
+results on this asset". That is the exact regression back to asset-based PPV
+evidence.
+
+Audited and corrected in the TODAY job card, selection state, READY TO APPROVE,
+the frozen prescription, RESULTS, receipts, confidence copy and evidence
+explanation copy. For PPV, GUESS and CALL now attach visually and semantically
+to the pre-purchase treatment. Nothing calls a hidden master a proven, winning
+or best-selling photo.
+
+Asset-scoped wording survives only where the audience actually saw the file
+before acting.
+
+
+================================================================================
+8. PORNHUB TEASER IS MECHANICALLY ENFORCED
+================================================================================
+
+A PH_TEASER job may select only a valid teaser or trailer derivative. A MAIN
+CUT, a full scene, an original full video and a generic Pornhub-eligible video
+are all refused, however eligible they are.
+
+With no valid teaser derivative, TODAY shows HOLD / FIX LIBRARY and names the
+reason. There is no silent fallback to a full video.
+
+Existing historical Pornhub full videos are untouched. This restriction applies
+to future prescriptions only.
+
+
+================================================================================
+9. LIBRARY TECHNICAL SCORE
+================================================================================
+
+LIBRARY still shows a visual technical score. It describes technical usability
+only. It does not rank monetization, create CALL, imply conversion probability
+or proven revenue, or produce a winning asset, and it does not influence TODAY's
+monetization ranking: two identical candidates scoring 41 and 96 technically
+produce the same candidate score. BEST VERSION means the best currently valid
+derivative of that master, never best selling or best converting. No new
+darkness, blur, exposure or beauty thresholds were invented.
+
+
+================================================================================
+10. TRACKING ARCHITECTURE AND HISTORICAL CONTENT
+================================================================================
+
+ONE SOURCE + ONE PLACEMENT + ONE DESTINATION = ONE ROUTE, unchanged. Bio, pinned,
+post and message are never collapsed into one identity, and verifying one
+placement never activates another. The Week-1 funnel remains X -> OF Free,
+Pornhub -> OF Free, OF Free -> OF Paid, with Paid monetization measured natively.
+No external route is activated until the exact live placement has been verified.
+
+Existing Pornhub videos, ManyVids listings and OnlyFans history stay live and
+stay historical truth. Structured historical intake is preserved with its full
+field set and the KEEP / RE-EDIT / REPLACE / RETIRE review statuses. Nothing is
+auto-retired on a technical score.
+
+
+================================================================================
+11. CENTRAL TIMEZONE FIX
+================================================================================
+
+TODAY resolves the day in the creator's timezone. A Sunday evening in Central no
+longer previews Monday because UTC has already rolled over. The browser's
+getUTCDay path is gone; the day preview asks the domain to resolve the day.
+
+
+================================================================================
+12. TODAY HOLD BEHAVIOUR
+================================================================================
+
+A job with no valid eligible content shows HOLD / FIX LIBRARY. LUXX does not
+substitute another content type, unauthorized or quarantined media, a full
+Pornhub scene in place of a teaser, or an unrelated asset to fill the schedule.
+A missing valid candidate is a real state and is shown as one.
+
+
+================================================================================
+13. TEST SUITE REPAIRS
+================================================================================
+
+The browser suites were not green and were testing a LUXX that no longer existed.
+
+  - browser-tests.py carried a hand-written Python re-implementation of the
+    domain. It is deleted. /api/action now executes the REAL domain through
+    tests/domain-bridge.mjs, so the UI is always exercised against current
+    behaviour.
+  - Both suites drove #prescribeBtn, a control that now exists only on the HOLD
+    card. They drive the real job-based flow: USE THIS -> READY TO APPROVE ->
+    CHANGE / DECLINE -> APPROVE -> MARK POSTED.
+  - Both used page.set_content(), which leaves the page on an opaque origin where
+    reading localStorage throws and killed boot before the shell appeared. Both
+    now load from a real origin, and the app guards storage access anyway.
+  - Removed stale selectors and labels: .media (now .mediaCard), EDIT / VERIFY
+    (now SET UP / VERIFY), text inputs for what are actually select elements,
+    UPLOAD + SAVE, BRAND SHOOTS.
+  - Removed absolute machine paths: the suites no longer point at fixtures or a
+    repository root on one particular developer machine. Fixtures are generated at
+    run time or supplied by environment variable, and the browser comes from
+    Playwright.
+  - browser-real-api.py now runs against the real Netlify functions through
+    tests/local-server.mjs, which loads all 30 functions instead of 22.
+  - Report assertions no longer pin exact counts copied out of an artifact, which
+    is how a stale report survives a real regression.
+
+No test report was edited to say PASS.
+
+
+================================================================================
+14. APPLICATION BUGS FOUND BY THE REPAIRED TESTS
+================================================================================
+
+  - openRevenue, openCustom and deleteUnusedAsset were referenced by inline
+    onclick handlers but never defined. Every click threw a ReferenceError.
+    Implemented.
+  - RESULTS had no CORRECT control, so measurement correction was unreachable
+    from the UI although the domain supported it. Added.
+  - openVideoReview existed but nothing on screen called it, so historical
+    publication intake was unreachable from the Library. REVIEW EXISTING added
+    to the video card.
+  - Zoneless cam session times were parsed as UTC. Fixed, as described above.
+
+
+================================================================================
+15. NEW FOCUSED TESTS
+================================================================================
+
+tests/launch-fix-v170-test.mjs covers, as A..V:
+
+  A  Saturday LIVE impossible
+  B  Sunday LIVE impossible
+  C  LIVE cannot be scheduled outside configured availability
+  D  no configured availability means no invented LIVE time
+  E  PH_TEASER cannot select MAIN CUT or a full scene
+  F  no valid Pornhub teaser means HOLD
+  G  Week-1 PPV routes to OnlyFans Paid
+  H  PPV READY TO APPROVE copy stays treatment-scoped
+  I  PPV frozen prescription stays treatment-scoped
+  J  PPV RESULTS and receipt language stays treatment-scoped
+  K  six zero-unlock comparable PPV observations remain GUESS
+  L  missing sent_to remains GUESS
+  M  technical visual score does not influence monetization ranking
+  N  PRODUCE does not appear merely because the schedule has room
+  O  PRODUCE requires a documented Library/funnel gap
+  P  creator-local day preview uses America/Chicago, not UTC
+  Q  baseline import populates review state
+  R  baseline import preserves NOT AVAILABLE instead of zero
+  S  baseline import does not automatically lock
+  T  baseline import cannot overwrite a locked baseline
+  U  imported baseline follows IMPORT -> REVIEW -> CAPTURE -> LOCK
+  V  the browser suites drive the real job-based controls
+
+
+================================================================================
+16. KNOWN LIMITATION IN THIS ENVIRONMENT
+================================================================================
+
+The real-media acceptance suite needs the creator's actual long-form master,
+which is not redistributed inside this package. It RUNS when the fixture is
+present and is reported as NOT RUN when it is not. It is never asserted from a
+stored artifact. Point it at the media with:
+
+    LUXX_REAL_VIDEO=<path to the creator master> \
+    LUXX_MEDIA_FIXTURE_IMAGE=<path to an image fixture> \
+    npm test
+
+Synthetic video upload, rendering, derivative chain, HLS and download are still
+covered by the server-functions, video-planning and real-API browser suites,
+which do run here.
+
+
+
+================================================================================
+ADDENDUM — v1.7.0 RC2A: CREATOR CTA SELECTION FIX
+================================================================================
+
+Everything above still applies. RC2A changes one thing: how the creator picks a
+ready-to-use caption. It is a UX fix. No evidence contract, scoring rule, tracking
+route, baseline behaviour, cam availability rule, PRODUCE gate or navigation was
+altered.
+
+THE PROBLEM
+
+READY TO APPROVE offered up to three captions, but only the first had a COPY
+action. The alternates were plain text behind a disclosure, and using one meant
+going through the generic CHANGE form and retyping it. In practice the alternates
+were never used.
+
+THE FIX
+
+Every caption is now listed in the READY TO APPROVE card, each with its own:
+
+    COPY            copies only that caption, with no need to select it first
+    USE THIS CTA    switches the prescription to that exact caption
+
+The selected caption is marked "SELECTED CTA" and offers no USE THIS CTA of its
+own. Option 1 remains preselected. No new modal and no new screen was added.
+
+HOW A SELECTION IS RECORDED
+
+Selecting an alternate goes through the EXISTING prescription revision model:
+
+  - the previous line becomes REVISED and keeps the caption it actually carried
+  - a new PRESCRIBED line stores the exact chosen caption text, its index and
+    cta_selection_source = CREATOR_SELECTED
+  - the remaining options stay attached, so she can switch again
+  - the revision reason is written for her: "Creator selected ready-to-use caption
+    N of M"
+  - re-selecting what is already selected is a no-op and creates no history
+  - the chosen caption is frozen with the prescription on APPROVE, so the action
+    ledger identifies which caption was actually selected
+
+Nothing is overwritten. The revision chain is intact and auditable.
+
+WHAT IS DELIBERATELY REFUSED
+
+Only a caption already on that prescription can be selected. Free text is not
+accepted here: an arbitrary caption is still a CHANGE with the creator's own
+reason. Selecting a caption on a line that is not PRESCRIBED is refused.
+
+WHAT WAS NOT ADDED
+
+No CTA scoring, no winner labels, no copy ranking, no new evidence state, no CTA
+analytics, no experiment engine, no navigation. A caption is not part of PPV
+treatment identity and never will be from this change. Actual execution still
+overrides the prescription, and no caption is claimed to perform better than
+another.
+
+TESTS
+
+tests/cta-selection-test.mjs covers A..L: all options rendered, COPY on each,
+USE THIS CTA on each alternate, the default preselected, selection updating the
+visible state, the exact caption stored on the revision, repeated switching
+preserving history, APPROVE still working and freezing the chosen caption,
+CHANGE and DECLINE still working, the PPV treatment contract unchanged, GUESS and
+CALL unchanged, and the surrounding release contract intact. Both browser suites
+also drive the control end to end.
+
+BUG FOUND WHILE TESTING THIS
+
+The browser suites matched the job-card control by accessible name "USE THIS",
+which Playwright matches as a substring, so the new "USE THIS CTA" button was
+being clicked instead. Both suites now match that control exactly.
+
+
+
+================================================================================
+ADDENDUM — v1.7.0 RC3: ZERO-SURPRISE RELEASE AUDIT
+================================================================================
+
+A comprehensive audit of the whole application, not a narrow patch. Primary
+navigation is unchanged (TODAY / LIBRARY / RESULTS) and every preserved contract
+listed above still holds.
+
+TWENTY-ONE DEFECTS FIXED
+
+BLOCKER
+  D-01  CAPTURE BASELINE erased every reviewed platform number; the baseline
+        locked empty. Capture now promotes what was reviewed.
+  D-06  Every upload was truncated to a 300-second "MAIN CUT" and that cut was
+        presented as the master. The full upload is now the master at every
+        duration; no automatic main cut is produced.
+
+MAJOR
+  D-02  An OnlyFans Free wall post was served by the locked-PPV post route.
+  D-03  One destination's unverified route was reported as blocking assets that
+        were ready elsewhere.
+  D-04  Every hold said "nothing eligible for this job". Ten specific hold codes
+        now carry the real reason and the right recovery destination.
+  D-05  Face-visible masters vanished from X with no path forward. NEEDS X CROP /
+        REVIEW keeps the master usable everywhere else.
+  D-08  VIEW showed a black player: an HLS playlist in a plain video element.
+        Poster, PLAY, MP4 fallback and truthful playback errors.
+  D-10  One bad file abandoned the whole upload batch.
+  D-11  DELETE DUPLICATE was offered on history-protected assets.
+  D-13  Five dead controls and three duplicate element ids.
+  D-15  Importing a baseline discarded typing already in the SETUP form.
+  D-16  A teaser that existed was reported as missing.
+  D-17  Rotation consuming the day's only asset produced an unrelated hold reason.
+  D-19  Release-critical fixtures defaulted to machine-specific paths.
+
+MINOR
+  D-09 download demoted to secondary and derivative kinds named.
+  D-12 oversized orientation badge replaced with a compact chip.
+  D-14 CALL threshold comment still described CALL as asset-scoped.
+  D-18 three documents still asserted a fixed source length and a five-minute cut.
+  D-20 a save handler survived the removal of its modal.
+  D-21 the release gate itself still carried a fixed 451-second assumption.
+
+REAL-MEDIA ACCEPTANCE
+
+Closed against the creator's own master, not a stand-in:
+
+  file        InShot_20251223_024840697-3.mov, 335,753,127 bytes
+  sha256      747bb9ca9ec41ff36c57ad94ccd6894be8e19c78715097adeea784cbd5a1ea23
+  duration    956.946978 s (15:56.9), probed, never assumed
+  video       h264 Main, 360x640 portrait, 30.0003 fps
+  audio       aac, 44100 Hz
+  result      14 of 14 checks pass
+
+The stored FULL MASTER is 956.947 s: the complete source, with 115 valid HLS
+segments and three distinct 20-second teasers. The master hash matched the
+supplied file, stayed byte-identical after a derivative edit, and reprocessing
+created no second master.
+
+MATRIX
+
+82 of 82 checks and groups pass with the creator master enabled, including both
+real-media suites, the visible browser UI, the real-API browser suite and mobile
+acceptance at 390x844 and 430x932.
+
+STILL NOT RUN
+
+  Playwright WebKit is not installed in the audit environment, so the iOS Safari
+  engine pass did not run. Chromium passed both required viewports.
+
+  Live-site checks: real Netlify deployment, real Blob behaviour under production
+  concurrency, real platform APIs and real device Safari. These are verifiable
+  only on the deployed site.
+
+See FINAL_ACCEPTANCE_REPORT_RC3.md for the full ledger and requirement matrix.

@@ -1,0 +1,26 @@
+LUXX LIVE IPHONE ACCEPTANCE — MUST PASS BEFORE FULL LIBRARY LOAD
+
+1. Open the Netlify HTTPS URL in iPhone Safari.
+2. Log in with the LUXX passcode.
+3. Confirm TODAY / LIBRARY / RESULTS all open.
+4. Upload ONE real photo. Confirm it appears in LIBRARY.
+5. Force-close Safari; reopen LUXX. Confirm the photo is still present.
+6. Open the photo original. Then use EDIT > AUTO BEST + SAVE. Confirm a derivative appears and the original still exists.
+7. Edit that derivative again. Confirm another derivative is created rather than replacing history.
+8. Upload the real 7:31 video. Wait until the original is fully saved and processing starts.
+9. Force-close Safari, reopen LUXX, and confirm the video/job is still present.
+10. Confirm the rendered MAIN-CUT and teaser variants appear and play.
+11. Use VIDEO EDIT on MAIN-CUT. Confirm a new derivative appears without replacing MASTER or MAIN-CUT.
+12. Test historical-video review: record an applicable existing publication, run REVIEW EXISTING, and confirm the old publication remains historical while any suggested update is prospective.
+13. Capture and LOCK the real baseline.
+14. Enter and VERIFY one real tracking route.
+15. Confirm TODAY remains HOLD until baseline + authorization + availability + platform eligibility + tracking + variant completeness are satisfied.
+16. PRESCRIBE. CHANGE it. DECLINE it. Create another. APPROVE it. MARK POSTED with a real execution reference.
+17. Enter a measurement, then CORRECT it. Confirm the original measurement is still preserved.
+18. Add one REVENUE event and one CUSTOM ORDER record. Export JSON and CSV; verify both download.
+19. Create a PLAN BRAND SHOOT draft and approve it only if it represents a real documented library gap.
+20. PROVE UPDATE PERSISTENCE: in Netlify, open this same site's Deploys page and drag the SAME final ZIP into that site's deploy dropzone. After the new production deploy, reopen LUXX and confirm the photo master/derivatives, video master/derivatives, historical record, baseline, route, prescription/action, results and revenue are all still present.
+
+Only after all 20 pass should the full media library be loaded.
+
+If any step fails, stop there and capture a screenshot of the failure and the Netlify deploy/function log. Do not re-upload the full library.

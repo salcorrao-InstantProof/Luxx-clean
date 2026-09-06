@@ -1,0 +1,14 @@
+LUXX v1.7.0 RC3 — ZERO-SURPRISE RELEASE
+Launch date: Monday, September 7, 2026
+
+DEPLOY THIS ZIP ONLY — and only after independent review.
+
+This package keeps the size-safe FFmpeg packaging introduced earlier:
+  @ffmpeg-installer/ffmpeg
+  @ffprobe-installer/ffprobe
+
+The static-package variants exceeded Netlify's 250 MB per-function upload limit,
+so they are not used. Do not substitute ffmpeg-static / ffprobe-static.
+
+Deploy target: the EXISTING Netlify LUXX site. Not a new one.
+Launch date:   Monday, September 7, 2026.

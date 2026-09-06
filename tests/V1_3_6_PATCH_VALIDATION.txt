@@ -1,0 +1,11 @@
+LUXX v1.3.6 patch validation
+- Real media renderer: PASS (Back fingering.MP4 451.174911 sec)
+- MAIN-CUT: 300 sec
+- TEASERS: 3 x 20 sec
+- HLS: PASS
+- video re-edit derivative: PASS
+- master persistence/hash: PASS
+- API functions: 25/25 PASS
+- failure/security: 45/45 PASS
+- safe unused duplicate deletion: PASS
+- inline browser JS syntax: PASS

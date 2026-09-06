@@ -1,0 +1,30 @@
+{
+  "pass": true,
+  "steps": [
+    "real API boot, served by the real functions",
+    "three primary views, no fourth tab",
+    "real baseline import persists, keeps NOT AVAILABLE, and does not lock",
+    "real baseline capture + lock",
+    "locked baseline cannot be overwritten",
+    "cam availability persists through the real API",
+    "real image upload persisted",
+    "real image AUTO BEST derivative",
+    "real second-generation image derivative",
+    "real route verification stays placement-specific",
+    "alternate CTA selected directly from READY TO APPROVE and persisted",
+    "real prescribe, revise with a reason, decline with a reason",
+    "real approve + mark posted with the actual treatment and a real sent_to",
+    "real cam session records the full pilot record inside the configured window",
+    "real measurement, correction, revenue and custom order",
+    "real branch shoot create + approve",
+    "real video upload + automatic render",
+    "real historical record preserved, never rewritten",
+    "real export + import",
+    "real persisted final-state assertions"
+  ],
+  "page_errors": [],
+  "console_errors": [],
+  "dialogs": [],
+  "groups_passed": 20,
+  "server_errors": []
+}

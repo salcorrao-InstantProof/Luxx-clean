@@ -1,0 +1,142 @@
+================================================================
+FOR THE OPERATOR
+================================================================
+WHAT CHANGED
+  For PPV sends, LUXX no longer says a PHOTO is proven. It says a pre-purchase TREATMENT is:
+
+      PHOTO                     window_light.jpg
+      PRE-PURCHASE TREATMENT    Blurred close crop -> PPV DM -> active subscribers -> $10-15
+      CALL                      attached to the treatment line, never to the filename
+
+  Because the buyer pays before seeing the file, unlock revenue cannot prove the photo.
+
+WHEN YOU MARK POSTED
+  You are now asked what you ACTUALLY sent: preview style, audience segment, price, and how
+  many fans it went to. If you changed anything from what LUXX proposed, the result counts for
+  what you really did. Without a real sent-to count there is no unlock rate, so the line stays
+  GUESS. LUXX never invents that number.
+
+DEPLOY
+  Same Netlify site. LUXX_PASSCODE and LUXX_SESSION_SECRET must be set or the build refuses.
+
+================================================================
+LUXX v1.6.1 — PPV TREATMENT EVIDENCE CONTRACT
+Built from the clean v1.6.0 ZIP. No interrupted workspace was reused.
+================================================================
+
+1. FILES CHANGED
+   netlify/lib/domain.mjs       treatment class, scope keys, candidateScore evidence identity,
+                                technical gate, executeAction capture, RESULTS learning
+   netlify/functions/state.mjs  build name
+   public/index.html            TODAY row, MARK POSTED capture, RESULTS panel, false copy
+   build-check.mjs              contract assertions
+   package.json                 version
+   tests/domain-tests.mjs       3 removed, 18 added
+   tests/ppv-contract-ui-test.mjs  NEW
+   tests/run-all.mjs            wires the new suite
+
+2. SCHEMA FIELDS ADDED
+   action.sent_to                    integer or null. Never defaulted.
+   action.price_charged              number or null
+   action.executed_treatment         {preview_style, delivery_mode, audience_segment,
+                                      price_band, scope} or null
+   action.executed_treatment_key     string or null
+   action.proposed_treatment_key     string or null
+   action.treatment_deviated         boolean
+   prescription.proposed_treatment / proposed_treatment_key / evidence_object / scope_key
+
+3. TREATMENT KEY
+   preview_style | delivery_mode | audience_segment | price_band | scope
+   Contains NO asset_id, master_asset_id or filename. Returns null unless preview_style AND
+   audience_segment are both present, so an incomplete treatment is not a class.
+   scope = route.attribution_scope | delivery_mode  (e.g. INTERNAL|PPV_DM)
+
+4. CALL / GUESS RULE
+   CALL requires ALL of:
+     - same treatment class      (conversion claims only)
+     - same attribution scope    (all claims)
+     - a real recorded sent_to on every qualifying observation
+     - n >= CALL_THRESHOLD (6, unchanged)
+     - favourable evidence under the EXISTING bounded/shrunk model (ownSum > 0)
+   GUESS otherwise, including: n<6, missing denominator, missing treatment fields, different
+   treatment class, different scope, feed/post with no observable exposure, unfavourable
+   evidence. Legacy records without treatment fields stay GUESS and are never backfilled.
+
+5. candidateScore / EVIDENCE-KEY CHANGES  (patched in place; no second scorer exists)
+   - `same` now additionally requires matching scopeKeyForRoute. This kills the v1.6.0 bug
+     where NATIVE_MESSAGE and NATIVE_FEED pooled through PAID_CONTENT.
+   - For conversion claims the evidence identity is the TREATMENT key plus sent_to > 0.
+     Asset and variant identity are not used at all.
+   - For non-conversion placements asset/variant identity is retained, because the audience
+     genuinely saw the file before acting.
+   - REMOVED from the live path: visualTerm(asset) and variant.technical_score.
+   - Shrinkage, EVIDENCE_CAP, fatigue, rotation, recency, quality/scheduling split: unchanged.
+   - New return fields: evidence_object, treatment_key, scope_key, conversion_claim,
+     denominator_observable, favorable, estimate. evidence adds TREATMENT_HISTORY.
+
+6. TODAY UI
+   Row renders PHOTO and PRE-PURCHASE TREATMENT as separate labelled blocks; the stamp sits on
+   the treatment line with the treatment repeated beside it. MARK POSTED captures the actual
+   preview style, segment, price and sent_to. False copy replaced with
+   "Measured results build evidence. CALL appears only when LUXX has enough comparable evidence."
+
+7. RESULTS
+   "Best current asset" split into:
+     Best current PPV treatment            (treatmentLearning, treatment-scoped)
+     Best asset where the file was seen    (visibleAssetLearning, excludes conversion claims)
+   Asset analytics were scoped, not deleted.
+
+8. TESTS REMOVED / REPLACED  (3)
+   candidate score discriminates between assets of different visual quality
+   TODAY does not depend on the order assets are supplied in
+   a line only becomes a CALL at the measured-result threshold
+   All three enforced the superseded contract. Order-independence is re-asserted by C17 and
+   asset discrimination is inverted by C15.
+
+9. TESTS ADDED  (18 domain + 3 UI/RESULTS)
+   C1 six results on one master never CALL the master
+   C2 six results across different masters accumulate for one treatment class
+   C3 fewer than six stays GUESS
+   C4 six zero-success observations are not a positive CALL
+   C5 missing sent_to stays GUESS
+   C6 NATIVE_MESSAGE never pools into NATIVE_POST or PAID_FEED (reproduces the v1.6.0 bug)
+   C7/C8/C9/C10 preview style, segment, price band and scope never pool
+   C11 feed and locked post have no observable denominator
+   C13 the treatment key never contains asset identity
+   C14 technical failure removes an asset from TODAY
+   C15 two acceptable photos are not ranked by sharpness
+   C17 rotation still prevents list-order selection
+   C18 legitimate measured evidence still moves TODAY
+   C19 execution deviating from the proposal accrues to the ACTUAL treatment
+   C22 legacy records without treatment fields stay GUESS
+   UI-12 the stamp never renders without its treatment named
+   UI-21 RESULTS names the treatment, never the hidden master
+   UI-20 corrections reduce revenue without rewriting history
+
+10. TEST RESULTS
+   domain             72/72
+   failure/security   45/45
+   API/functions      26/26
+   integration        8/8
+   library invariant  8/8
+   today generation   5/5
+   ppv contract UI    3/3
+   crop promotion     PASS
+   video planning     PASS
+   build check        PASS (new assertions verified to fail when violated)
+
+11. CONFLICTS FOUND WITH THE CONTRACT
+   a) Item 8 asked for a gate covering "too dark / too blurry". v1.6.0 has NO established
+      numeric floor for exposure or sharpness at prescription time, and item 8 also forbids
+      inventing thresholds. The gate therefore reuses only rules v1.6.0 already enforced:
+      authorization, availability, and a verified privacy-safe derivative. Orientation is left
+      where v1.6.0 put it (BEST VERSION display), because promoting it to a prescription gate
+      would have been a new rule. Darkness/blur gating needs a threshold you choose.
+   b) Test 12 as written is a rendering property. It is enforced two ways: a runtime scan in
+      ppv-contract-ui-test.mjs and a build-check assertion, both verified to fail when broken.
+
+12. DELIBERATELY NOT IMPLEMENTED
+   No teaser-testing platform, dashboard, new tab, CRM, campaign builder, scheduler, autonomous
+   posting, new analytics system, or AI subsystem. No provisional-revenue state machine or hold
+   window: chargebacks continue to use append-only measurementCorrections. No second
+   candidateScore. No backfill of missing treatment data.

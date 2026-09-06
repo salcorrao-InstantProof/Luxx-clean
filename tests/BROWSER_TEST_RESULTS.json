@@ -1,0 +1,38 @@
+{
+  "pass": true,
+  "steps": [
+    "boot on a real origin",
+    "3 primary nav tabs \u2014 no fourth tab",
+    "baseline import populates review, preserves NOT AVAILABLE, does not lock",
+    "capture then lock, in that order",
+    "locked baseline cannot be overwritten by import",
+    "cam availability offers weekdays only",
+    "system health + close",
+    "TODAY refuses to invent a LIVE time and reports PRODUCE off",
+    "LIVE appears only on configured weekdays and never on the weekend",
+    "cam session records start, end, effort, followers, tips, revenue and theme",
+    "USE THIS creates a prescription from the job card",
+    "alternate CTA selected directly from READY TO APPROVE, history preserved",
+    "change with a reason, then decline with a reason",
+    "approve then mark posted with the actual treatment and a real sent_to",
+    "measure + correct",
+    "revenue + custom order (RC1 left both inline handlers undefined)",
+    "exports",
+    "import",
+    "library nav",
+    "filters",
+    "asset details save",
+    "image auto best",
+    "upload control",
+    "route edit + verify keeps distinct placement IDs",
+    "branch shoot draft + approve",
+    "historical import stores the row and never auto-links a master",
+    "all 83 inline handlers resolve"
+  ],
+  "page_errors": [],
+  "console_errors": [],
+  "dialogs": [
+    "LUXX 1.7.0-rc2\nParent LUXX Simplified Revenue Pilot v1.2.1\nStorage/API reachable."
+  ],
+  "visible_control_groups_passed": 27
+}

@@ -1,0 +1,35 @@
+LUXX v1.3.6 — VIDEO PRODUCTION RENDERER + SAFE DUPLICATE DELETE
+
+Scope of this patch only:
+1. Repair the live video derivative deployment path.
+2. Add a real DELETE DUPLICATE control for unused inventory duplicates.
+3. Correct visible BRANCH terminology (not BRAND).
+
+VIDEO FIX
+- Adds production FFmpeg/ffprobe package dependencies to package.json.
+- Netlify function packaging explicitly includes the Linux renderer dependencies.
+- Uses process-media-job-background as the long-running renderer endpoint.
+- Adds renderer-health endpoint.
+- Fixes stale-video recovery version mismatch so existing stuck videos can retry once after redeploy.
+- Exposes RETRY VIDEO PROCESSING for failed/required/stale video jobs.
+- Originals remain immutable; derivatives are new MP4/HLS/poster artifacts.
+
+DUPLICATE DELETE
+- DELETE DUPLICATE appears in Library rows and Asset Details.
+- Requires explicit confirmation.
+- Permanently deletes the unused duplicate asset, original chunks, derivative/HLS/thumbnail objects, and its jobs.
+- Fails closed if the asset entered LUXX history or has prospective usage; historical truth cannot be erased.
+
+LOCAL VALIDATION
+- Real 7:31 source video: PASS
+- 5:00 main cut: PASS
+- 3 x 20s teasers: PASS
+- HLS segments: PASS
+- second-generation rendered video derivative: PASS
+- restart/master hash persistence: PASS
+- safe unused duplicate delete API: PASS
+- API functions tested: 25/25 PASS
+- failure/security tests: 45/45 PASS
+
+LIVE BOUNDARY
+The code/package is fixed and tested locally. Netlify live production still must be verified after redeploy because only Netlify can prove its own deployed function runtime and dependency installation.

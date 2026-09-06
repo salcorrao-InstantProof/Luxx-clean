@@ -1,0 +1,10 @@
+{
+  "pass": true,
+  "total": 4,
+  "checks": [
+    "Pornhub and ManyVids rows import with stats preserved and nothing auto-linked",
+    "CSV paste imports, including quoted commas and blank cells",
+    "matching suggests with reasons, refuses to link without explicit confirmation",
+    "KEEP / RE-EDIT / REPLACE / RETIRE sets a verdict without altering the record"
+  ]
+}

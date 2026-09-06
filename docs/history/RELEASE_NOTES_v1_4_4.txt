@@ -1,0 +1,9 @@
+LUXX v1.4.4 — corrective production patch
+
+- Normalizes image orientation before optimization and before metadata stripping.
+- Disables forced automatic 4:5 / 9:16 crops until LUXX can validate a crop safely; AUTO BEST now preserves the full upright original frame rather than cutting the subject.
+- Visual technical scores are persisted with the asset in LUXX state and are recalculated when the recommended variant changes.
+- Library use-plan no longer presents OnlyFans Free as if image quality proved it was the best destination when the evidence is only an operational prior.
+- Approved Branch Shoots now immediately open an authorized Library photo picker; selected reference asset IDs are saved into the branch record.
+- Retains exact-duplicate cleanup.
+- Adds AUTHORIZE ALL PHOTOS for re-authorizing all non-quarantined image records in one confirmation.
