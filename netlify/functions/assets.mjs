@@ -5,10 +5,6 @@ import {STORES} from '../lib/model.mjs';
 import {getState} from './state.mjs';
 import {decorateAssetForUse} from '../lib/domain.mjs';
 
-// Blob reads are network round trips. v1.4.6 read every asset sequentially and conditionally
-// wrote each one back, on every page load and after every mutation, which is where a real
-// media bank exceeded the function time limit. Reads are now batched and the write-back is
-// bounded so one slow request can never cascade.
 const READ_BATCH=20;
 const MAX_WRITEBACK=25;
 const DEFAULT_LIMIT=120;
@@ -43,12 +39,6 @@ export default async req=>{
   const {blobs}=await s.list({prefix:'assets/'});
   const keys=blobs.map(b=>b.key).sort();
   const total=keys.length;
-
-  // Paging order is by key: stable, total, and deterministic, which is the only property
-  // paging correctness actually needs (no drops, no duplicates, no reshuffle mid-walk).
-  // It is NOT a chronological guarantee. Asset ids happen to embed a base36 timestamp, but
-  // identity must not be coupled to the clock, so nothing here depends on that. Display order
-  // is uploaded_at and is applied by the client once it holds the complete set.
   keys.sort();
   const pageKeys=keys.slice(cursor,cursor+limit);
   const page=(await mapLimited(pageKeys,k=>s.get(k,{type:'json'}).catch(()=>null),READ_BATCH)).filter(Boolean);
@@ -63,16 +53,19 @@ export default async req=>{
     if(before!==after)changed=true;
     if(changed)pending.push(a);
   }
-  // Bounded write-back. Anything not persisted this round is still correct in the response and
-  // is persisted on a later load, so a large library cannot stall the read path.
   await mapLimited(pending.slice(0,MAX_WRITEBACK),a=>s.setJSON(`assets/${a.asset_id}.json`,a).catch(()=>null),READ_BATCH);
 
   await mapLimited(page.filter(a=>a.job_id),async a=>{
     const j=await jobs.get(`jobs/${a.job_id}.json`,{type:'json'}).catch(()=>null);
     if(!j)return null;
     const stamp=j.updated_at||j.created_at||a.processing_started_at||a.uploaded_at,age_ms=stamp?Math.max(0,Date.now()-new Date(stamp).getTime()):null;
-    const stale=Number.isFinite(age_ms)&&age_ms>180000&&(a.variants||[]).length===0&&['QUEUED','RUNNING','COMPLETE'].includes(j.status)&&a.status!=='READY_FOR_REVIEW';
-    a.processing_job={job_id:j.job_id,status:j.status,progress:Number(j.progress||0),error:j.error||null,created_at:j.created_at||null,updated_at:j.updated_at||j.created_at||null,age_ms,stale,completed_variants:j.completed_variants||[]};
+    const handedOff=j.status==='CONTINUE'&&a.status!=='READY_FOR_REVIEW';
+    const stale=handedOff||(Number.isFinite(age_ms)&&age_ms>180000&&['QUEUED','RUNNING','COMPLETE'].includes(j.status)&&a.status!=='READY_FOR_REVIEW');
+    a.processing_job={job_id:j.job_id,status:j.status,progress:Number(j.progress||0),error:j.error||null,created_at:j.created_at||null,updated_at:j.updated_at||j.created_at||null,age_ms,stale,handed_off:handedOff,stage:j.stage||null,completed_variants:j.completed_variants||[],
+      trigger_error:j.trigger_error||null,trigger_http_status:j.trigger_http_status||null,
+      trigger_attempts:Number(j.trigger_attempts||0),triggered_at:j.triggered_at||null,
+      trigger_requested_at:j.trigger_requested_at||null,trigger_failed_at:j.trigger_failed_at||null,
+      note:j.note||null};
     return null;
   },READ_BATCH);
 
