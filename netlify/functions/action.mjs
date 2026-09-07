@@ -1,7 +1,5 @@
 import {json,error,readJson} from '../lib/http.mjs';import {verifySession} from '../lib/auth.mjs';import {store} from '../lib/storage.mjs';import {STORES} from '../lib/model.mjs';import {getState,putState} from './state.mjs';import {applyCommand,validateAppendOnly,dueOutcomes,rankAssets} from '../lib/domain.mjs';
 import {librarySignature,generationFor,readCachedToday,writeCachedToday} from '../lib/today-cache.mjs';
-// TODAY needs every candidate, so this cannot be paged, but it must not be sequential:
-// one round trip per asset was the second full library scan on every single command.
 const READ_BATCH=20;
 async function allAssets(){
   const s=await store(STORES.assets),{blobs}=await s.list({prefix:'assets/'}),out=[];
@@ -11,11 +9,8 @@ async function allAssets(){
   }
   return out;
 }
-export default async req=>{if(!verifySession(req))return error('Unauthorized',401);if(req.method!=='POST')return error('Method not allowed',405);const b=await readJson(req);if(!b?.op)return error('Missing operation');const READ_ONLY=['DUE','RANK','RECOMMEND','HISTORICAL_REVIEW','REPORTS','PROOF_PACK','CROP_EVIDENCE','TODAY_PLAN','CHECKLIST','BASELINE_COVERAGE','CAM_SUMMARY','JOB_PERFORMANCE','HIST_SUGGEST_MATCH','HIST_PARSE_CSV'];
+export default async req=>{if(!verifySession(req))return error('Unauthorized',401);if(req.method!=='POST')return error('Method not allowed',405);const b=await readJson(req);if(!b?.op)return error('Missing operation');const READ_ONLY=['DUE','RANK','RECOMMEND','HISTORICAL_REVIEW','REPORTS','PROOF_PACK','CROP_EVIDENCE','TODAY_PLAN','CHECKLIST','BASELINE_COVERAGE','CAM_SUMMARY','JOB_PERFORMANCE','HIST_SUGGEST_MATCH','HIST_PARSE_CSV','TODAY_TASKS'];
   const state=await getState();
-  // RECOMMEND is the hot path: it fires on page load and after every mutation. If neither the
-  // library nor the ledger has moved, the prescription cannot have changed, so return the
-  // stored object and read NO assets at all.
   if(b.op==='RECOMMEND'||b.op==='TODAY_LIST'){
     const lib=await librarySignature();
     const generation=generationFor(lib.signature,state.rev);
@@ -25,20 +20,13 @@ export default async req=>{if(!verifySession(req))return error('Unauthorized',40
     const assets=await allAssets();
     const rec=applyCommand(state,assets,'RECOMMEND',{});
     const list=applyCommand(state,assets,'TODAY_LIST',b.payload||{});
-    // Both are computed from the same scan and stored together, so the pick list never costs a
-    // second walk of the library.
     await writeCachedToday(generation,{recommendation:rec,today_list:list},{library_count:lib.count,rev:Number(state.rev||0)});
     return json({ok:true,result:field==='recommendation'?rec:list,state,cached:false,generation});
   }
-  // Approving a specific line needs the media bank to revalidate the exact pick.
   if(b.op==='PRESCRIBE_PICK')b.__needsAssets=true;
   const before=structuredClone(state);
-  // Only commands that actually need the media bank pay for it.
-  const NEEDS_ASSETS=['RANK','PRESCRIBE','PRESCRIBE_PICK','APPROVE','HISTORICAL_REVIEW','HISTORICAL_UPDATE','TODAY_PLAN','HIST_SUGGEST_MATCH','HIST_PARSE_CSV'];
+  const NEEDS_ASSETS=['RANK','PRESCRIBE','PRESCRIBE_PICK','APPROVE','HISTORICAL_REVIEW','HISTORICAL_UPDATE','TODAY_PLAN','TODAY_TASKS','HIST_SUGGEST_MATCH','HIST_PARSE_CSV'];
   const assets=NEEDS_ASSETS.includes(b.op)?await allAssets():[];
-  // Optimistic concurrency. Two overlapping commands previously did read-modify-write against a
-  // single state.json with no guard, so one silently lost its changes. The client sends the rev
-  // it last saw; a mismatch is reported rather than overwritten.
   if(!READ_ONLY.includes(b.op)&&b.expected_rev!=null&&Number(b.expected_rev)!==Number(state.rev||0)){
     return json({ok:false,error:'STATE_CONFLICT',expected_rev:Number(b.expected_rev),current_rev:Number(state.rev||0),state},409);
   }
