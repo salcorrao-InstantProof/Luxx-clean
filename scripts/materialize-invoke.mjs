@@ -20,14 +20,23 @@ for (const [from, to] of copies) {
 
 const indexPath = 'public/index.html';
 let html = fs.readFileSync(indexPath, 'utf8');
-const beforeHtml = html;
+
+const hideBefore = html;
 html = html.replace(
   "if(a.status==='PROCESSING_FAILED')return true;",
   "if(a.status==='PROCESSING_FAILED')return false;"
 );
-if (html === beforeHtml) throw new Error('Could not patch isBrokenUpload — hide rule not found');
+if (html === hideBefore) throw new Error('Could not patch isBrokenUpload — hide rule not found');
+
+const histOld = "function historyProtectedHtml(a){\n  const refs=historyReferences(a);\n  if(!refs.length)return `<button class=\"danger\" onclick=\"deleteUnusedAsset('${a.asset_id}')\">DELETE DUPLICATE</button>`;";
+const histNew = "async function deletePicture(id){\n  if(!confirm('Are you sure you want to delete this? It leaves the library. This cannot be undone.'))return;\n  try{await api('/asset-delete',{method:'DELETE',headers:{'content-type':'application/json'},body:JSON.stringify({asset_id:id,confirm_erase:true})});closeModal();await load();render()}catch(e){alert(e.message)}}\nfunction historyProtectedHtml(a){\n  if(a.media_type==='IMAGE')return `<button class=\"danger\" onclick=\"deletePicture('${a.asset_id}')\">DELETE</button>`;\n  const refs=historyReferences(a);\n  if(!refs.length)return `<button class=\"danger\" onclick=\"deleteUnusedAsset('${a.asset_id}')\">DELETE DUPLICATE</button>`;";
+if (!html.includes("function historyProtectedHtml(a)")) throw new Error('historyProtectedHtml missing');
+html = html.replace(
+  "function historyProtectedHtml(a){",
+  "async function deletePicture(id){if(!confirm('Are you sure you want to delete this? It leaves the library. This cannot be undone.'))return;try{await api('/asset-delete',{method:'DELETE',headers:{'content-type':'application/json'},body:JSON.stringify({asset_id:id,confirm_erase:true})});closeModal();await load();render()}catch(e){alert(e.message)}}\nfunction historyProtectedHtml(a){if(a.media_type==='IMAGE')return `<button class=\"danger\" onclick=\"deletePicture('${a.asset_id}')\">DELETE</button>`;"
+);
 fs.writeFileSync(indexPath, html);
-console.log('patched isBrokenUpload: failed videos stay visible');
+console.log('patched index.html: photos get confirmed DELETE');
 
 const videoPath = 'netlify/lib/video.mjs';
 let video = fs.readFileSync(videoPath, 'utf8');
