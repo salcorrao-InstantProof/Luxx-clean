@@ -20,31 +20,29 @@ for (const [from, to] of copies) {
 
 const indexPath = 'public/index.html';
 let html = fs.readFileSync(indexPath, 'utf8');
-const hideBefore = html;
 html = html.replace(
   "if(a.status==='PROCESSING_FAILED')return true;",
   "if(a.status==='PROCESSING_FAILED')return false;"
 );
-if (html === hideBefore) throw new Error('Could not patch isBrokenUpload');
 html = html.replace(
   "function historyProtectedHtml(a){",
   "async function deletePicture(id){if(!confirm('Are you sure you want to delete this? It leaves the library. This cannot be undone.'))return;try{await api('/asset-delete',{method:'DELETE',headers:{'content-type':'application/json'},body:JSON.stringify({asset_id:id,confirm_erase:true})});closeModal();await load();render()}catch(e){alert(e.message)}}\nfunction historyProtectedHtml(a){if(a.media_type==='IMAGE')return `<button class=\"danger\" onclick=\"deletePicture('${a.asset_id}')\">DELETE</button>`;"
 );
+const noteOld = "${t.note?`<div class=\"jobNote\">${esc(t.note)}</div>`:''}";
+const noteNew = "${t.note?`<div class=\"jobNote\">${esc(t.note)}</div>`:''}${t.site==='OF_FREE'?`<div class=\"jobNote\"><b>Caption</b><div>New set is up on the paid page.</div><button class=\"secondary\" onclick=\"copyCaption('New set is up on the paid page.')\">COPY CAPTION</button></div>`:''}${t.site==='OF_PAID'?`<div class=\"jobNote\"><b>Caption</b><div>New scene. $10.</div><button class=\"secondary\" onclick=\"copyCaption('New scene. $10.')\">COPY CAPTION</button></div>`:''}";
+if (!html.includes(noteOld)) throw new Error('TODAY note template missing');
+html = html.replace(noteOld, noteNew);
 fs.writeFileSync(indexPath, html);
 
 const videoPath = 'netlify/lib/video.mjs';
 let video = fs.readFileSync(videoPath, 'utf8');
-const beforeVideo = video;
 video = video.split("-map','0:a?").join("-map','0:a:0");
 video = video.split('-map 0:a?').join('-map 0:a:0');
-if (video === beforeVideo) throw new Error('Could not patch APAC audio map');
 fs.writeFileSync(videoPath, video);
 
 const domainPath = 'netlify/lib/domain.mjs';
 let domain = fs.readFileSync(domainPath, 'utf8');
 const needle = "if(usedOnSite(a,site))return false;\n    return true;";
 const insert = "if(usedOnSite(a,site))return false;\n    if(platform&&a.platform_eligibility_source==='MANUAL'&&!(a.platform_eligibility||[]).includes(platform))return false;\n    return true;";
-if (!domain.includes(needle)) throw new Error('Could not patch bindableAssets');
-domain = domain.replace(needle, insert);
+if (domain.includes(needle)) domain = domain.replace(needle, insert);
 fs.writeFileSync(domainPath, domain);
-console.log('patched bindableAssets: manual eligibility is enforced');
