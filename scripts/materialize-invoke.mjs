@@ -20,11 +20,20 @@ for (const [from, to] of copies) {
 
 const indexPath = 'public/index.html';
 let html = fs.readFileSync(indexPath, 'utf8');
-const before = html;
+const beforeHtml = html;
 html = html.replace(
   "if(a.status==='PROCESSING_FAILED')return true;",
   "if(a.status==='PROCESSING_FAILED')return false;"
 );
-if (html === before) throw new Error('Could not patch isBrokenUpload — hide rule not found');
+if (html === beforeHtml) throw new Error('Could not patch isBrokenUpload — hide rule not found');
 fs.writeFileSync(indexPath, html);
 console.log('patched isBrokenUpload: failed videos stay visible');
+
+const videoPath = 'netlify/lib/video.mjs';
+let video = fs.readFileSync(videoPath, 'utf8');
+const beforeVideo = video;
+video = video.split("-map','0:a?").join("-map','0:a:0");
+video = video.split('-map 0:a?').join('-map 0:a:0');
+if (video === beforeVideo) throw new Error('Could not patch APAC audio map in video.mjs');
+fs.writeFileSync(videoPath, video);
+console.log('patched video.mjs: map first audio only (drop APAC)');
