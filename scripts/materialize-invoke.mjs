@@ -17,3 +17,14 @@ for (const [from, to] of copies) {
   if (st.size < 1000) throw new Error(`Copied ${to} is too small (${st.size} bytes) — refused to deploy a pointer`);
   console.log(`materialized ${to} (${st.size} bytes)`);
 }
+
+const indexPath = 'public/index.html';
+let html = fs.readFileSync(indexPath, 'utf8');
+const before = html;
+html = html.replace(
+  "if(a.status==='PROCESSING_FAILED')return true;",
+  "if(a.status==='PROCESSING_FAILED')return false;"
+);
+if (html === before) throw new Error('Could not patch isBrokenUpload — hide rule not found');
+fs.writeFileSync(indexPath, html);
+console.log('patched isBrokenUpload: failed videos stay visible');
