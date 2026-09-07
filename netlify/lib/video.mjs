@@ -89,12 +89,13 @@ export async function processVideoJob(job_id){
   const tmp=await fs.mkdtemp(path.join(os.tmpdir(),'luxx-'));
   const stageStarted=Date.now();
   const budgetSpent=()=>Date.now()-stageStarted>STAGE_BUDGET_MS;
+  const stage=String(job.stage||'');
   try{
     asset.status='PROCESSING';
     asset.processing_started_at=new Date().toISOString();
     asset.processing_error=null;
     await assets.setJSON('assets/'+asset.asset_id+'.json',asset);
-    await setJob(job_id,{status:'RUNNING',progress:5,handed_off:false});
+    await setJob(job_id,{status:'RUNNING',progress:Math.max(5,Number(job.progress||0)),handed_off:false});
     const {ffmpeg,ffprobe}=await paths();
     const input=await assemble(asset,tmp);
     asset.master_sha256=await sha256File(input);
@@ -119,9 +120,9 @@ export async function processVideoJob(job_id){
       }catch{}
     }
     const cached=asset.analysis&&asset.analysis.analyzed_master_sha256===asset.master_sha256&&asset.analysis.plan?asset.analysis:null;
-    if(!cached&&budgetSpent()){
+    if(!cached&&stage!=='ANALYZE'&&stage!=='RENDER'){
       await setJob(job_id,{status:'CONTINUE',progress:30,stage:'ANALYZE',note:'Probe complete. Analysis continues in the next invocation.'});
-      console.log('[LUXX_HANDOFF] budget spent before analysis; handing off');
+      console.log('[LUXX_HANDOFF] probe done; handing off before analysis');
       return {job:await setJob(job_id,{}),asset,continued:true};
     }
     const analysis=cached
@@ -130,7 +131,7 @@ export async function processVideoJob(job_id){
     const plan=(cached&&cached.plan)?cached.plan:choosePlan(meta.duration,analysis);
     asset.analysis={duration_seconds:meta.duration,width:meta.width,height:meta.height,scene_changes:(analysis.sceneTimes||[]).length,scene_times:analysis.sceneTimes||[],bad_ranges:analysis.bad,silence_ranges:analysis.silence,plan,analyzed_master_sha256:asset.master_sha256,analysis_reused:!!cached,analyze_path:analysis.analyze_path||null,method:'FFmpeg technical heuristic: scene activity with black/freeze/silence penalties; no semantic desire/attractiveness claim'};
     await assets.setJSON('assets/'+asset.asset_id+'.json',asset);
-    await setJob(job_id,{progress:40,plan});
+    await setJob(job_id,{progress:40,plan,stage:'RENDER'});
     const targets=[{id:'FULL-MASTER',label:'FULL_MASTER',start:plan.full_master.start,duration:plan.full_master.duration},...plan.teasers.map((t,i)=>({id:'TEASER-'+(i+1),label:'TEASER',start:t.start,duration:t.duration}))];
     const done=new Set(job.completed_variants||[]);
     const managed=new Set(['FULL-MASTER','MAIN-CUT','TEASER-1','TEASER-2','TEASER-3','TEASER-4']);
@@ -141,7 +142,7 @@ export async function processVideoJob(job_id){
         await setJob(job_id,{progress:62+Math.round((i+1)/targets.length*30),resumed_variant:t.id});
         continue;
       }
-      if(budgetSpent()){
+      if(budgetSpent()&&done.size>0){
         await setJob(job_id,{status:'CONTINUE',progress:62+Math.round(i/targets.length*30),stage:'RENDER',completed_variants:[...done],note:'Time budget spent after '+done.size+' of '+targets.length+' variants.'});
         console.log('[LUXX_HANDOFF] budget spent before '+t.id+'; handing off with '+done.size+' of '+targets.length+' complete');
         return {job:await setJob(job_id,{}),asset,continued:true};
@@ -151,7 +152,7 @@ export async function processVideoJob(job_id){
       asset.variants=[...(asset.variants||[]).filter(x=>!managed.has(x.variant_id)),...variants];
       await assets.setJSON('assets/'+asset.asset_id+'.json',asset);
       done.add(t.id);
-      await setJob(job_id,{progress:62+Math.round((i+1)/targets.length*30),completed_variants:[...done]});
+      await setJob(job_id,{progress:62+Math.round((i+1)/targets.length*30),completed_variants:[...done],stage:'RENDER'});
     }
     const main=variants.find(v=>v.variant_id==='FULL-MASTER')||variants.find(v=>v.variant_id==='MAIN-CUT')||variants[0];
     asset.variants=[...(asset.variants||[]).filter(v=>!managed.has(v.variant_id)),...variants];
