@@ -1,0 +1,1299 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>LUXX Hosted Integrated Pilot</title><style>
+:root{--bg:#f5efe7;--paper:#fffaf4;--ink:#241a1d;--muted:#6f6266;--wine:#6e1835;--wine2:#8c2747;--line:#decfd1;--ok:#246b4a;--hold:#9a2d2d;--warn:#9b6512;--shadow:0 12px 28px rgba(46,25,31,.08)}*{box-sizing:border-box}body{margin:0;background:linear-gradient(#f8f3ed,#f3ece4);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}button,input,select,textarea{font:inherit}.app{max-width:1120px;margin:auto;padding:18px 16px 80px}.top{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}.brand h1{font:700 30px Georgia,serif;color:var(--wine);letter-spacing:.08em;margin:0}.version{font-size:11px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.08em}.nav{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;padding:6px;border:1px solid var(--line);border-radius:15px;background:#fffaf4e8;position:sticky;top:6px;z-index:10;box-shadow:var(--shadow);margin:18px 0}.nav button{border:0;background:transparent;border-radius:10px;padding:12px;font-weight:900;letter-spacing:.06em;color:var(--muted)}.nav button.active{background:var(--wine);color:white}.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow);margin:14px 0}.eyebrow{font-size:11px;font-weight:900;letter-spacing:.12em;color:var(--wine);text-transform:uppercase}h2{font:700 34px Georgia,serif;margin:5px 0 10px}h3{font:700 23px Georgia,serif;margin:8px 0}.sub,.tiny{color:var(--muted);line-height:1.45}.tiny{font-size:12px}.pill{display:inline-block;border:1px solid;border-radius:999px;padding:6px 9px;font-size:11px;font-weight:900;letter-spacing:.05em}.ready{color:var(--ok);background:#eef8f3;border-color:#a9d6c1}.hold{color:var(--hold);background:#fff1f1;border-color:#e2bcbc}.needed{color:var(--warn);background:#fff8e9;border-color:#e5d0a8}.primary,.secondary,.danger{border-radius:11px;padding:10px 14px;font-weight:900;cursor:pointer}.primary{border:0;background:var(--wine);color:white}.secondary{border:1px solid var(--wine);background:transparent;color:var(--wine)}.danger{border:1px solid #c58d8d;background:#fff7f7;color:#8d2222}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.grid{display:grid;gap:12px}.two{grid-template-columns:repeat(2,minmax(0,1fr))}.media{display:grid;grid-template-columns:110px 1fr auto;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);align-items:center}.thumb{width:110px;height:82px;border-radius:12px;background:#eadfe1;display:flex;align-items:center;justify-content:center;overflow:hidden;font-weight:900;color:var(--wine)}.thumb img,.thumb video{width:100%;height:100%;object-fit:contain;background:#eadfe1}.banner{border:1px solid #ddc6ad;background:#fff8ec;border-radius:12px;padding:12px;color:#72511d;font-size:13px;margin:12px 0}.ctaOption{border-top:1px solid rgba(255,255,255,.08);padding:8px 0}.ctaOption:first-of-type{border-top:0}.ctaSelected{background:rgba(110,24,52,.18);border-radius:10px;padding:8px 10px}.ctaMark{font-weight:700;letter-spacing:.04em;font-size:11px;opacity:.9}.usePlan{border:1px solid #d8bcc7;background:#fff7f9;border-radius:12px;padding:11px 12px;margin-top:10px}.usePlan b{color:var(--wine)}.usePlan .line{margin-top:4px;font-size:12px;line-height:1.4}.usePlan .block{color:var(--warn)}.success{border-color:#afd5c3;background:#eff8f4;color:#285f49}.dangerBanner{border-color:#e1b9b9;background:#fff1f1;color:#8f3030}.modalBack{position:fixed;inset:0;background:#241a1dcc;z-index:100;display:flex;align-items:flex-start;justify-content:center;padding:4vh 12px;overflow:auto}.modal{width:min(820px,100%);background:var(--paper);border-radius:20px;padding:20px}.modalHead{display:flex;justify-content:space-between;gap:12px}.close{border:0;background:transparent;font-size:25px}.form label{display:block;font-size:11px;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:10px 0 5px}.form input,.form textarea,.form select{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px;background:#fff}.checks{display:flex;flex-wrap:wrap;gap:8px}.checks label{border:1px solid var(--line);border-radius:999px;padding:7px 10px;text-transform:none;letter-spacing:0}.row{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.tabs{display:flex;gap:6px;flex-wrap:wrap}.tabs button{border:0;background:transparent;border-bottom:3px solid transparent;padding:9px;font-weight:900;color:var(--muted)}.tabs .active{color:var(--wine);border-color:var(--wine)}.login{min-height:100vh;display:grid;place-items:center;padding:18px}.login .card{max-width:460px;width:100%}.hidden{display:none!important}.filterbar{display:flex;gap:8px;flex-wrap:wrap;align-items:end}.filterbar>div{min-width:130px;flex:1}.filterbar input,.filterbar select{width:100%;padding:9px;border:1px solid var(--line);border-radius:10px;background:#fff}.kv{display:grid;grid-template-columns:160px 1fr;gap:8px 14px;padding:7px 0;border-bottom:1px solid var(--line)}.kv b{font-size:12px;color:var(--muted);text-transform:uppercase}.progress{height:10px;background:#eadfe1;border-radius:99px;overflow:hidden}.progress i{display:block;height:100%;background:var(--wine)}button:disabled{opacity:.45;cursor:not-allowed}@media(max-width:720px){.two{grid-template-columns:1fr}.media{grid-template-columns:78px 1fr}.thumb{width:78px;height:68px}.media>div:last-child{grid-column:1/-1}.app{padding:12px 12px 70px}h2{font-size:30px}.kv{grid-template-columns:1fr}.top{align-items:flex-start}}
+.mediaGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:14px}.mediaCard{background:var(--paper);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}.mediaHero{aspect-ratio:3/4;background:#eadfe1;display:block;position:relative;overflow:hidden;cursor:pointer;color:var(--wine);font-weight:900}.mediaHero img,.mediaHero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block}.mediaBody{padding:10px 11px}
+.mediaBody h4,.mediaBody .name{font-size:13px;line-height:1.3;margin:0}
+.gridLean .usePlan,.gridLean .banner{display:none}
+.gridLean .mediaBody{padding:8px 10px}
+.openBtn{width:100%;margin-top:8px;padding:10px 0;font-size:13px}.scoreBadge{font:700 28px Georgia,serif;color:var(--wine)}.heroStrip{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}.heroMini{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}.heroMini .heroMini .mediaBody{padding:10px}.resultStat{padding:14px;border:1px solid var(--line);border-radius:14px;background:#fff}.resultStat b{display:block;font-size:24px;color:var(--wine)}.learnList>div{padding:10px 0;border-bottom:1px solid var(--line)}.privacyMark{font-size:11px;color:var(--ok);font-weight:900}.pickRow{display:grid;grid-template-columns:96px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.pickRow:last-child{border-bottom:0}
+.pickThumb{width:96px;height:120px;border-radius:12px;overflow:hidden;background:#eadfe1;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.pickThumb img{width:100%;height:100%;object-fit:cover}
+.stamp{display:inline-block;border-radius:6px;padding:3px 8px;font-size:11px;font-weight:900;letter-spacing:.08em}
+.stampCall{background:#eef8f3;color:var(--ok);border:1px solid #a9d6c1}
+.stampGuess{background:#fff8e9;color:var(--warn);border:1px solid #e5d0a8}
+.jobCard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:var(--shadow);margin:12px 0}
+.jobTag{display:inline-block;border-radius:6px;padding:3px 9px;font-size:11px;font-weight:900;letter-spacing:.09em;color:#fff}
+.jobMONETIZE{background:var(--wine)}.jobACQUIRE{background:#2c5d7c}.jobLIVE{background:#7c4a86}.jobPRODUCE{background:#6f6266}
+.jobLabel{font-weight:800;margin-top:7px}
+.dayStrip{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.dayStrip button{border:1px solid var(--line);background:#fff;border-radius:9px;padding:7px 10px;font-weight:800;font-size:12px;color:var(--muted)}
+.dayStrip button.on{background:var(--wine);color:#fff;border-color:var(--wine)}
+.ckRow{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)}
+.ckRow.done{opacity:.55}
+.treatBlock{border:1px solid var(--line);border-radius:10px;padding:9px 11px;margin-top:8px;background:#fffdfa}
+.treatLine{font-weight:800;font-size:13px;margin-top:2px}
+.stampLine{margin-top:7px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.stampSubject{font-size:12px;color:var(--muted)}
+.pickWhy{font-size:13px;color:var(--muted);line-height:1.4;margin-top:5px}
+.pickWhere{font-weight:800;margin-top:4px}
+.promiseLine{font-size:12px;color:var(--muted);border-top:1px solid var(--line);margin-top:14px;padding-top:12px}
+@media(max-width:720px){.pickRow{grid-template-columns:72px 1fr;grid-template-areas:'thumb body' 'act act'}.pickThumb{width:72px;height:92px}}
+.cropChip{position:absolute;top:6px;left:6px;background:rgba(111,98,102,.88);color:#fff;border-radius:6px;padding:1px 5px;font-size:9px;line-height:14px;font-weight:600;white-space:nowrap;max-width:60%;overflow:hidden;text-overflow:ellipsis}.cropCard{opacity:.72;border-style:dashed}.optimizedBadge{position:absolute;top:6px;left:6px;background:rgba(36,107,74,.88);color:#fff;border-radius:6px;padding:1px 5px;font-size:9px;line-height:14px;font-weight:600;letter-spacing:.02em;white-space:nowrap;max-width:60%;overflow:hidden;text-overflow:ellipsis}.recommendedBadge{position:absolute;top:6px;right:6px;background:rgba(110,24,52,.88);color:#fff;border-radius:6px;padding:1px 5px;font-size:9px;line-height:14px;font-weight:600;letter-spacing:.02em;white-space:nowrap;max-width:52%;overflow:hidden;text-overflow:ellipsis}.mediaHero{position:relative}.variantGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:10px}.variantCard{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}.variantCard .variantCard .mediaBody{padding:12px}.scorePending{font-size:14px;font-weight:900;color:var(--muted)}@media(max-width:720px){.mediaGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.heroStrip{grid-template-columns:repeat(2,minmax(0,1fr))}.heroMini }
+.jobCard{background:var(--card,#FFFDF8);border:0.5px solid var(--line,#E5DCCF);border-radius:14px;overflow:hidden;margin-bottom:12px}
+.jobShot{width:100%;aspect-ratio:3/4;object-fit:contain;display:block;background:#EFE9E0}
+.jobNote{font-size:14px;color:#4A423A;margin-top:8px;line-height:1.55;white-space:pre-line}
+.jobShot.none{display:flex;flex-direction:column;text-align:center;padding:0 16px;align-items:center;justify-content:center;font-size:13px;color:#8A7F72}
+.jobBody{padding:13px 14px}
+.jobWhat{font-size:16px;font-weight:600;line-height:1.35}
+.jobWhere{font-size:13px;color:#7A6F63;margin-top:3px}
+.jobDone{margin-top:11px;display:flex;gap:8px}
+.jobDone button{flex:1;padding:14px 0;font-size:15px;font-weight:600;border-radius:10px;background:#6E1834;color:#FFFDF8;border:none}
+.jobDone .alt{background:transparent;color:#6E1834;border:0.5px solid #E5DCCF}
+.jobPrice{font-size:14px;font-weight:600;color:#6E1834;margin-top:6px}
+.jobShot.none{min-height:190px}
+.jobDone .alt{flex:0 0 auto;padding:13px 14px;font-size:13px;font-weight:500}
+.jobNum{margin-top:10px;display:flex;gap:8px;align-items:center}
+.jobNum input{flex:1;min-width:0;font-size:16px;padding:11px 12px;border-radius:10px;border:0.5px solid var(--line,#E5DCCF)}
+.jobNum label{font-size:12px;color:#7A6F63;flex:0 0 auto}
+.jobTick{font-size:13px;color:#0F6E56;font-weight:600;margin-top:10px}
+.dayHead{display:flex;justify-content:space-between;align-items:baseline;margin:12px 0}
+#view .banner{margin-top:12px}
+.dayHead .n{font-size:13px;color:#7A6F63}
+</style></head><body>
+<div id="login" class="login hidden"><div class="card"><div class="eyebrow">Private LUXX</div><h2>Open LUXX</h2><div id="loginMsg" class="sub">Enter the private pilot passcode.</div><div class="form"><label>Passcode</label><input id="pass" type="password"><div class="actions"><button id="loginBtn" class="primary">OPEN LUXX</button></div></div></div></div>
+<div id="shell" class="app hidden"><div class="top"><div class="brand"><h1>LUXX</h1><div class="version">v1.11.1 — Invoke · parent v1.2.1</div></div><div class="actions" style="margin-top:0"><button id="roleBtn" class="secondary">ROLE</button><button id="setupBtn" class="secondary">SETUP</button></div></div><nav class="nav"><button data-view="today" class="active">TODAY</button><button data-view="library">LIBRARY</button><button data-view="results">RESULTS</button></nav><main id="view"></main></div><div id="modal"></div>
+<script>
+const safeStore={get(k){try{return localStorage.getItem(k)}catch{return null}},set(k,v){try{localStorage.setItem(k,v)}catch{}}};
+const API='/api',CHUNK=3500000,PLATFORMS=['X','Pornhub','OnlyFans Free','OnlyFans Paid','ManyVids','Fansly','Chaturbate'],OPERATOR_ROLES=['Creator','Executive Producer'];let state=null,assets=[],reports=null,todayList=null,todayPlan=null,checklist=null,view='today',libtab='media',recommendation=null,poll=null,filters={q:'',type:'ALL',availability:'ALL',platform:'ALL'},operatorRole=safeStore.get('luxx_operator_role')||'Creator';const privacyStarted=new Set(),staleRetried=new Map(),scoringInFlight=new Set();let scoringRunner=false,uploadFailures=[],repairContext=null,suggestedPlan=null,currentCutAsset=null;
+const esc=s=>String(s??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#039;','"':'&quot;'}[c]));const money=n=>n==null||n===''?'—':new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(Number(n)||0);const uid=p=>`${p}-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2,8).toUpperCase()}`;const fmt=x=>x?new Date(x).toLocaleString():'—';
+async function api(path,opt={}){const r=await fetch(API+path,{credentials:'same-origin',...opt,headers:{...(opt.headers||{})}});const text=await r.text();let j=null;try{j=text?JSON.parse(text):null}catch{}if(!r.ok)throw new Error(j?.error||text||`Request failed ${r.status}`);return j||{ok:true}}
+async function command(op,payload={},retry=true){payload={...payload,operator_role:operatorRole};const body={op,payload,expected_rev:state?.rev};
+  try{const r=await api('/action',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});state=r.state||state;return r.result}
+  catch(e){
+    // Another tab or a background repair wrote first. Reload the ledger and try once more,
+    // rather than silently overwriting the other write as v1.4.6 did.
+    if(retry&&/STATE_CONFLICT/.test(String(e.message||''))){const s2=await api('/state');state=s2.state;return command(op,payload,false)}
+    throw e
+  }}
+async function boot(){try{syncRoleBtn();const s=await api('/session');if(!s.configured)return showLogin('Hosting is deployed but private configuration is missing.');if(!s.authenticated)return showLogin();await load();document.getElementById('shell').classList.remove('hidden');document.getElementById('login').classList.add('hidden');render();startPoll()}catch(e){showLogin('Could not reach LUXX: '+e.message)}}
+function showLogin(msg){document.getElementById('login').classList.remove('hidden');document.getElementById('shell').classList.add('hidden');if(msg)document.getElementById('loginMsg').textContent=msg}
+document.getElementById('loginBtn').onclick=async()=>{try{await api('/login',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({passcode:document.getElementById('pass').value})});await boot()}catch(e){document.getElementById('loginMsg').textContent=e.message}};
+function syncRoleBtn(){const b=document.getElementById('roleBtn');if(b)b.textContent=operatorRole.toUpperCase()}function openRole(){modal('Who is using LUXX?',`<div class="banner">Both roles have identical powers. The label is recorded only so LUXX knows who completed an action.</div><div class="form"><label>Current operator</label><select id="operatorRole">${OPERATOR_ROLES.map(r=>`<option ${operatorRole===r?'selected':''}>${esc(r)}</option>`).join('')}</select><div class="actions"><button class="primary" onclick="saveRole()">USE THIS ROLE</button></div></div>`)}function detectTz(){try{const z=Intl.DateTimeFormat().resolvedOptions().timeZone;const sel=document.getElementById('tzSel');if(!sel)return;if(![...sel.options].some(o=>o.value===z))sel.add(new Option(z,z));sel.value=z}catch{alert('Could not detect a timezone on this device.')}}
+async function saveTz(){try{await api('/settings',{method:'PUT',headers:{'content-type':'application/json'},body:JSON.stringify({creatorTimezone:document.getElementById('tzSel').value})});closeModal();await load();render()}catch(e){alert(e.message)}}
+function saveRole(){operatorRole=document.getElementById('operatorRole').value;safeStore.set('luxx_operator_role',operatorRole);syncRoleBtn();closeModal();render()}document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>{view=b.dataset.view;document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x===b));render()});document.getElementById('setupBtn').onclick=openSetup;document.getElementById('roleBtn').onclick=openRole;syncRoleBtn();
+// SINGLE source of truth for reading the Library. Everything that refreshes assets must call
+// this. A previous build paginated /assets but left the 4s poll fetching only the first page
+// and assigning it over the whole in-memory list, which silently truncated the Library to 120.
+let libSignature=null;
+async function fetchAllAssets(){
+  let out=[],cursor=0,guard=0,total=null;
+  while(guard++<60){
+    const a=await api(`/assets?limit=120&cursor=${cursor}`);
+    total=a.total;
+    out=out.concat(a.assets||[]);
+    if(a.next_cursor==null||!(a.assets||[]).length)break;
+    cursor=a.next_cursor;
+  }
+  // The server pages in a stable key order; display order is the client's job.
+  out.sort((x,y)=>new Date(y.uploaded_at||0)-new Date(x.uploaded_at||0));
+  // Hard invariant: what we hold must equal what the server has. If it does not, an asset
+  // vanished without a delete, which is the exact v1.4.7 failure. Surface it, never hide it.
+  if(total!=null&&out.length!==total)console.error(`LUXX LIBRARY MISMATCH: holding ${out.length}, server has ${total}`);
+  return out;
+}
+
+
+let consentSynced=false;
+async function syncLibraryConsent(){
+  if(consentSynced)return; consentSynced=true;
+  const stale=(assets||[]).filter(a=>a.authorization_status!=='AUTHORIZED'
+    &&a.availability!=='QUARANTINED'&&a.status!=='PROCESSING_FAILED');
+  if(!stale.length)return;
+  try{
+    for(let i=0;i<stale.length;i+=150)
+      await api('/asset-batch-update',{method:'POST',headers:{'content-type':'application/json'},
+        body:JSON.stringify({asset_ids:stale.slice(i,i+150).map(a=>a.asset_id),
+          authorization_status:'AUTHORIZED',availability:'AVAILABLE'})});
+    assets=await fetchAllAssets();
+    if(view==='library')render();
+  }catch{consentSynced=false;}
+}
+
+
+async function ensureScansForToday(){
+  const need=(assets||[]).filter(a=>a.media_type==='IMAGE'
+    && a.authorization_status==='AUTHORIZED' && a.availability!=='QUARANTINED'
+    && !(a.variants||[]).some(v=>v.privacy_safe_export===true));
+  if(!need.length)return 0;
+  // Enough to fill the day, not the whole library. The background sweep still handles
+  // the rest; this is only so TODAY has something to attach right now.
+  const batch=need.slice(0,12);
+  let done=0;
+  for(let i=0;i<batch.length;i+=4){
+    await Promise.all(batch.slice(i,i+4).map(a=>
+      api('/privacy-audit',{method:'POST',headers:{'content-type':'application/json'},
+        body:JSON.stringify({asset_id:a.asset_id})}).then(()=>{done++}).catch(()=>{})));
+  }
+  if(done)assets=await fetchAllAssets();
+  return done;
+}
+
+async function refreshToday(){
+  try{
+    // Make sure the day has usable media before asking the app to attach any.
+    const needFile=(state.tasks||[]).some(t=>t.date===new Date().toISOString().slice(0,10)&&t.needs_file!==false);
+    if(needFile)await ensureScansForToday();
+    let sheet=null;
+    if((state.tasks||[]).length){
+      const resp=await fetch('/config/LUXX001_HOLD_SHEET_28DAY.json',{cache:'no-store'});
+      if(resp.ok)sheet=await resp.json();
+    }
+    const r=await api('/action',{method:'POST',headers:{'content-type':'application/json'},
+      body:JSON.stringify({op:'TODAY_TASKS',payload:sheet?{sheet}:{}})});
+    state.today_tasks=(r&&r.result&&r.result.tasks)||[];
+    state.today_bind_error=null;
+  }catch(e){state.today_tasks=state.today_tasks||[];state.today_bind_error=String(e&&e.message||e).slice(0,200);}
+  if(view==='today')render();
+}
+
+async function load(){const s=await api('/state');state=s.state;assets=await fetchAllAssets();
+try{libSignature=(await api('/assets-index')).signature}catch{libSignature=null}try{reports=await command('REPORTS')}catch{reports=null}
+  try{recommendation=await command('RECOMMEND')}catch{recommendation=null}try{todayList=await command('TODAY_LIST',{limit:5})}catch{todayList=null}try{todayPlan=await command('TODAY_PLAN',{})}catch{todayPlan=null}try{checklist=await command('CHECKLIST')}catch{checklist=null}setTimeout(runBackgroundRepairs,20);setTimeout(()=>{refreshToday();syncLibraryConsent().catch(()=>{})},0)}
+async function runBackgroundRepairs(){for(const a of assets){const safe=(a.variants||[]).some(v=>v.privacy_safe_export===true&&v.metadata_stripped===true);if(a.media_type==='IMAGE'&&!safe&&['SCAN_REQUIRED','PRIVACY_SCAN_REQUIRED'].includes(a.privacy?.status||'SCAN_REQUIRED')&&!privacyStarted.has(a.asset_id)){privacyStarted.add(a.asset_id);fetch(API+'/privacy-audit',{method:'POST',credentials:'same-origin',headers:{'content-type':'application/json'},body:JSON.stringify({asset_id:a.asset_id})}).catch(()=>privacyStarted.delete(a.asset_id));}// A staged job stops on its time budget, saves progress, and reports CONTINUE. It must be
+// resumed even though it has already rendered variants, and more than once: a long video
+// legitimately needs several invocations. Capped per asset so a broken file cannot loop.
+if(a.media_type==='VIDEO'&&a.processing_job?.stale&&(a.processing_job?.handed_off||(a.variants||[]).length===0)&&a.renderer_recovery_version!=='1.3.6'&&(staleRetried.get(a.asset_id)||0)<6){staleRetried.set(a.asset_id,(staleRetried.get(a.asset_id)||0)+1);try{
+      // Resume the job that already exists. Minting a new one abandons whatever the
+      // renderer produced and points the asset at a job nobody started.
+      let job_id=(a.processing_job&&a.processing_job.job_id)||a.job_id||null;
+      const jobFailed=a.processing_job&&a.processing_job.status==='FAILED';
+      if(!job_id||jobFailed){
+        const j=await api('/start-media-job',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({asset_id:a.asset_id,kind:'AUTO_VIDEO',reason:'RESUME_AFTER_FAILURE'})});
+        job_id=j.job.job_id;
+      }
+      await api('/kick-media-job',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({job_id})});
+    }catch{staleRetried.delete(a.asset_id);}}}}
+function page(k,t,sub=''){return `<div class="eyebrow">${k}</div><h2>${t}</h2><div class="sub">${sub}</div>`}function render(){if(view==='library'){renderLibrary();queueVisualScoring()}else if(view==='results')renderResults();else renderToday()}
+function modal(title,body){document.getElementById('modal').innerHTML=`<div class="modalBack"><div class="modal"><div class="modalHead"><div><div class="eyebrow">LUXX</div><h3>${esc(title)}</h3></div><button class="close" onclick="closeModal()">×</button></div>${body}</div></div>`}function closeModal(){document.getElementById('modal').innerHTML=''}
+function pill(s){const c=['APPROVED','READY','READY_FOR_REVIEW','VERIFIED','ACTIVE','MEASURED','COMPLETE'].includes(s)?'ready':['DECLINED','NOT_AUTHORIZED','QUARANTINED','FAILED','UNAVAILABLE'].includes(s)?'hold':'needed';return `<span class="pill ${c}">${esc(s)}</span>`}
+// Every ready-to-use caption is switchable in place. RC2 showed the alternates as plain
+// text and made the creator go through the generic CHANGE form to use one, which is why
+// she never used them. Each option now carries its own COPY and its own USE THIS CTA,
+// and the selected one is marked. Selecting an alternate goes through the existing
+// prescription revision model, so history stays truthful.
+function ctaChoices(x){
+  const a=(x?.cta_options||x?.cta?.options||[]).filter(Boolean).slice(0,3);
+  if(!a.length)return '';
+  const current=x?.cta||a[0];
+  const idx=a.indexOf(current);
+  const selected=idx>=0?idx:(Number.isInteger(x?.cta_selected_index)?x.cta_selected_index:0);
+  const rx=x?.prescription_id||'';
+  const rows=a.map((v,i)=>{
+    const isSel=i===selected;
+    const q=JSON.stringify(v).replace(/"/g,'&quot;');
+    return `<div class="ctaOption${isSel?' ctaSelected':''}">`
+      +`<div class="line"${isSel?' id="todayCaption"':''}>${isSel?'<span class="ctaMark">\u2713 SELECTED CTA</span> ':`<span class="tiny">OPTION ${i+1}</span> `}<strong>${esc(v)}</strong></div>`
+      +`<div class="actions">`
+      +`<button class="secondary" data-cta-copy="${i}" onclick="copyCaption(${q})">COPY</button>`
+      +(isSel?'':`<button class="primary" data-cta-use="${i}" onclick="useCta('${esc(rx)}',${i})">USE THIS CTA</button>`)
+      +`</div></div>`;
+  }).join('');
+  return `<div class="usePlan"><b>READY-TO-USE CAPTIONS / CTAs</b>`
+    +`<div class="tiny">Tap USE THIS CTA to switch. COPY copies only that caption. Captions are starting options, not ranked by results.</div>`
+    +rows
+    +`</div>`;
+}
+// Selecting an alternate caption creates a truthful revision through the existing
+// CHANGE path. The previous line is preserved as REVISED; nothing is overwritten.
+async function useCta(prescription_id,index){
+  if(!prescription_id)return;
+  try{await command('CTA_SELECT',{prescription_id:prescription_id,cta_index:index});await load();render()}
+  catch(e){alert(e.message)}
+}
+
+// The operator never has to remember which tracker belongs to which placement.
+function routeBlockHtml(l){
+  if(!l||!l.route_id)return '';
+  const st=String(l.route_state||'');
+  const cls=st==='ACTIVE'?'success':'';
+  const url=l.tracking_url?`<div class="kv"><b>Tracking link</b><div class="mono">${esc(l.tracking_url)}`
+      +` <button class="secondary" onclick="copyTracking(${JSON.stringify(l.tracking_url).replace(/"/g,'&quot;')})">COPY LINK</button></div></div>`
+    :`<div class="kv"><b>Tracking link</b><div>Native measurement — there is no outbound link to place.</div></div>`;
+  const steps=(l.route_activation_steps||[]).length
+    ? `<div class="banner dangerBanner"><strong>NOT LIVE YET.</strong> ${esc((l.route_activation_steps||[]).join(' '))}</div>` : '';
+  return `<div class="usePlan"><b>ROUTE</b>`
+    +`<div class="kv"><b>Route</b><div>${esc(l.route_id)} · <span class="${cls}">${esc(st)}</span></div></div>`
+    +`<div class="kv"><b>Placement</b><div>${esc(l.platform||'')} ${esc(l.placement_label||'—')}</div></div>`
+    +url+steps
+    +`<div class="tiny">${esc(l.route_note||'')}</div>`
+    +((l.required_result_fields||[]).length?`<div class="tiny">Result fields to record: ${esc((l.native_result_fields&&l.native_result_fields.length?l.native_result_fields:l.required_result_fields).join(', '))}. Blank stays unknown.</div>`:'')
+    +`</div>`;
+}
+async function copyTracking(url){try{await navigator.clipboard.writeText(url);alert('Tracking link copied.')}catch{alert('Copy failed. Select the link and copy it manually.')}}
+
+// ---- Variable-length suggested cut -------------------------------------------------
+async function copyCaption(text){try{await navigator.clipboard.writeText(text);alert('Caption copied.')}catch{alert('Copy failed. Select the caption text and copy it manually.')}}
+function openSuggestedCut(aid){
+  const a=assets.find(x=>x.asset_id===aid);if(!a)return;
+  currentCutAsset=aid;
+  const secs=Number(a.analysis?.duration_seconds||0);
+  suggestedPlan=null;
+  modal('Suggested cut',`<div class="form">`
+    +`<div class="banner">Source: ${esc(a.name||aid)} · ${esc(fmtDur(secs))}. The full master is never changed.</div>`
+    +`<label>Target length (MM:SS or H:MM:SS)</label><input id="cutTarget" placeholder="4:30">`
+    +`<div class="tiny">Any length up to the source. LUXX will not loop or pad footage.</div>`
+    +`<div class="actions"><button id="genCutBtn" class="primary" onclick="generateSuggestedCut('${aid}')">GENERATE SUGGESTED CUT</button></div>`
+    +`<div id="cutOut"></div></div>`);
+}
+function fmtDur(s){s=Math.max(0,Number(s)||0);const h=Math.floor(s/3600),m=Math.floor((s%3600)/60),r=Math.round(s%60);return (h?h+':'+String(m).padStart(2,'0'):String(m))+':'+String(r).padStart(2,'0')}
+async function generateSuggestedCut(aid){
+  const t=(document.getElementById('cutTarget')||{}).value||'';
+  try{
+    suggestedPlan=await command('SUGGEST_CUT',{asset_id:aid,target:t});
+    renderCutPlan(aid);
+  }catch(e){const o=document.getElementById('cutOut');if(o)o.innerHTML='<div class="banner dangerBanner">'+esc(e.message)+'</div>'}
+}
+function renderCutPlan(aid){
+  const o=document.getElementById('cutOut');if(!o||!suggestedPlan)return;
+  const p=suggestedPlan;
+  o.innerHTML=`<div class="usePlan"><b>${esc(p.label)}</b>`
+    +`<div class="kv"><b>Target</b><div>${esc(fmtDur(p.target_seconds))} (${p.target_seconds}s)</div></div>`
+    +`<div class="kv"><b>Planned</b><div>${esc(fmtDur(p.planned_seconds))} (${p.planned_seconds}s) from ${p.segment_count} segment(s)</div></div>`
+    +p.segments.map((sg,i)=>`<div class="ctaOption"><div class="line"><strong>Segment ${i+1}</strong> ${esc(fmtDur(sg.start))} → ${esc(fmtDur(sg.end))} (${sg.duration}s)</div>`
+      +`<div class="actions"><button class="secondary" data-seg-remove="${i}" onclick="removeCutSegment(${i})">REMOVE</button>`
+      +`<button class="secondary" data-seg-up="${i}" onclick="moveCutSegment(${i},-1)">EARLIER</button>`
+      +`<button class="secondary" data-seg-down="${i}" onclick="moveCutSegment(${i},1)">LATER</button></div></div>`).join('')
+    +`<div class="tiny">${esc(p.disclosure)}</div>`
+    +`<div class="tiny">Method: ${esc(p.method)}</div>`
+    +`<div class="actions"><button class="primary" onclick="saveSuggestedCut('${aid}')">SAVE SUGGESTED CUT</button>`
+    +`<button class="secondary" onclick="generateSuggestedCut('${aid}')">REGENERATE</button></div></div>`;
+}
+function removeCutSegment(i){if(!suggestedPlan)return;suggestedPlan.segments.splice(i,1);
+  suggestedPlan.segment_count=suggestedPlan.segments.length;
+  suggestedPlan.planned_seconds=Number(suggestedPlan.segments.reduce((a,x)=>a+x.duration,0).toFixed(3));
+  renderCutPlan(currentCutAsset)}
+function moveCutSegment(i,dir){if(!suggestedPlan)return;const j=i+dir;if(j<0||j>=suggestedPlan.segments.length)return;
+  const t=suggestedPlan.segments[i];suggestedPlan.segments[i]=suggestedPlan.segments[j];suggestedPlan.segments[j]=t;
+  renderCutPlan(currentCutAsset)}
+async function saveSuggestedCut(aid){
+  if(!suggestedPlan||!suggestedPlan.segments.length){alert('Generate a cut first.');return}
+  try{
+    await api('/image-edit',{method:'POST',headers:{'content-type':'application/json'},
+      body:JSON.stringify({asset_id:aid,video:true,source_variant_id:'FULL-MASTER',
+        recipe:{segments:suggestedPlan.segments,cut_kind:'SUGGESTED',cut_label:suggestedPlan.label,
+          cut_method:suggestedPlan.method,target_seconds:suggestedPlan.target_seconds}})});
+    closeModal();await load();render();
+  }catch(e){alert(e.message)}
+}
+
+
+
+
+// Everything the job recorded about why it stopped, in the order it happened. A video
+// that sits at PROCESSING has a reason stored against it; hiding that reason is what
+// turned every stall into an archaeology exercise in the platform logs.
+function jobDiagnosticHtml(a){
+  const j=a.processing_job; if(!j)return esc(a.processing_error||'');
+  const bits=[];
+  if(j.stage)bits.push('Stage: '+esc(j.stage));
+  if(j.note)bits.push(esc(j.note));
+  if(j.trigger_error)bits.push('Could not start the renderer: '+esc(j.trigger_error));
+  else if(j.trigger_http_status&&j.trigger_http_status>=400)bits.push('Renderer rejected the job (HTTP '+j.trigger_http_status+')');
+  const err=j.error||a.processing_error;
+  if(err)bits.push('Error: '+esc(String(err).slice(0,400)));
+  if((j.completed_variants||[]).length)bits.push(j.completed_variants.length+' of the derivatives finished');
+  if(j.stale)bits.push('No progress for '+Math.round((j.age_ms||0)/60000)+' minutes. LUXX will retry it.');
+  else if(j.triggered_at)bits.push('Started '+esc(fmt(j.triggered_at)));
+  else if(j.trigger_requested_at&&!j.triggered_at)bits.push('Asked the renderer to start but never heard back.');
+  if(Number(j.trigger_attempts||0)>1)bits.push(j.trigger_attempts+' attempts so far');
+  return bits.join('<br>');
+}
+
+function processingHtml(a){if(a.media_type!=='VIDEO')return '';const j=a.processing_job,pct=Math.max(0,Math.min(100,Number(j?.progress||0))),label=a.status==='READY_FOR_REVIEW'?(a.authorization_status==='AUTHORIZED'?'READY TO USE':'NEEDS AUTHORIZING'):j?.status==='RUNNING'?`PROCESSING ${pct}%`:j?.status==='QUEUED'?'QUEUED FOR PROCESSING':a.status==='PROCESSING_FAILED'?'PROCESSING FAILED':a.status==='PROCESSING_REQUIRED'?'PROCESSING REQUIRED':'VIDEO STATUS '+String(a.status||'UNKNOWN');return `<div class="banner ${a.status==='PROCESSING_FAILED'?'dangerBanner':a.status==='READY_FOR_REVIEW'?'success':''}"><strong>${esc(label)}</strong>${a.status!=='READY_FOR_REVIEW'?`<div class="progress"><i style="width:${pct}%"></i></div>`:''}<div class="tiny">${jobDiagnosticHtml(a)}</div></div>`}
+function usePlanHtml(a){const p=a.destination_plan;if(!p)return `<div class="usePlan"><b>LUXX USE PLAN</b><div class="line">Analyzing destination plan…</div></div>`;const blocks=(p.blockers||[]),operational=String(p.confidence||'').startsWith('OPERATIONAL PRIOR'),eligible=(p.eligible_platforms||[]).join(', ')||'—';return `<div class="usePlan"><b>LUXX USE PLAN</b>${operational?`<div class="line"><strong>Eligible destinations:</strong> ${esc(eligible)}</div><div class="line"><strong>Destination:</strong> Not chosen from image quality alone — TODAY prescription decides placement using route/readiness and measured results.</div>`:`<div class="line"><strong>Current primary:</strong> ${esc(p.primary||'HOLD')} &nbsp; <strong>Alternates:</strong> ${esc((p.secondary||[]).join(', ')||'—')}</div>`}<div class="line"><strong>Funnel:</strong> ${esc(p.funnel_role||'—')}</div><div class="line"><strong>Confidence:</strong> ${esc(p.confidence||p.basis||'—')}</div>${blocks.length?`<div class="line block"><strong>Before posting:</strong> ${blocks.map(esc).join(' · ')}</div>`:''}</div>`}
+function todayImage(asset_id,variant_id){
+  const a=assets.find(x=>x.asset_id===asset_id);if(!a)return '';
+  const v=(a.variants||[]).find(x=>x.variant_id===variant_id);
+  const k=v?.thumbnail_key||a.thumbnail_key;
+  return k?'/api/media-chunk?key='+encodeURIComponent(k):'';
+}
+function todayDestination(platform,route_id){
+  const r=(state.routes||[]).find(x=>x.route_id===route_id);
+  if(!r)return `Post to ${esc(platform)}`;
+  const place=String(placementLabel(r)).toLowerCase();
+  return r.attribution_scope==='INTERNAL'
+    ? `Post to <b>${esc(platform)}</b> — ${esc(place)}`
+    : `Post to <b>${esc(platform)}</b> — ${esc(place)}, linking to ${esc(r.destination)}`;
+}
+// One line, true at every sample size. The creator should never be shown a raw candidate score.
+function todayWhy(n,object){
+  n=Number(n||0);
+  if(String(object||'ASSET').toUpperCase()==='TREATMENT'){
+    // The buyer pays before seeing the file. Evidence names the treatment, never the master.
+    if(!n)return 'First time LUXX has measured this pre-purchase treatment. Sending it starts measurement.';
+    if(n<6)return `${n} comparable measured send${n===1?'':'s'} for this pre-purchase treatment so far — too few to compare treatments yet.`;
+    if(n<16)return `Early signal from ${n} comparable measured sends for this pre-purchase treatment.`;
+    return `Your strongest pre-purchase treatment here across ${n} comparable measured sends. This is evidence about the treatment, not about the hidden file.`;
+  }
+  if(!n)return 'First time LUXX has used this photo. Posting it starts measurement.';
+  if(n<6)return `${n} measured result${n===1?'':'s'} on this photo so far — too few to compare photos yet.`;
+  if(n<16)return `Early signal from ${n} measured results on this photo.`;
+  return `Your strongest option here across ${n} measured results.`;
+}
+function todayDetails(rows){
+  return `<details><summary class="tiny">Details / Advanced</summary>${rows.filter(([,v])=>v!=null&&v!=='').map(([k,v])=>`<div class="kv"><b>${k}</b><div>${esc(v)}</div></div>`).join('')}</details>`;
+}
+function todayCard(o){
+  const img=todayImage(o.asset_id,o.variant_id);
+  return `<div class="card"><div class="eyebrow">${o.eyebrow}</div>
+    ${img?`<div class="mediaHero" style="height:300px;border-radius:14px;overflow:hidden;margin-bottom:12px" onclick="openMediaViewer('${o.asset_id}','${o.variant_id||''}')"><img src="${img}" alt=""></div>`:''}
+    <h3>${todayDestination(o.platform,o.route_id)}</h3>
+    ${o.cta_html}
+    <div class="kv"><b>When</b><div>${esc(o.posting_window||'—')}</div></div>
+    <div class="kv"><b>Why this one</b><div>${esc(todayWhy(o.n_own,o.evidence_object))}</div></div>
+    ${o.blockers&&o.blockers.length?`<div class="banner"><strong>Before posting:</strong> ${o.blockers.map(esc).join(' · ')}</div>`:''}
+    <div class="actions">${o.buttons}</div>
+    ${todayDetails(o.detailRows)}
+  </div>`;
+}
+function stampHtml(l){
+  const cls=l.stamp==='CALL'?'stampCall':'stampGuess';
+  return `<span class="stamp ${cls}">${l.stamp}</span>`;
+}
+function pickRowHtml(l){
+  const img=todayImage(l.asset_id,l.variant_id);
+  const where=l.destination&&l.destination!==l.platform&&!/^Native/i.test(l.destination)
+    ? `${esc(l.platform)} — ${esc(String(PLACEMENT_LABEL[l.placement]||l.placement||'post').toLowerCase())}, linking to ${esc(l.destination)}`
+    : `${esc(l.platform)} — ${esc(String(PLACEMENT_LABEL[l.placement]||l.placement||'post').toLowerCase())}`;
+  return `<div class="pickRow">
+    <div class="pickThumb" onclick="openMediaViewer('${l.asset_id}','${l.variant_id||''}')">${img?`<img src="${img}" alt="">`:(l.media_type==='VIDEO'?'VIDEO':'IMAGE')}</div>
+    <div>
+      <div class="tiny">PHOTO</div><b>${esc(l.asset_name)}</b>
+      <div class="pickWhere">${where}</div>
+      ${l.stamp_object==='TREATMENT'&&l.treatment_label?`<div class="treatBlock"><div class="tiny">PRE-PURCHASE TREATMENT</div><div class="treatLine">${esc(l.treatment_label)}</div><div class="stampLine">${stampHtml(l)} <span class="stampSubject">${esc(l.treatment_label)}</span></div></div>`:`<div class="stampLine">${stampHtml(l)} <span class="stampSubject">${esc(l.stamp_subject||'')}</span></div>`}
+      <div class="pickWhy">${esc(l.why)}</div>
+      <details><summary class="tiny">Caption and details</summary>
+        <div class="line"><strong>Caption:</strong> ${esc(l.cta)}</div>
+        <div class="actions"><button class="secondary" onclick="copyCaption(${JSON.stringify(l.cta).replace(/"/g,'&quot;')})">COPY CAPTION</button></div>
+        <div class="tiny">${esc(l.stamp_note)}</div>
+        <div class="tiny">When: ${esc(l.posting_window)} · Objective: ${esc(l.objective)} · Route: ${esc(l.route_id)}</div>
+      </details>
+    </div>
+    <div><button class="primary" onclick="approvePick('${l.asset_id}','${l.variant_id||''}','${esc(l.platform)}')">USE THIS</button></div>
+  </div>`;
+}
+function todayListHtml(){
+  if(!todayList||!todayList.ready)return '';
+  return `<div class="card"><div class="eyebrow">TODAY'S PICK</div>
+    <h3>You already shot today's post</h3>
+    <div class="banner">${esc(todayList.headline)}</div>
+    ${todayList.lines.map(pickRowHtml).join('')}
+    <div class="promiseLine">${esc(todayList.promise)}</div>
+  </div>`;
+}
+async function approvePick(asset_id,variant_id,platform,job_class,job_intent){
+  try{
+    const rx=await command('PRESCRIBE_PICK',{asset_id,variant_id:variant_id||null,platform,job_class:job_class||null,job_intent:job_intent||null});
+    await load();render();
+  }catch(e){alert(e.message)}
+}
+function jobLineHtml(l){
+  const img=l.asset_id?todayImage(l.asset_id,l.variant_id):'';
+  let treat;
+  if(l.stamp_object==='TREATMENT'&&l.treatment_label){
+    treat='<div class="treatBlock"><div class="tiny">PRE-PURCHASE TREATMENT</div><div class="treatLine">'+esc(l.treatment_label)+'</div><div class="stampLine">'+stampHtml(l)+' <span class="stampSubject">'+esc(l.treatment_label)+'</span></div>'+(l.needs_sent_to?'<div class="tiny">When you mark this posted, record how many fans it went to. Without that number the line stays a GUESS.</div>':'')+'</div>';
+  }else{
+    treat='<div class="stampLine">'+stampHtml(l)+' <span class="stampSubject">'+esc(l.stamp_subject||l.label||'')+'</span></div>';
+  }
+  let body;
+  if(l.kind==='LIVE_SESSION'){
+    body='<div class="jobLabel">'+esc(l.label)+'</div>'+treat+'<div class="pickWhy">'+esc(l.why||'')+'</div>'
+      +'<div class="tiny">Cam window comes from your configured availability. It is a constraint, not proof that this is the best time.</div>'
+      +'<div class="actions"><button class="primary" onclick="openCamSession()">LOG CAM SESSION</button></div>';
+  }else if(l.kind==='SETUP_REQUIRED'){
+    body='<div class="jobLabel">'+esc(l.label)+'</div>'+treat
+      +'<div class="banner"><strong>CAM AVAILABILITY NOT FINALIZED.</strong> LUXX will not invent a cam time, and no LIVE job is scheduled until the exact weekday availability is set.</div>'
+      +'<div class="pickWhy">'+esc(l.why||'')+'</div>'
+      +'<div class="actions"><button class="secondary" onclick="openSetup()">OPEN SETUP</button></div>';
+  }else if(l.kind==='NOT_SCHEDULED'){
+    body='<div class="jobLabel">'+esc(l.label)+'</div>'+treat+'<div class="pickWhy">'+esc(l.why||'')+'</div>'
+      +'<div class="actions"><button class="secondary" onclick="openSetup()">CHANGE CAM AVAILABILITY</button></div>';
+  }else if(l.kind==='PRODUCE'){
+    body='<div class="jobLabel">'+esc(l.label)+'</div>'+treat
+      +'<div class="banner">Documented gap '+esc(l.gap_id||'')+' · shortfall '+esc(String(l.gap_shortfall||''))+' · evidence '+esc(l.gap_evidence||'')+'</div>'
+      +'<div class="pickWhy">'+esc(l.why||'')+'</div>';
+  }else if(l.kind==='BLOCKED'){
+    body='<div class="jobLabel">'+esc(l.label)+'</div>'+treat
+      +'<div class="banner dangerBanner"><strong>'+esc(l.hold_label||'HOLD — NO QUALIFYING MEDIA')+'</strong></div>'
+      +'<div class="pickWhy">'+esc(l.why||'')+'</div>'
+      +((l.route_ids&&l.route_ids.length)?'<div class="tiny">Route'+(l.route_ids.length===1?'':'s')+': '+esc(l.route_ids.join(', '))+'</div>':'')
+      +'<div class="actions">'+holdRecoveryHtml(l)+'</div>';
+  }else{
+    body='<div class="jobLabel">'+esc(l.label)+'</div>'
+      +'<div class="tiny" style="margin-top:6px">PHOTO</div><b>'+esc(l.asset_name||l.asset_id||'')+'</b>'
+      +treat
+      +routeBlockHtml(l)
+      +'<div class="pickWhy">'+esc(l.why||'')+'</div>'
+      +'<details><summary class="tiny">Caption and details</summary>'
+      +'<div class="line"><strong>Caption:</strong> '+esc(l.cta||'')+'</div>'
+      +'<div class="actions"><button class="secondary" onclick="copyCaption('+JSON.stringify(l.cta||'').replace(/"/g,'&quot;')+')">COPY CAPTION</button></div>'
+      +'<div class="tiny">'+esc(l.stamp_note||'')+'</div>'
+      +'<div class="tiny">When: '+esc(l.posting_window||'')+' · Route: '+esc(l.route_id||'')+' ('+esc(l.route_state||'')+')</div>'
+      +'</details>'
+      +'<div class="actions"><button class="primary" onclick="approvePick(\''+l.asset_id+'\',\''+(l.variant_id||'')+'\',\''+esc(l.platform)+'\',\''+esc(l.job)+'\',\''+esc(l.intent)+'\')">USE THIS</button></div>';
+  }
+  const thumb=img?'<div class="pickThumb" style="float:left;margin-right:12px" onclick="openMediaViewer(\''+l.asset_id+'\',\''+(l.variant_id||'')+'\')"><img src="'+img+'" alt=""></div>':'';
+  return '<div class="jobCard">'+thumb+'<span class="jobTag job'+esc(l.job)+'">'+esc(l.job)+'</span>'+body+'<div style="clear:both"></div></div>';
+}
+function todayPlanHtml(){
+  if(!todayPlan||!todayPlan.ready)return '';
+  const names={MON:'Mon',TUE:'Tue',WED:'Wed',THU:'Thu',FRI:'Fri',SAT:'Sat',SUN:'Sun'};
+  const strip=['MON','TUE','WED','THU','FRI','SAT','SUN'].map(function(c){
+    return '<button class="'+(todayPlan.day===c?'on':'')+'" onclick="previewDay(\''+c+'\')">'+names[c]+'</button>';
+  }).join('');
+  return '<div class="card"><div class="eyebrow">TODAY\'S PLAN · '+esc(todayPlan.day)+(todayPlan.cam_day?' · CAM DAY':'')+'</div>'
+    +'<h3>'+todayPlan.lines.length+' job'+(todayPlan.lines.length===1?'':'s')+' today</h3>'
+    +'<div class="banner">'+esc(todayPlan.schedule_basis)+'</div>'
+    +(todayPlan.cam_setup_required?'<div class="banner"><strong>SETUP REQUIRED — CAM AVAILABILITY NOT FINALIZED.</strong> No LIVE job is scheduled and no cam time is assumed.</div>':'')
+    +(todayPlan.produce&&!todayPlan.produce.active?'<div class="banner">PRODUCE is OFF / NOT REQUIRED. '+esc(todayPlan.produce.reason)+'</div>':'')
+    +'<div class="dayStrip">'+strip+'</div></div>'
+    +todayPlan.lines.map(jobLineHtml).join('')
+    +'<div class="card"><div class="promiseLine">'+esc(todayPlan.promise)+'</div></div>';
+}
+async function previewDay(code){
+  // The domain resolves the day in the creator's timezone (America/Chicago by default).
+  try{todayPlan=await command('TODAY_PLAN',{day_code:code});render()}catch(e){alert(e.message)}
+}
+
+
+function jobShotHtml(t){
+  if(!t.needs_file)return '';
+  const a=(assets||[]).find(x=>x.asset_id===t.bound_asset_id);
+  if(a){
+    const src=thumbSrcFor(a);
+    if(src)return `<img class="jobShot" src="${src}" alt="">`;
+    return `<div class="jobShot none">Preparing preview</div>`;
+  }
+  return `<div class="jobShot none">No file attached yet<br><span style="font-size:12px">Needs an authorized file with a privacy-safe version${t.site==='X'||t.site==='PORNHUB'?', confirmed face-safe':''}</span></div>`;
+}
+function thumbSrcFor(a){
+  try{return a.thumbnail_key?`${API}/media?key=${encodeURIComponent(a.thumbnail_key)}`:null;}catch{return null;}
+}
+async function markTaskDone(id){
+  const money=document.getElementById('m_'+id),count=document.getElementById('c_'+id);
+  try{
+    await api('/action',{method:'POST',headers:{'content-type':'application/json'},
+      body:JSON.stringify({op:'TASK_COMPLETE',payload:{task_id:id,done:true,
+        money:money&&money.value!==''?Number(money.value):null,
+        count:count&&count.value!==''?Number(count.value):null}})});
+    await load();render();
+  }catch(e){alert(String(e&&e.message||e));}
+}
+
+
+function isBrokenUpload(a){
+  if(a.media_type!=='VIDEO')return false;
+  if(a.status==='PROCESSING_FAILED')return true;
+  // A finished video has a privacy derivative and something to play. Judging that from
+  // the asset itself catches an upload that died quietly; the old rule waited on a stale
+  // flag the server only sets after three minutes, so a dead upload sat in the library
+  // looking like it was still working.
+  // A video that has just finished uploading has no job yet and no variants. That is the
+  // start of its life, not the end of it — hiding it made a successful upload vanish.
+  // A video that has a job is never hidden, whatever state that job is in. Hiding a
+  // stalled one took the reason off the screen three minutes after upload: the video
+  // appeared, then vanished, and the error it was carrying went with it. Only an upload
+  // that failed outright, or one with no job at all and nothing to play, is dead.
+  if(a.processing_job)return false;
+  if(a.status==='PROCESSING_REQUIRED'||a.status==='PROCESSING')return false;
+  const usable=(a.variants||[]).some(v=>v&&(v.privacy_safe_export===true||v.metadata_stripped===true));
+  return !usable&&a.status!=='READY_FOR_REVIEW';
+}
+async function clearBrokenUploads(){
+  const junk=(assets||[]).filter(isBrokenUpload);
+  if(!junk.length)return alert('Nothing broken to clear.');
+  if(!confirm(`Delete ${junk.length} upload${junk.length===1?'':'s'} that never finished processing? Nothing that posted or was measured is touched.`))return;
+  let gone=0,kept=[];
+  for(const a of junk){
+    try{
+      await api('/asset-delete',{method:'DELETE',headers:{'content-type':'application/json'},
+        body:JSON.stringify({asset_id:a.asset_id})});
+      gone++;
+    }catch{kept.push(a.name||a.asset_id);}
+  }
+  assets=await fetchAllAssets();render();
+  alert(gone+' removed.'+(kept.length?` ${kept.length} could not be deleted because they have history.`:''));
+}
+
+function renderTodaySheet(){
+  const el=document.getElementById('view');
+  const today=new Date().toISOString().slice(0,10);
+  const assigned=(state.tasks||[]).filter(t=>t.date===today);
+  if(!assigned.length)return false;
+  // Bound jobs carry a file. Unbound ones still get a card: the work is assigned either
+  // way, and an empty photo slot is honest about what is missing.
+  const bound=(state.today_tasks||[]).filter(t=>t.date===today);
+  const byId=new Map(bound.map(t=>[t.task_id,t]));
+  const jobs=assigned.map(t=>({...t,...(byId.get(t.task_id)||{})}));
+  const done=jobs.filter(j=>j.done).length;
+  const d=new Date(today+'T00:00:00');
+  const label=d.toLocaleDateString(undefined,{weekday:'long',month:'short',day:'numeric'});
+  let html=`<div class="dayHead"><div><div class="eyebrow">TODAY</div><h2 style="margin:2px 0 0">${esc(label)}</h2></div><div class="n">${done} of ${jobs.length} done</div></div>`;
+  if(state.today_bind_error)
+    html+=`<div class="banner dangerBanner"><b>Files could not be attached</b><div class="tiny">${esc(state.today_bind_error)}</div></div>`;
+  // Nothing binds until media is authorized. Say it once, at the top, with the fix.
+  for(const t of jobs){
+    const shot=t.needs_file?jobShotHtml(t):'';
+    html+=`<div class="jobCard">${shot}<div class="jobBody">
+      <div class="jobWhat">${esc(t.name)}</div>
+      <div class="jobWhere">${esc(SITE_LABEL[t.site]||t.site)}${t.target?' · '+t.target+' to do':''}</div>
+      ${t.price?`<div class="jobPrice">Price: ${esc(t.price)}</div>`:''}
+      ${t.note?`<div class="jobNote">${esc(t.note)}</div>`:''}
+      ${t.done
+        ? `<div class="jobTick">Done${t.money!=null?' · $'+t.money:''}${t.count!=null?' · '+t.count:''}</div>`
+        : `<div class="jobNum">
+             <input id="m_${t.task_id}" type="hidden" value="">
+             ${Number(t.target||0)>1?`<label>How many done</label><input id="c_${t.task_id}" type="number" inputmode="numeric" min="0" placeholder="${t.target}">`:`<input id="c_${t.task_id}" type="hidden" value="${t.target||1}">`}</div>
+           <div class="jobDone"><button onclick="markTaskDone('${t.task_id}')">Mark done</button>
+           ${t.bound_asset_id?`<button class="alt secondary" onclick="openAsset('${t.bound_asset_id}')">Open file</button>`:''}</div>`}
+    </div></div>`;
+  }
+  el.innerHTML=html;
+  return true;
+}
+const SITE_LABEL={CHATURBATE:'Chaturbate',OF_FREE:'OnlyFans Free',OF_PAID:'OnlyFans Paid',
+  MANYVIDS:'ManyVids',PORNHUB:'Pornhub',X:'X',DMS:'DMs'};
+
+function renderToday(){
+  if(renderTodaySheet())return;
+  const el=document.getElementById('view'),
+    due=(state.outcomes||[]).filter(o=>o.measurement_state==='SCHEDULED'&&new Date(o.due_at)<=new Date()),
+    approved=(state.actions||[]).filter(a=>a.status==='APPROVED'),
+    prescribed=[...(state.prescriptions||[])].reverse().find(p=>p.status==='PRESCRIBED');
+  let html=page('TODAY','Which one to post','From photos you already shot. LUXX tells you which — and when it is only guessing.');
+  if(due.length){html+=`<div class="card"><div class="eyebrow">RESULT NEEDED</div><h3>${due.length} measurement${due.length===1?'':'s'} due</h3><div class="tiny">Measured results build evidence. CALL appears only when LUXX has enough comparable evidence.</div>${due.map(o=>{const a=state.actions.find(x=>x.action_id===o.action_id);return `<div class="row"><div><b>${esc(a?.platform||'Action')}</b><div class="tiny">${esc(a?.asset_id||'')} · due ${fmt(o.due_at)}</div></div><button class="primary" onclick="openMeasurement('${o.outcome_id}')">ENTER RESULT</button></div>`}).join('')}</div>`}
+  if(approved.length){html+=`<div class="card"><div class="eyebrow">APPROVED</div><h3>Ready to post</h3>${approved.map(a=>`<div class="row"><div><b>${esc(a.platform)}</b><div class="tiny">${esc(a.asset_id)} · ${esc(a.objective)}</div></div><button class="primary" onclick="openMarkPosted('${a.action_id}')">MARK POSTED</button></div>`).join('')}</div>`}
+  if(prescribed){
+    html+=todayCard({
+      eyebrow:'READY TO APPROVE',
+      asset_id:prescribed.asset_id,variant_id:prescribed.variant_id,
+      platform:prescribed.platform,route_id:prescribed.route_id,
+      cta_html:ctaChoices(prescribed),
+      posting_window:prescribed.posting_window,
+      n_own:prescribed.evidence_n_own,
+      evidence_object:prescribed.evidence_object,
+      blockers:[],
+      buttons:`<button id="approveBtn" class="primary" onclick="approveRx('${prescribed.prescription_id}')">APPROVE</button><button id="changeBtn" class="secondary" onclick="openChange('${prescribed.prescription_id}')">CHANGE</button><button id="declineBtn" class="danger" onclick="openDecline('${prescribed.prescription_id}')">DECLINE</button>`,
+      detailRows:[['Objective',prescribed.objective],['Exact content',prescribed.variant_id||prescribed.asset_id],['Action',prescribed.exact_action],['Caption basis',prescribed.cta_basis],['Tracking route',prescribed.route_id],['Attribution ceiling',prescribed.attribution_ceiling],['Timing basis',prescribed.posting_window_basis],['Evidence',prescribed.reason_summary],['Data confidence',prescribed.data_confidence]]
+    });
+  }
+  if(todayPlan&&todayPlan.ready&&todayPlan.lines.length)html+=todayPlanHtml();
+  else if(todayList&&todayList.ready)html+=todayListHtml();
+  else if(!prescribed)html+=`<div class="card"><div class="eyebrow">HOLD</div><h3>${esc(todayList?.reason||recommendation?.reason||'No valid recommendation yet.')}</h3><div class="sub">${esc(todayList?.fix||recommendation?.fix||'Complete setup and media preparation.')}</div><div class="actions"><button id="prescribeBtn" class="secondary" onclick="openSetup()">FIX SETUP</button><button class="secondary" onclick="goLibrary()">OPEN LIBRARY</button></div></div>`;
+  el.innerHTML=html;
+}
+function goLibrary(){view='library';document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.view==='library'));render()}
+async function approveRx(id){try{await command('APPROVE',{prescription_id:id});await load();render()}catch(e){alert(e.message)}}
+
+function openChange(id){const p=state.prescriptions.find(x=>x.prescription_id===id);modal('Change prescription',`<div class="form"><label>Reason</label><textarea id="chgReason"></textarea><label>CTA</label><input id="chgCTA" value="${esc(p.cta)}"><label>Posting window</label><input id="chgWindow" value="${esc(p.posting_window)}"><div class="actions"><button class="primary" onclick="saveChange('${id}')">CREATE REVISION</button></div></div>`)}async function saveChange(id){try{await command('CHANGE',{prescription_id:id,reason:document.getElementById('chgReason').value,changes:{cta:document.getElementById('chgCTA').value,posting_window:document.getElementById('chgWindow').value}});closeModal();await load();render()}catch(e){alert(e.message)}}function openDecline(id){modal('Decline prescription',`<div class="form"><label>Reason</label><textarea id="declineReason"></textarea><div class="actions"><button class="danger" onclick="saveDecline('${id}')">DECLINE</button></div></div>`)}async function saveDecline(id){try{await command('DECLINE',{prescription_id:id,reason:document.getElementById('declineReason').value});closeModal();await load();render()}catch(e){alert(e.message)}}
+const PREVIEW_STYLE_OPTS=[['','Not recorded'],['BLURRED_CLOSE_CROP','Blurred close crop'],['CENSORED_FULL_BODY','Censored full body'],['SHORT_CLIP','Short clip'],['COVERED_TEASE','Covered tease'],['TEXT_ONLY','Text only'],['NONE','No preview']];
+const SEGMENT_OPTS=[['','Not recorded'],['ACTIVE_SUBSCRIBERS','Active subscribers'],['LAPSED_BUYERS','Lapsed buyers'],['NEW_SUBSCRIBERS','New subscribers'],['VIP_SPENDERS','VIP spenders'],['ALL_FANS','All fans']];
+function openMarkPosted(id){
+  const a=(state.actions||[]).find(x=>x.action_id===id);
+  const prop=a?.frozen_prescription?.proposed_treatment||null;
+  modal('Mark posted',`<div class="form">
+    <label>External/native post or listing reference</label><input id="postRef">
+    <label>Creator effort minutes</label><input id="effort" type="number" min="0" value="5">
+    <div class="banner">Record what you <strong>actually</strong> sent, not what LUXX proposed. If you changed it, the result counts for what you really did.</div>
+    <label>Preview style the fan saw</label><select id="mpStyle">${PREVIEW_STYLE_OPTS.map(([v,t])=>`<option value="${v}" ${prop&&prop.preview_style===v?'selected':''}>${esc(t)}</option>`).join('')}</select>
+    <label>Audience segment</label><select id="mpSeg">${SEGMENT_OPTS.map(([v,t])=>`<option value="${v}" ${prop&&prop.audience_segment===v?'selected':''}>${esc(t)}</option>`).join('')}</select>
+    <label>Price charged (leave blank if not a paid unlock)</label><input id="mpPrice" type="number" step=".01" min="0">
+    <label>Sent to how many fans? (required for any unlock-rate claim)</label><input id="mpSent" type="number" min="1">
+    <div class="tiny">Without a real sent-to count LUXX cannot compute an unlock rate, so the line stays GUESS. LUXX never invents this number.</div>
+    <div class="actions"><button class="primary" onclick="savePosted('${id}')">MARK POSTED</button></div>
+  </div>`)}async function savePosted(id){try{await command('EXECUTE',{action_id:id,execution_reference:document.getElementById('postRef').value,creator_effort_minutes:document.getElementById('effort').value,operator_role:operatorRole,preview_style:document.getElementById('mpStyle')?.value||null,audience_segment:document.getElementById('mpSeg')?.value||null,price_charged:document.getElementById('mpPrice')?.value||null,sent_to:document.getElementById('mpSent')?.value||null});closeModal();await load();render()}catch(e){alert(e.message)}}
+function openMeasurement(id,correction=false){const o=state.outcomes.find(x=>x.outcome_id===id),raw=o?.raw||{};modal(correction?'Correct measurement':'Enter raw measurement',`<div class="form">${correction?'<label>Correction reason</label><input id="corReason">':''}<div class="banner">Unknown stays blank. Blank is never converted to zero.</div>${['views','tracked_clicks','free_joins','paid_conversions','manyvids_sales','gross_revenue','ppv_purchases','tips','custom_video_orders'].map(k=>`<label>${k.replaceAll('_',' ')}</label><input id="m-${k}" type="number" step="any" value="${raw[k]??''}">`).join('')}<div class="actions"><button class="primary" onclick="saveMeasurement('${id}',${correction})">SAVE</button></div></div>`)}async function saveMeasurement(id,correction){const raw={};for(const k of ['views','tracked_clicks','free_joins','paid_conversions','manyvids_sales','gross_revenue','ppv_purchases','tips','custom_video_orders'])raw[k]=document.getElementById('m-'+k).value;try{await command(correction?'CORRECT_MEASUREMENT':'MEASURE',{outcome_id:id,reason:correction?document.getElementById('corReason').value:undefined,raw});closeModal();await load();render()}catch(e){alert(e.message)}}
+function renderLibrary(){const el=document.getElementById('view');let html=page('LIBRARY','Prepare once. Reuse safely.','Masters stay immutable. Edits and platform versions become traceable derivatives.');const broken=(assets||[]).filter(isBrokenUpload).length;
+  if(broken)html+=`<div class="banner"><b>${broken} upload${broken===1?'':'s'} never finished processing</b>
+    <div class="tiny" style="margin-top:4px">They are hidden from your library because they cannot be posted.</div>
+    <div style="margin-top:10px"><button onclick="clearBrokenUploads()">Delete ${broken}</button></div></div>`;
+  html+=`<div class="tabs"><button class="${libtab==='media'?'active':''}" onclick="libtab='media';render()">MEDIA</button><button class="${libtab==='heroes'?'active':''}" onclick="libtab='heroes';render()">HERO PICKS</button><button class="${libtab==='routes'?'active':''}" onclick="libtab='routes';render()">ROUTES</button><button class="${libtab==='shoots'?'active':''}" onclick="libtab='shoots';render()">BRANCH SHOOTS</button><button class="${libtab==='history'?'active':''}" onclick="libtab='history';render()">HISTORY</button></div>`;if(libtab==='routes')html+=routesHtml();else if(libtab==='shoots')html+=shootsHtml();else if(libtab==='history')html+=historicalHtml();else if(libtab==='heroes')html+=heroHtml();else html+=mediaHtml();el.innerHTML=html;}
+function scoreKey(a){const v=bestThumbVariant(a);return `${v?.variant_id||'MASTER'}|${v?.thumbnail_key||a.thumbnail_key||''}|${(a.variants||[]).length}|${optimizedSet(a)?1:0}`}
+function cachedVisualScore(a){const rec=a.visual_score;return rec&&rec.score_key===scoreKey(a)?rec:null}
+function heroScore(a){if(a.media_type==='IMAGE'&&!bestThumbVariant(a))return null;const cached=cachedVisualScore(a);if(cached&&Number.isFinite(Number(cached.score)))return Number(cached.score);const hasPrior=Number.isFinite(Number(a.research_prior_score))&&Number(a.research_prior_score)>0,grade={A:4,B:3,C:2,D:1},hasGrade=!!grade[a.technical_grade];if(!hasPrior&&!hasGrade)return null;const raw=(hasPrior?Number(a.research_prior_score):0)+(hasGrade?grade[a.technical_grade]*8:0)-Math.min(12,Number(a.use_count||0)*2);const score=Math.max(0,Math.min(100,55+raw));return Number(score.toFixed(1))}
+// These tiers describe exposure, focus and framing measured from the image. They are NOT a
+// monetization judgement, so they no longer use language ("TOP HERO PICK") that implies one.
+// TOP HERO PICK is now reserved for assets that also have measured results behind them.
+// A destination is only named as a recommendation when measured evidence supports it.
+// Otherwise LUXX lists what the asset is ELIGIBLE for. Previously every image displayed
+// "Best for: OnlyFans Free" because a fixed prior table decided it for all of them.
+function destinationLine(a){const p=a.destination_plan;if(!p)return 'Destination plan pending';
+  const proven=/^PROVEN FOR YOU/.test(String(p.confidence||''));
+  if(proven)return `Proven best for you: ${esc(p.primary||'—')}`;
+  const el=(p.eligible_platforms||[]).join(', ')||'—';
+  return `Eligible: ${esc(el)} · destination chosen by TODAY, not by image quality`;}
+function heroLabel(score,measured=0){if(score==null)return 'NOT SCORED YET';
+  if(score>=88&&measured>=16)return 'TOP HERO PICK · PROVEN';
+  return score>=88?'TECHNICALLY CLEANEST':score>=80?'STRONG TECHNICAL QUALITY':score>=72?'GOOD TECHNICAL QUALITY':score>=62?'USABLE':'SOFT / REVIEW'}
+function measuredCountFor(a){return ((state?.actions)||[]).filter(x=>x.asset_id===a.asset_id&&x.status==='MEASURED').length}
+function computeVisualMetrics(ctx,w,h){const img=ctx.getImageData(0,0,w,h).data;const gray=new Float32Array(w*h);let sum=0;for(let i=0,j=0;i<img.length;i+=4,j++){const y=0.299*img[i]+0.587*img[i+1]+0.114*img[i+2];gray[j]=y;sum+=y}const n=gray.length,mean=sum/n;let varsum=0,edge=0;const rowE=new Float32Array(h);for(let y=0;y<h;y++){let row=0;for(let x=0;x<w;x++){const idx=y*w+x,v=gray[idx];const dx=x>0?Math.abs(v-gray[idx-1]):0;const dy=y>0?Math.abs(v-gray[idx-w]):0;const e=dx+dy;row+=e;edge+=e;const d=v-mean;varsum+=d*d}rowE[y]=row/Math.max(1,w)}const std=Math.sqrt(varsum/n),avgEdge=edge/Math.max(1,n);const maxRow=Math.max(...rowE),meanRow=rowE.reduce((a,b)=>a+b,0)/Math.max(1,h),thr=Math.max(meanRow*1.08,maxRow*0.22,4);let top=0;while(top<h-1&&rowE[top]<thr)top++;let bottom=h-1;while(bottom>0&&rowE[bottom]<thr)bottom--;const coverage=Math.max(0,(bottom-top+1)/Math.max(1,h));const topFrac=top/Math.max(1,h);let weighted=0,weights=0;for(let y=0;y<h;y++){const wgt=Math.max(0,rowE[y]-meanRow);weighted+=y*wgt;weights+=wgt}const center=(weights?weighted/weights:(h/2))/Math.max(1,h-1);return {mean,std,avgEdge,topFrac,coverage,center}}
+async function calculateVisualScoreForAsset(a){if(a.media_type==='IMAGE'&&!bestThumbVariant(a))return null;const src=imageSrc(a);if(!src)return null;return await new Promise(resolve=>{const img=new Image();img.decoding='async';img.onload=()=>{try{const max=512,scale=Math.min(1,max/Math.max(img.naturalWidth||1,img.naturalHeight||1));const w=Math.max(24,Math.round((img.naturalWidth||1)*scale)),h=Math.max(24,Math.round((img.naturalHeight||1)*scale));const c=document.createElement('canvas');c.width=w;c.height=h;const ctx=c.getContext('2d',{willReadFrequently:true});ctx.drawImage(img,0,0,w,h);const m=computeVisualMetrics(ctx,w,h);const exposure=Math.max(0,100-Math.abs(m.mean-148)*1.2);const contrast=Math.max(0,Math.min(100,(m.std-18)*3.1));const sharp=Math.max(0,Math.min(100,(m.avgEdge-12)*4.2));const coverageScore=Math.max(0,Math.min(100,(m.coverage-0.38)*190));const headroom=Math.max(0,100-Math.max(0,m.topFrac-0.12)*210);const balance=Math.max(0,100-Math.abs(m.center-0.58)*240);let score=.24*exposure+.18*contrast+.22*sharp+.18*coverageScore+.10*headroom+.08*balance;if(optimizedSet(a))score+=2;score=Math.max(40,Math.min(96,score));resolve({score:Number(score.toFixed(1)),metrics:{exposure:Number(exposure.toFixed(1)),contrast:Number(contrast.toFixed(1)),sharpness:Number(sharp.toFixed(1)),coverage:Number(coverageScore.toFixed(1)),headroom:Number(headroom.toFixed(1)),balance:Number(balance.toFixed(1))},evaluated_at:new Date().toISOString()})}catch{resolve(null)}};img.onerror=()=>resolve(null);img.src=src})}
+async function queueVisualScoring(){if(view!=='library'||scoringRunner)return;const todo=assets.filter(a=>a.media_type==='IMAGE'&&!!bestThumbVariant(a)&&!!imageSrc(a)&&!cachedVisualScore(a)&&!scoringInFlight.has(a.asset_id));if(!todo.length)return;scoringRunner=true;let changed=false;for(const a of todo.slice(0,24)){scoringInFlight.add(a.asset_id);try{const res=await calculateVisualScoreForAsset(a);if(res){try{await api('/asset-update',{method:'PUT',headers:{'content-type':'application/json'},body:JSON.stringify({asset_id:a.asset_id,visual_score:{score:res.score,metrics:res.metrics,variant_id:bestThumbVariant(a)?.variant_id||'MASTER',score_key:scoreKey(a),evaluated_at:res.evaluated_at}})});a.visual_score={score:res.score,metrics:res.metrics,variant_id:bestThumbVariant(a)?.variant_id||'MASTER',score_key:scoreKey(a),evaluated_at:res.evaluated_at};changed=true}catch{}}}catch{}finally{scoringInFlight.delete(a.asset_id)}}scoringRunner=false;if(changed&&view==='library')renderLibrary();if(view==='library'&&assets.some(a=>a.media_type==='IMAGE'&&!!bestThumbVariant(a)&&!!imageSrc(a)&&!cachedVisualScore(a)&&!scoringInFlight.has(a.asset_id)))setTimeout(queueVisualScoring,60)}
+function optimizedSet(a){return (a.variants||[]).some(v=>v.recipe?.mode==='AUTO_BEST'&&v.recipe?.processing_version==='ORIENTATION_VERIFIED_V3'&&v.orientation_verified===true&&v.recipe?.aspect==='ORIGINAL')}
+function variantFit(a,v){if(!v)return -999;let n=0;const aspect=String(v.recipe?.aspect||'ORIGINAL');if(a.media_type==='IMAGE'){if(v.recipe?.processing_version!=='ORIENTATION_VERIFIED_V3'||v.orientation_verified!==true)return -1000;if(aspect!=='ORIGINAL')return -900;if(v.recipe?.mode==='AUTO_BEST')n+=30;if(v.privacy_safe_export&&v.metadata_stripped)n+=5;n+=8;}else{if(v.recipe?.mode==='AUTO_BEST')n+=10;if(v.variant_id==='FULL-MASTER')n+=4;else if(v.variant_id==='MAIN-CUT')n+=2}const created=v.created_at?Date.parse(v.created_at):0;if(Number.isFinite(created)&&created>0)n+=Math.min(1,created/1e15);return n}
+function bestThumbVariant(a){let vs=(a.variants||[]).filter(v=>v.thumbnail_key);if(a.media_type==='IMAGE')vs=vs.filter(v=>v.recipe?.processing_version==='ORIENTATION_VERIFIED_V3'&&v.orientation_verified===true);vs=vs.filter(v=>variantFit(a,v)>=0);if(!vs.length)return null;return [...vs].sort((x,y)=>variantFit(a,y)-variantFit(a,x))[0]}
+function imageSrc(a){const v=bestThumbVariant(a),k=v?.thumbnail_key||a.thumbnail_key;return k?'/api/media-chunk?key='+encodeURIComponent(k):''}
+function variantLabel(v){if(!v)return 'MASTER ORIGINAL';if(v?.recipe?.processing_version&&v.recipe.processing_version!=='ORIENTATION_VERIFIED_V3'&&v.recipe?.mode==='AUTO_BEST')return 'LEGACY OPTIMIZATION — NOT RECOMMENDATION ELIGIBLE';if(v?.variant_id==='PRIVACY-SAFE-V3')return 'PRIVACY-SAFE V3';if(String(v?.recipe?.aspect||'ORIGINAL')!=='ORIGINAL')return `${v.recipe.aspect} CROP — geometry verified, composition NOT checked. Manual use only.`;if(v?.recipe?.mode==='AUTO_BEST'){if(v.recipe?.crop_policy==='ORIGINAL_FALLBACK_CROP_UNSAFE_FOR_THIS_FRAME')return `ORIENTATION-VERIFIED ORIGINAL FRAME (requested ${v.recipe.aspect_requested})`;return 'ORIENTATION-VERIFIED OPTIMIZED ORIGINAL'}return String(v?.variant_type||'DERIVATIVE').replaceAll('_',' ')}
+function variantThumbSrc(a,v){const k=v?.thumbnail_key||a.thumbnail_key;return k?'/api/media-chunk?key='+encodeURIComponent(k):''}
+
+function duplicateGroups(){const map=new Map();for(const a of assets){if(!a.master_sha256)continue;const arr=map.get(a.master_sha256)||[];arr.push(a);map.set(a.master_sha256,arr)}return [...map.values()].filter(g=>g.length>1)}
+function duplicateSummary(){const groups=duplicateGroups();const dupAssets=groups.reduce((n,g)=>n+g.length-1,0);return {groups:groups.length,assets:dupAssets}}
+function mediaHtml(){const repairTop=repairBannerHtml();let list=assets.filter(a=>!isBrokenUpload(a)).filter(a=>(!filters.q||`${a.asset_id} ${a.name} ${a.notes||''}`.toLowerCase().includes(filters.q.toLowerCase()))&&(filters.type==='ALL'||a.media_type===filters.type)&&(filters.availability==='ALL'||a.availability===filters.availability)&&(filters.platform==='ALL'||(a.platform_eligibility||[]).includes(filters.platform)));const unauthorized=list.filter(a=>a.media_type==='IMAGE'&&a.authorization_status!=='AUTHORIZED').length,dups=duplicateSummary();return repairTop+`<div class="card"><div class="actions"><button id="uploadBtn" class="primary" onclick="openUpload()">UPLOAD PHOTOS / VIDEOS</button>${unauthorized?`<button class="primary" onclick="authorizeVisibleBatch()">AUTHORIZE ${unauthorized} VISIBLE IMAGE${unauthorized===1?'':'S'}</button>`:''}<button class="secondary" onclick="optimizeExisting()">OPTIMIZE EXISTING PHOTOS</button>${dups.assets?`<button class="danger" onclick="cleanExactDuplicates()">CLEAN ${dups.assets} EXACT DUPLICATE${dups.assets===1?'':'S'}</button>`:''}<button class="secondary" onclick="openImport()">IMPORT JSON</button></div><div class="banner success"><strong>Privacy Shield:</strong> posting derivatives strip GPS/EXIF/device metadata. Originals remain private and immutable. Visible location clues still require creator review.</div>${dups.assets?`<div class="banner"><strong>Duplicate review:</strong> ${dups.assets} exact duplicate file${dups.assets===1?'':'s'} across ${dups.groups} duplicate group${dups.groups===1?'':'s'} can be safely cleaned while keeping one canonical master in each group.</div>`:''}<div class="filterbar"><div><div class="tiny">SEARCH</div><input value="${esc(filters.q)}" oninput="filters.q=this.value;render()"></div><div><div class="tiny">TYPE</div><select onchange="filters.type=this.value;render()"><option>ALL</option><option ${filters.type==='IMAGE'?'selected':''}>IMAGE</option><option ${filters.type==='VIDEO'?'selected':''}>VIDEO</option></select></div><div><div class="tiny">AVAILABILITY</div><select onchange="filters.availability=this.value;render()"><option>ALL</option><option>AVAILABLE</option><option>QUARANTINED</option><option>UNAVAILABLE</option></select></div><div><div class="tiny">PLATFORM</div><select onchange="filters.platform=this.value;render()"><option>ALL</option>${PLATFORMS.map(p=>`<option ${filters.platform===p?'selected':''}>${esc(p)}</option>`).join('')}</select></div></div></div>${list.length?`<div class="mediaGrid gridLean">${list.map(mediaCard).join('')}</div>`:'<div class="card"><div class="sub">No matching media.</div></div>'}`}
+
+function mediaCard(a){const v=bestThumbVariant(a),src=imageSrc(a),score=heroScore(a),label=heroLabel(score),blocked=a.authorization_status!=='AUTHORIZED'?`<div class="banner dangerBanner"><strong>Recommendation blocked — Authorization not confirmed</strong></div>`:'',opt=optimizedSet(a);return `<div class="mediaCard"><div class="mediaHero" onclick="openMediaViewer('${a.asset_id}','${v?.variant_id||''}')">${src?`<img src="${src}" alt="${esc(a.name||a.asset_id)}">`:(a.media_type==='VIDEO'?'VIDEO THUMBNAIL PROCESSING':'IMAGE PREVIEW')}${opt?'<span class="optimizedBadge">✓ ORIENTATION OK</span>':''}${v&&a.media_type==='IMAGE'?'<span class="recommendedBadge">BEST VERSION</span>':''}</div><div class="mediaBody"><div class="eyebrow">${a.media_type==='VIDEO'?'':label}</div>${a.media_type==='VIDEO'?'':score==null?'<div class="scorePending">Visual score pending</div>':`<div class="scoreBadge">${score}</div><div class="tiny">Visual technical score</div>`}<b>${esc(a.name||a.asset_id)}</b><div class="tiny">${esc(a.media_type)} · ${esc(a.authorization_status)} · ${esc(a.availability)}</div>${v&&a.media_type==='IMAGE'?`<div class="tiny"><strong>Recommended version:</strong> ${esc(variantLabel(v))}${v?.recipe?.crop_version==='SUBJECT_BIASED_V1'?' · subject-biased crop':''}</div>`:''}${blocked}<div class="privacyMark">${(a.variants||[]).some(x=>x&&(x.metadata_stripped===true||x.privacy_safe_export===true))?'✓ PRIVACY SHIELD DERIVATIVE READY':'PRIVACY SHIELD PROCESSING'}</div>${usePlanHtml(a)}${processingHtml(a)}<div class="actions"><button class="primary" onclick="openMediaViewer('${a.asset_id}','${v?.variant_id||''}')">VIEW</button><button class="secondary" onclick="openAsset('${a.asset_id}')">DETAILS</button><button class="secondary" onclick="openEdit('${a.asset_id}')">EDIT</button>${a.media_type==='VIDEO'?`<button class="secondary" onclick="openSuggestedCut('${a.asset_id}')">SUGGESTED CUT</button><button class="secondary" onclick="openVideoReview('${a.asset_id}')">REVIEW EXISTING</button>`:''}</div></div></div>`}
+
+async function openMediaViewer(aid,vid=''){const a=assets.find(x=>x.asset_id===aid);if(!a)return;if(a.media_type==='VIDEO'){const v=vid||(a.variants||[]).find(x=>x.variant_id==='FULL-MASTER')?.variant_id||(a.variants||[]).find(x=>x.variant_id==='MAIN-CUT')?.variant_id||(a.variants||[])[0]?.variant_id;if(v)return previewVideo(aid,v);return modal('Video preview','<div class="banner">Video thumbnail/derivative is still processing.</div>')}try{const m=await api(`/download-manifest?asset=${encodeURIComponent(aid)}&variant=${encodeURIComponent(vid||'')}`),parts=[];for(const part of m.parts){const r=await fetch(part.url,{credentials:'same-origin'});if(!r.ok)throw new Error('Preview chunk failed');parts.push(await r.blob())}const url=URL.createObjectURL(new Blob(parts,{type:m.type||'image/jpeg'}));modal('Image preview',`<img src="${url}" style="width:100%;max-height:78vh;object-fit:contain;border-radius:12px;background:#111" alt=""><div class="tiny">Tap Details for metadata. The image itself opens the image.</div>`);setTimeout(()=>URL.revokeObjectURL(url),120000)}catch(e){alert(e.message)}}
+async function authorizeVisibleBatch(){const ids=assets.filter(a=>a.media_type==='IMAGE'&&a.authorization_status!=='AUTHORIZED'&&a.availability!=='QUARANTINED').filter(a=>(!filters.q||`${a.asset_id} ${a.name} ${a.notes||''}`.toLowerCase().includes(filters.q.toLowerCase()))&&(filters.availability==='ALL'||a.availability===filters.availability)).map(a=>a.asset_id);if(!ids.length)return;const ok=confirm(`Confirm creator authorization/permission for ${ids.length} visible image${ids.length===1?'':'s'}? Quarantined identity/privacy exceptions stay blocked.`);if(!ok)return;await api('/asset-batch-update',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({asset_ids:ids,authorization_status:'AUTHORIZED'})});await load();render()}
+function hasCurrentOptimization(a){return (a.variants||[]).some(v=>v.recipe?.mode==='AUTO_BEST'&&v.recipe?.processing_version==='ORIENTATION_VERIFIED_V3'&&v.orientation_verified===true&&v.recipe?.aspect==='ORIGINAL')}
+async function optimizeOnePhoto(a){let last=null;for(let attempt=1;attempt<=2;attempt++){try{return await api('/image-edit',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({asset_id:a.asset_id,auto_best:true,recipe:{aspect:'ORIGINAL'}})})}catch(e){last=e;if(attempt<2)await new Promise(r=>setTimeout(r,650))}}throw last||new Error('Optimization failed')}
+async function optimizeExisting(){const todo=assets.filter(a=>a.media_type==='IMAGE'&&!hasCurrentOptimization(a));if(!todo.length)return alert('All photos already have the current orientation-verified optimization.');if(!confirm(`Reprocess ${todo.length} photo${todo.length===1?'':'s'} with orientation verification? Photos already completed under V3 will be skipped.`))return;modal('Optimizing photos',`<div class="banner"><strong id="optStatus">Starting…</strong><div class="progress"><i id="optBar" style="width:0%"></i></div><div id="optDetail" class="tiny">LUXX will retry each failed photo once and keep completed work.</div></div>`);let ok=0,fail=0,firstErr='';for(let i=0;i<todo.length;i++){const a=todo[i],status=document.getElementById('optStatus'),bar=document.getElementById('optBar'),detail=document.getElementById('optDetail');if(status)status.textContent=`${i+1} / ${todo.length} · ${a.name||a.asset_id}`;if(bar)bar.style.width=`${Math.round(i/todo.length*100)}%`;try{await optimizeOnePhoto(a);ok++}catch(e){fail++;if(!firstErr)firstErr=String(e.message||e);if(detail)detail.textContent=`${ok} completed · ${fail} failed. First error: ${firstErr}`}await new Promise(r=>setTimeout(r,180))}await load();if(document.getElementById('optBar'))document.getElementById('optBar').style.width='100%';if(document.getElementById('optStatus'))document.getElementById('optStatus').textContent=`Done: ${ok} optimized · ${fail} failed`;if(document.getElementById('optDetail'))document.getElementById('optDetail').textContent=fail?`Tap close, then Resume Optimization to retry only the ${fail} unfinished photo${fail===1?'':'s'}. First error: ${firstErr}`:'All pending photos completed.';render()}
+
+// --- RC1 left three inline handlers undefined: the revenue, custom-order and
+// --- single-duplicate-delete controls all threw ReferenceError on click.
+const UI_REVENUE_TYPES=['SUBSCRIPTION','PPV','TIP','CUSTOM_ORDER','MANYVIDS_SALE','OTHER'];
+function measuredActionOptions(){
+  const acts=((state&&state.actions)||[]).filter(function(a){return ['EXECUTED','MEASURED'].indexOf(a.status)>=0});
+  return '<option value="">No action — unattributed revenue</option>'+acts.map(function(a){
+    return '<option value="'+esc(a.action_id)+'">'+esc(a.action_id)+' · '+esc(a.platform||'')+'</option>'}).join('');
+}
+function openRevenue(){
+  modal('Record revenue','<div class="form">'
+    +'<div class="banner">Enter the gross amount the platform actually reports. Attribution precision comes from the action, never from a guess.</div>'
+    +'<label>Type</label><select id="rtype">'+UI_REVENUE_TYPES.map(function(t){return '<option>'+t+'</option>'}).join('')+'</select>'
+    +'<label>Gross amount</label><input id="ramount" type="number" step="any" min="0">'
+    +'<label>Attach to action (optional)</label><select id="raction">'+measuredActionOptions()+'</select>'
+    +'<label>Notes</label><textarea id="rnotes"></textarea>'
+    +'<div class="actions"><button class="primary" onclick="saveRevenue()">SAVE REVENUE</button></div></div>');
+}
+async function saveRevenue(){
+  const g=function(i){const el=document.getElementById(i);return el?el.value:''};
+  try{await command('REVENUE',{event_type:g('rtype'),gross_amount:g('ramount'),action_id:g('raction')||null,notes:g('rnotes')});
+    closeModal();await load();render()}catch(e){alert(e.message)}
+}
+function openCustom(){
+  modal('Record custom order','<div class="form">'
+    +'<div class="banner">A custom order is direct revenue. It is recorded against the action only if one actually produced it.</div>'
+    +'<label>Amount</label><input id="camount" type="number" step="any" min="0">'
+    +'<label>Customer reference</label><input id="cref">'
+    +'<label>Deliverable</label><textarea id="cdel"></textarea>'
+    +'<label>Attach to action (optional)</label><select id="caction">'+measuredActionOptions()+'</select>'
+    +'<div class="actions"><button class="primary" onclick="saveCustomOrder()">SAVE CUSTOM ORDER</button></div></div>');
+}
+async function saveCustomOrder(){
+  const g=function(i){const el=document.getElementById(i);return el?el.value:''};
+  try{await command('CUSTOM_ORDER',{amount:g('camount'),customer_reference:g('cref'),deliverable:g('cdel'),action_id:g('caction')||null});
+    closeModal();await load();render()}catch(e){alert(e.message)}
+}
+
+// An asset referenced by a historical publication, a prescription, an action or the audit
+// ledger can never be erased. Offering DELETE DUPLICATE there was a control for an
+// impossible action; the honest action is MARK UNAVAILABLE.
+function historyReferences(a){
+  const refs=[];
+  if((state.historicalPublications||[]).some(h=>h.asset_id===a.asset_id))refs.push('historical publication');
+  if((state.prescriptions||[]).some(p=>p.asset_id===a.asset_id))refs.push('prescription');
+  if((state.actions||[]).some(x=>x.asset_id===a.asset_id))refs.push('recorded action');
+  if(Number(a.use_count||0)>0||a.ever_used_prospectively)refs.push('posting history');
+  return refs;
+}
+function historyProtectedHtml(a){
+  const refs=historyReferences(a);
+  if(!refs.length)return `<button class="danger" onclick="deleteUnusedAsset('${a.asset_id}')">DELETE DUPLICATE</button>`;
+  return `<div class="banner"><strong>HISTORY-PROTECTED</strong> — referenced by ${esc(refs.join(', '))}. LUXX never erases anything with history. Marking it unavailable keeps the record and stops future TODAY use.</div>`
+    +(a.availability==='UNAVAILABLE'
+      ? `<div class="tiny">Already marked UNAVAILABLE. It will not be prescribed again.</div>`
+      : `<button class="danger" onclick="markUnavailable('${a.asset_id}')">MARK UNAVAILABLE</button>`);
+}
+async function markUnavailable(id){
+  const a=assets.find(x=>x.asset_id===id);if(!a)return;
+  if(!confirm('Mark '+(a.name||id)+' UNAVAILABLE? The record and its history are preserved and it will not be used by TODAY again.'))return;
+  try{await api('/asset-update',{method:'PUT',headers:{'content-type':'application/json'},
+      body:JSON.stringify({asset_id:id,availability:'UNAVAILABLE'})});
+    closeModal();await load();render()}catch(e){alert(e.message)}
+}
+// A HOLD sends the creator to the right place, with the job it came from.
+function holdRecoveryHtml(l){
+  const r=String(l.recovery||'FIX LIBRARY');
+  if(r==='FIX SETUP')return `<button class="secondary" onclick="openSetup()">FIX SETUP</button>`;
+  if(r==='CAM AVAILABILITY')return `<button class="secondary" onclick="openSetup()">CAM AVAILABILITY</button>`;
+  return `<button class="secondary" onclick='openLibraryForJob(${JSON.stringify(l.repair_context||{}).replace(/'/g,"&apos;")})'>FIX LIBRARY</button>`;
+}
+// LIBRARY opened from a HOLD knows exactly which job it is repairing.
+function openLibraryForJob(ctx){
+  repairContext=ctx&&ctx.intent?ctx:null;
+  if(repairContext){
+    filters={q:'',type:(repairContext.permitted_media_types||[]).length===1?repairContext.permitted_media_types[0]:'ALL',
+      availability:'ALL',platform:(repairContext.platform&&PLATFORMS.includes(repairContext.platform))?repairContext.platform:'ALL'};
+  }
+  goLibrary();
+}
+function repairBannerHtml(){
+  const c=repairContext;
+  if(!c)return '';
+  return `<div class="card"><div class="eyebrow">REPAIRING ${esc(c.job||'JOB')} · ${esc(c.intent||'')}</div>`
+    +`<h3>${esc(c.label||'')}</h3>`
+    +`<div class="banner"><strong>${esc(c.hold_code||'HOLD')}</strong> — ${esc(c.rejection_reasons||'')}</div>`
+    +`<div class="tiny">Destination: ${esc(c.platform||'—')} · Route${(c.route_ids||[]).length===1?'':'s'}: ${esc((c.route_ids||[]).join(', ')||'—')}`
+    +` · Media allowed: ${esc((c.permitted_media_types||[]).join(', ')||'—')} · Needs: ${esc(c.requires_derivative||'—')}</div>`
+    +`<div class="actions"><button class="secondary" onclick="clearRepairContext()">CLEAR JOB FILTER</button></div></div>`;
+}
+function clearRepairContext(){repairContext=null;filters={q:'',type:'ALL',availability:'ALL',platform:'ALL'};render()}
+async function deleteUnusedAsset(id){
+  const a=assets.find(function(x){return x.asset_id===id});
+  if(!a)return;
+  if(!confirm('Delete the unused duplicate record '+(a.name||id)+'? LUXX refuses to erase anything with usage or publication history.'))return;
+  try{await api('/asset-delete',{method:'DELETE',headers:{'content-type':'application/json'},body:JSON.stringify({asset_id:id})});
+    closeModal();await load();render()}catch(e){alert(e.message)}
+}
+async function cleanExactDuplicates(){const groups=duplicateGroups();if(!groups.length)return alert('No exact duplicate files found.');const planned=[];for(const g of groups){const sorted=g.slice().sort((a,b)=>new Date(a.uploaded_at||0)-new Date(b.uploaded_at||0));for(const a of sorted.slice(1))planned.push(a)}if(!planned.length)return alert('No removable duplicates found.');if(!confirm(`Delete ${planned.length} exact duplicate asset record${planned.length===1?'':'s'} while keeping one canonical master per duplicate group? LUXX will skip any duplicate that has usage history.`))return;let removed=0,protectedN=0,failed=0;for(const a of planned){try{await api('/asset-delete',{method:'DELETE',headers:{'content-type':'application/json'},body:JSON.stringify({asset_id:a.asset_id})});removed++}catch(e){if(String(e.message||'').includes('cannot be erased'))protectedN++;else failed++}}await load();render();alert(`Duplicate cleanup complete. Removed ${removed}. Protected by history ${protectedN}. Failed ${failed}.`)}
+function heroHtml(){const imgs=assets.filter(a=>a.media_type==='IMAGE'&&a.authorization_status==='AUTHORIZED'&&a.availability==='AVAILABLE').map(a=>({a,score:heroScore(a)})).sort((x,y)=>(y.score??-1)-(x.score??-1)||variantFit(y.a,bestThumbVariant(y.a))-variantFit(x.a,bestThumbVariant(x.a))),top=imgs.slice(0,20);return `<div class="card"><div class="eyebrow">TOP HERO PICKS</div><h3>Best current image candidates</h3><div class="banner"><strong>What this ranks:</strong> exposure, contrast, focus, subject coverage, headroom and balance, measured from the image itself. This is technical quality only — it is not a prediction of what will earn. A photo is only called a TOP HERO PICK once it also has 16+ measured results behind it.</div>${top.length?`<div class="heroStrip">${top.map((x,i)=>{const v=bestThumbVariant(x.a),src=imageSrc(x.a);return `<div class="heroMini"><div class="mediaHero" onclick="openMediaViewer('${x.a.asset_id}','${v?.variant_id||''}')">${src?`<img src="${src}" alt="">`:'IMAGE'}${optimizedSet(x.a)?'<span class="optimizedBadge">✓ ORIENTATION OK</span>':''}</div><div class="mediaBody"><div class="eyebrow">#${i+1} · ${heroLabel(x.score,measuredCountFor(x.a))}</div>${x.score==null?'<b>NOT SCORED YET</b>':`<b>${x.score}</b>`}<div class="tiny">${esc(x.a.name||x.a.asset_id)}</div><div class="tiny">Best version: ${esc(variantLabel(v))}</div><div class="tiny">${destinationLine(x.a)}</div></div></div>`}).join('')}</div>`:'<div class="sub">Upload and authorize images to build the Hero shortlist.</div>'}</div>`}
+
+function openUpload(){modal('Upload media',`<div class="form"><div class="banner">The actual files are uploaded in chunks to durable storage. Originals are immutable.</div><div class="banner success"><strong>LUXX assigns destinations automatically.</strong> After upload, LUXX ranks the primary and secondary destinations, funnel role, CTA and posting window. You can override eligibility later in DETAILS if needed.</div><label>Files</label><input id="files" type="file" multiple accept="image/*,video/*,.heic,.heif,.mov,.mp4"><label>Authorization for this whole batch</label><select id="upAuth"><option>AUTHORIZED</option><option>UNCLEAR</option><option>NOT_AUTHORIZED</option></select><div class="tiny">Choose AUTHORIZED only if creator permission/rights are confirmed for the whole batch. Quarantined exceptions remain blocked.</div><label>Usage</label><select id="upHist"><option>PROSPECTIVE</option><option>HISTORICAL_BASELINE</option></select><label>Notes</label><textarea id="upNotes"></textarea><div class="actions"><button class="primary" onclick="uploadSelected()">UPLOAD + ANALYZE + SAVE</button></div><div id="uploadProgress" class="tiny"></div></div>`)}
+async function makeThumb(file,assetId){if(!file.type.startsWith('image/'))return;try{const bmp=await createImageBitmap(file),max=480,scale=Math.min(1,max/bmp.width),c=document.createElement('canvas');c.width=Math.round(bmp.width*scale);c.height=Math.round(bmp.height*scale);c.getContext('2d').drawImage(bmp,0,0,c.width,c.height);const blob=await new Promise(r=>c.toBlob(r,'image/jpeg',.78));if(blob)await fetch(API+'/thumbnail',{method:'POST',credentials:'same-origin',headers:{'x-luxx-asset-id':assetId},body:blob})}catch{}}
+async function uploadSelected(){
+  const files=[...document.getElementById('files').files];
+  if(!files.length)return alert('Choose at least one file.');
+  const prog=document.getElementById('uploadProgress'),batchId=uid('BATCH');
+  const auth=document.getElementById('upAuth').value,hist=document.getElementById('upHist').value,notes=document.getElementById('upNotes').value;
+  let done=0,duplicates=0;
+  const failed=[];
+  uploadFailures=[];
+  const say=(t)=>{if(prog)prog.innerHTML=t};
+  for(let fi=0;fi<files.length;fi++){
+    const f=files[fi];
+    const head=`File ${fi+1} of ${files.length} · ${esc(f.name)}`;
+    // One file failing must never end the batch. Everything already saved stays saved.
+    let saved=false;
+    for(let attempt=1;attempt<=2&&!saved;attempt++){
+      try{
+        const isVideo=f.type.startsWith('video/')||/\.(mov|mp4|m4v)$/i.test(f.name);
+        const assetId=uid(isVideo?'VIDEO':'IMAGE'),parts=Math.ceil(f.size/CHUNK);
+        // Retry the CHUNK, not the whole file. A 185 MB upload is ~53 chunks, and one
+        // dropped connection used to discard every chunk that had already succeeded and
+        // start again under a new asset id. Each chunk now gets its own retries with
+        // backoff, so a brief network blip costs seconds instead of the entire upload.
+        for(let i=0;i<parts;i++){
+          const chunk=f.slice(i*CHUNK,Math.min(f.size,(i+1)*CHUNK));
+          let sent=false,lastErr=null,wait=800;
+          for(let c=1;c<=4&&!sent;c++){
+            say(`${head}<br>uploading chunk ${i+1}/${parts}${c>1?` · retry ${c-1} of 3`:''}`
+              +`<br>${done} saved · ${failed.length} failed · ${duplicates} duplicate`);
+            try{
+              await api('/upload-chunk',{method:'POST',headers:{'x-luxx-asset-id':assetId,'x-luxx-part':String(i),'x-luxx-total-parts':String(parts)},body:chunk});
+              sent=true;
+            }catch(ce){
+              lastErr=ce;
+              if(c<4){await new Promise(r=>setTimeout(r,wait));wait=Math.min(wait*2,6000);}
+            }
+          }
+          if(!sent)throw new Error(`chunk ${i+1} of ${parts} failed after 4 attempts: ${lastErr&&lastErr.message||lastErr}`);
+          if(i===parts-1)say(`${head}<br>finishing ${esc(f.name)}…`);
+        }
+        await makeThumb(f,assetId);
+        const res=await api('/upload-complete',{method:'POST',headers:{'content-type':'application/json'},
+          body:JSON.stringify({asset_id:assetId,batch_id:batchId,name:f.name,type:f.type||'application/octet-stream',size:f.size,parts,media_type:isVideo?'VIDEO':'IMAGE',authorization_status:auth,historical_usage_status:hist,notes})});
+        if(res.duplicate){duplicates++;saved=true;break}
+        if(isVideo&&res.asset&&res.asset.job_id){
+          say(`${head}<br>starting the renderer`);
+          // The job blob may not be visible the instant it is written, so retry. And do
+          // not swallow the outcome: a renderer that never starts is the difference
+          // between a video that processes and one that sits at PROCESSING forever.
+          let kicked=null,kickErr=null;
+          for(let c=0,wait=250;c<3;c++){
+            try{
+              const kr=await api('/kick-media-job',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({job_id:res.asset.job_id})});
+              kicked=kr;
+              if(kr&&kr.started!==false)break;
+              kickErr=(kr&&kr.trigger_error)||'The renderer did not start.';
+            }catch(ke){kickErr=String((ke&&ke.message)||ke);}
+            if(c<2){await new Promise(r=>setTimeout(r,wait));wait*=2;}
+          }
+          if(!kicked||kicked.started===false){
+            failed.push({name:f.name,size:f.size,error:'Uploaded, but the renderer did not start: '+(kickErr||'unknown')});
+            say(`${head}<br>uploaded, but the renderer did not start`);
+          }
+        }else if(!isVideo){
+          say(`${head}<br>preparing safe version`);
+          try{await api('/image-edit',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({asset_id:assetId,auto_best:true,recipe:{aspect:'ORIGINAL'}})})}catch{}
+        }
+        done++;saved=true;break;
+      }catch(e){
+        if(attempt===2)failed.push({name:f.name,size:f.size,error:String(e&&e.message||e)});
+      }
+    }
+    // Successful files are visible immediately, so a refresh never loses them.
+    if(fi%10===9){try{await load();if(view==='library')render()}catch{}}
+  }
+  uploadFailures=failed;
+  const summary=`Batch finished. ${done} saved · ${duplicates} exact duplicate${duplicates===1?'':'s'} skipped · ${failed.length} failed.`;
+  await load();render();
+  if(failed.length){
+    say(`${esc(summary)}<br>${failed.map(x=>esc(x.name)+': '+esc(x.error)).join('<br>')}`);
+    alert(summary+'\n\n'+failed.map(x=>x.name+':\n'+x.error).join('\n\n')
+      +'\n\nEverything else is already saved, so only the failures need to be chosen again.');
+  }else{
+    say(esc(summary));
+    closeModal();
+  }
+}
+function openAsset(id){const a=assets.find(x=>x.asset_id===id),vars=a.variants||[];modal('Asset details',`${a.media_type==='VIDEO'&&a.status!=='READY_FOR_REVIEW'?`<div class="banner ${a.status==='PROCESSING_FAILED'?'dangerBanner':''}"><b>${esc(a.status==='PROCESSING_FAILED'?'Processing failed':'Processing '+(a.processing_job?.progress||0)+'%')}</b><div class="tiny" style="margin-top:6px">${jobDiagnosticHtml(a)||'No detail recorded yet.'}</div></div>`:''}<div class="form"><div class="banner">MASTER ${esc((a.master_sha256||'pending'))}</div>${usePlanHtml(a)}<div class="banner">Eligibility source: <strong>${esc(a.platform_eligibility_source||'LUXX_AUTO')}</strong>. LUXX auto-plans destinations; manual checkboxes below override the automatic list.</div><label>Authorization</label><select id="aa"><option ${a.authorization_status==='UNCLEAR'?'selected':''}>UNCLEAR</option><option ${a.authorization_status==='AUTHORIZED'?'selected':''}>AUTHORIZED</option><option ${a.authorization_status==='NOT_AUTHORIZED'?'selected':''}>NOT_AUTHORIZED</option></select><label>Availability</label><select id="av"><option ${a.availability==='AVAILABLE'?'selected':''}>AVAILABLE</option><option ${a.availability==='QUARANTINED'?'selected':''}>QUARANTINED</option><option ${a.availability==='UNAVAILABLE'?'selected':''}>UNAVAILABLE</option></select><label>Historical usage</label><select id="ah"><option ${a.historical_usage_status!=='HISTORICAL_BASELINE'?'selected':''}>PROSPECTIVE</option><option ${a.historical_usage_status==='HISTORICAL_BASELINE'?'selected':''}>HISTORICAL_BASELINE</option></select><label>Platform eligibility</label><div class="checks">${PLATFORMS.map(p=>`<label><input type="checkbox" data-ap="${esc(p)}" ${(a.platform_eligibility||[]).includes(p)?'checked':''}> ${esc(p)}</label>`).join('')}</div><label><input id="xFaceSafe" type="checkbox" ${a.x_face_safe?'checked':''}> X face-safe review completed — no face visible</label><div class="actions"><button type="button" class="secondary" onclick="resetAutoEligibility('${id}')">RE-RUN LUXX DESTINATION PLAN</button></div><label>Notes</label><textarea id="an">${esc(a.notes||'')}</textarea><div class="actions"><button class="primary" onclick="saveAsset('${id}')">SAVE DETAILS</button>${a.media_type==='VIDEO'&&(a.status==='PROCESSING_FAILED'||a.status==='PROCESSING_REQUIRED'||a.processing_job?.stale)?`<button class="secondary" onclick="retryAuto('${id}')">RETRY VIDEO PROCESSING</button>`:''}${historyProtectedHtml(a)}</div><h3>Derivatives</h3>${vars.length?`<div class="variantGrid">${vars.map(v=>{const ts=variantThumbSrc(a,v),best=bestThumbVariant(a)?.variant_id===v.variant_id,isCrop=String(v.recipe?.aspect||'ORIGINAL')!=='ORIGINAL';return `<div class="variantCard${isCrop?' cropCard':''}"><div class="mediaHero" onclick="openMediaViewer('${id}','${v.variant_id}')">${ts?`<img src="${ts}" alt="${esc(variantLabel(v))}">`:'PREVIEW PROCESSING'}${isCrop?'<span class="cropChip">CROP · UNCHECKED</span>':''}${v.recipe?.mode==='AUTO_BEST'&&v.recipe?.processing_version==='ORIENTATION_VERIFIED_V3'&&v.orientation_verified===true?'<span class="optimizedBadge">✓ ORIENTATION OK</span>':''}${best?'<span class="recommendedBadge">RECOMMENDED</span>':''}</div><div class="mediaBody"><b>${esc(variantLabel(v))}</b>${a.media_type==='VIDEO'?`<div class="tiny"><strong>${esc(derivativeKind(a,v))}</strong></div>`:''}<div class="tiny">${esc(v.evidence_label||'')}</div><div class="tiny">${v.recipe?.aspect?`Aspect ${esc(v.recipe.aspect)} · `:''}${v.recipe?.crop_version==='SUBJECT_BIASED_V1'?'Subject-biased crop · ':''}${v.final_runtime||v.duration_seconds||'—'}${a.media_type==='VIDEO'?' sec':''}</div><div class="actions"><button class="primary" onclick="openMediaViewer('${id}','${v.variant_id}')">OPEN</button><button class="secondary" onclick="openVariant('${id}','${v.variant_id}')">PLATFORM FIELDS</button><button class="secondary" onclick="openEdit('${id}','${v.variant_id}')">EDIT AGAIN</button><button class="secondary" onclick="downloadMedia('${id}','${v.variant_id}')">DOWNLOAD (OPTIONAL)</button></div></div>${isCrop?`<div class="actions"><button class="secondary" onclick="judgeCrop('${id}','${v.variant_id}','${esc(v.recipe?.aspect||'')}','KEPT')">GOOD CROP</button><button class="secondary" onclick="judgeCrop('${id}','${v.variant_id}','${esc(v.recipe?.aspect||'')}','REJECTED')">BAD CROP</button></div>`:''}</div>`}).join('')}</div>`:'<div class="sub">No derivatives yet.</div>'}</div>`) }
+async function saveAsset(id){try{await api('/asset-update',{method:'PUT',headers:{'content-type':'application/json'},body:JSON.stringify({asset_id:id,authorization_status:document.getElementById('aa').value,availability:document.getElementById('av').value,historical_usage_status:document.getElementById('ah').value,platform_eligibility:[...document.querySelectorAll('[data-ap]:checked')].map(x=>x.dataset.ap),x_face_safe:document.getElementById('xFaceSafe').checked,notes:document.getElementById('an').value})});closeModal();await load();render()}catch(e){alert(e.message)}}async function resetAutoEligibility(id){try{await api('/asset-update',{method:'PUT',headers:{'content-type':'application/json'},body:JSON.stringify({asset_id:id,x_face_safe:document.getElementById('xFaceSafe').checked,reset_auto_eligibility:true})});closeModal();await load();openAsset(id)}catch(e){alert(e.message)}}
+async function retryAuto(id){try{const j=await api('/start-media-job',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({asset_id:id,kind:'AUTO_VIDEO'})});await api('/kick-media-job',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({job_id:j.job.job_id})});closeModal();alert('Video processing started.');}catch(e){alert(e.message)}}
+function openEdit(id,source=''){const a=assets.find(x=>x.asset_id===id);if(a.media_type==='IMAGE')modal('Edit image',`<div class="form"><div class="banner">Original is never overwritten. This creates a new image derivative${source?' from '+esc(source):' from the master'}.</div><div class="actions"><button id="autoBestBtn" class="primary" onclick="saveImageEdit('${id}','${source}',true)">AUTO BEST + SAVE</button></div><label>Brightness (-1 to 1)</label><input id="ib" type="number" step=".01" value="0"><label>Contrast</label><input id="ic" type="number" step=".01" value="1"><label>Saturation</label><input id="is" type="number" step=".01" value="1"><label>Warmth (-1 to 1)</label><input id="iw" type="number" step=".01" value="0"><label>Sharpen</label><input id="ish" type="number" step=".1" value="0.4"><label>Aspect</label><select id="ia"><option>ORIGINAL</option><option>1:1</option><option>4:5</option><option>9:16</option></select><div class="actions"><button class="secondary" onclick="saveImageEdit('${id}','${source}',false)">SAVE MANUAL EDIT</button></div></div>`);else modal('Edit video',`<div class="form"><div class="banner">Creates a new rendered MP4/HLS derivative${source?' from '+esc(source):' from the master'}. The source is preserved.</div><label>Trim start seconds</label><input id="vs" type="number" step=".1" value="0"><label>Trim duration seconds (blank = rest of source)</label><input id="vd" type="number" step=".1"><label>Brightness</label><input id="vb" type="number" step=".01" value="0"><label>Contrast</label><input id="vc" type="number" step=".01" value="1"><label>Saturation</label><input id="vsa" type="number" step=".01" value="1"><label>Aspect</label><select id="va"><option>ORIGINAL</option><option>1:1</option><option>4:5</option><option>9:16</option></select><div class="actions"><button id="videoEditBtn" class="primary" onclick="saveVideoEdit('${id}','${source}')">RENDER VIDEO EDIT</button></div></div>`)}
+async function saveImageEdit(id,source,auto){try{await api('/image-edit',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({asset_id:id,source_variant_id:source||null,auto_best:auto,recipe:auto?{}:{brightness:document.getElementById('ib').value,contrast:document.getElementById('ic').value,saturation:document.getElementById('is').value,warmth:document.getElementById('iw').value,sharpen:document.getElementById('ish').value,aspect:document.getElementById('ia').value}})});closeModal();await load();render()}catch(e){alert(e.message)}}
+async function saveVideoEdit(id,source){try{const r=await api('/start-media-job',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({asset_id:id,kind:'VIDEO_EDIT',source_variant_id:source||null,recipe:{trim_start:document.getElementById('vs').value,trim_duration:document.getElementById('vd').value,brightness:document.getElementById('vb').value,contrast:document.getElementById('vc').value,saturation:document.getElementById('vsa').value,aspect:document.getElementById('va').value}})});await api('/kick-media-job',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({job_id:r.job.job_id})});closeModal();alert('Video edit render started. It will appear in LIBRARY when complete.');}catch(e){alert(e.message)}}
+function openVariant(aid,vid){const a=assets.find(x=>x.asset_id===aid),v=(a.variants||[]).find(x=>x.variant_id===vid);modal('Platform variant fields',`<div class="form"><label>Platform</label><select id="vp"><option value="">Not assigned</option>${PLATFORMS.map(p=>`<option ${v.platform===p?'selected':''}>${esc(p)}</option>`).join('')}</select><label>Variant type</label><input id="vt" value="${esc(v.variant_type||'')}"><label>Runtime seconds</label><input id="vrun" type="number" value="${esc(v.final_runtime??v.duration_seconds??'')}"><label>Thumbnail frame/reference</label><input id="vthumb" value="${esc(v.thumbnail_frame_timestamp_or_reference||'')}"><label>Title direction</label><input id="vtitle" value="${esc(v.title_direction||'')}"><label>Description direction</label><textarea id="vdesc">${esc(v.description_direction||'')}</textarea><label>CTA</label><input id="vcta" value="${esc(v.cta||'')}"><label>Tracking route</label><select id="vroute"><option value="">None</option>${state.routes.filter(r=>!r.legacy_replaced_by).map(r=>`<option value="${r.route_id}" ${v.tracking_route_id===r.route_id?'selected':''}>${r.route_id}</option>`).join('')}</select><label>Price if applicable</label><input id="vprice" type="number" step=".01" value="${v.price_if_applicable??''}"><label><input id="vpa" type="checkbox" ${v.price_creator_approved?'checked':''}> Creator-approved price</label><label><input id="vnm" type="checkbox" ${v.native_listing_measurement_capability?'checked':''}> Native listing measurement available</label><div class="actions"><button class="primary" onclick="saveVariant('${aid}','${vid}')">SAVE VARIANT</button></div></div>`)}async function saveVariant(aid,vid){try{await api('/variant-update',{method:'PUT',headers:{'content-type':'application/json'},body:JSON.stringify({asset_id:aid,variant_id:vid,platform:document.getElementById('vp').value||null,variant_type:document.getElementById('vt').value,final_runtime:document.getElementById('vrun').value,thumbnail_frame_timestamp_or_reference:document.getElementById('vthumb').value,title_direction:document.getElementById('vtitle').value,description_direction:document.getElementById('vdesc').value,cta:document.getElementById('vcta').value,tracking_route_id:document.getElementById('vroute').value||null,price_if_applicable:document.getElementById('vprice').value,price_creator_approved:document.getElementById('vpa').checked,native_listing_measurement_capability:document.getElementById('vnm').checked})});closeModal();await load();render()}catch(e){alert(e.message)}}
+function derivativeKind(a,v){
+  if(!v)return 'FULL MASTER';
+  const t=String(v.variant_type||'').toUpperCase(),id=String(v.variant_id||'').toUpperCase();
+  if(id==='FULL-MASTER'||t==='FULL_MASTER')return 'FULL MASTER';
+  if(t==='TEASER')return 'TEASER';
+  if(t==='TRAILER')return 'TRAILER';
+  if(t==='MANUAL_EDIT'||t==='EDIT')return 'EDIT';
+  if(id==='MAIN-CUT'||t==='MAIN_CUT')return 'LEGACY MAIN CUT — NOT THE MASTER';
+  return 'OTHER DERIVATIVE';
+}
+function previewVideo(aid,vid){
+  const a=assets.find(x=>x.asset_id===aid)||{};
+  const v=(a.variants||[]).find(x=>x.variant_id===vid)||null;
+  const poster=v?.thumbnail_key||a.thumbnail_key||'';
+  const posterSrc=poster?'/api/media-chunk?key='+encodeURIComponent(poster):'';
+  const kind=derivativeKind(a,v);
+  const secs=Number(v?.final_runtime||v?.duration_seconds||a.analysis?.duration_seconds||0);
+  const len=secs?`${Math.floor(secs/60)}m ${String(Math.round(secs%60)).padStart(2,'0')}s`:'length unknown';
+  modal('Video preview',
+    `<div class="banner"><strong>${esc(kind)}</strong> · ${esc(len)}${kind==='FULL MASTER'?' · the complete uploaded source':''}</div>`
+    +`<div id="vwrap" class="mediaHero" style="height:auto;background:#000;border-radius:12px;overflow:hidden;position:relative">`
+    +(posterSrc?`<img id="vposter" src="${posterSrc}" alt="" style="width:100%;max-height:62vh;object-fit:contain">`
+              :`<div id="vposterPending" class="tiny" style="padding:28px;text-align:center">Poster frame is still processing.</div>`)
+    +`</div>`
+    +`<div id="vmsg" class="tiny"></div>`
+    +`<div class="actions"><button id="vplayBtn" class="primary" onclick="playVideo('${aid}','${vid}')">PLAY</button>`
+    +`<button class="secondary" onclick="downloadMedia('${aid}','${vid}')">DOWNLOAD MP4</button>`
+    +`<button class="secondary" onclick="closeModal()">CLOSE</button></div>`
+    +`<div class="tiny">Downloading is optional. The poster is a real frame from this file.</div>`);
+}
+function playVideo(aid,vid){
+  const wrap=document.getElementById('vwrap'),msg=document.getElementById('vmsg'),btn=document.getElementById('vplayBtn');
+  if(!wrap)return;
+  const src='/api/hls?asset='+encodeURIComponent(aid)+'&variant='+encodeURIComponent(vid);
+  wrap.innerHTML='<video id="vplayer" controls playsinline preload="metadata" style="width:100%;max-height:62vh;background:#000"></video>';
+  const el=document.getElementById('vplayer');
+  // Playback failure is reported, never hidden behind a black rectangle.
+  el.addEventListener('error',()=>{
+    const e=el.error;
+    msg.textContent='Playback failed'+(e&&e.code?` (media error ${e.code})`:'')+'. This browser may not play this stream. Use DOWNLOAD MP4 to check the file itself.';
+  });
+  el.addEventListener('loadeddata',()=>{msg.textContent=''});
+  if(el.canPlayType('application/vnd.apple.mpegurl')){el.src=src;}
+  else{
+    // No native HLS here. Stream the rendered MP4 chunks instead of showing nothing.
+    msg.textContent='Preparing playback…';
+    downloadManifestBlob(aid,vid).then(url=>{el.src=url;msg.textContent='';})
+      .catch(err=>{msg.textContent='Playback failed: '+err.message+'. Use DOWNLOAD MP4 to check the file itself.';});
+  }
+  if(btn)btn.disabled=true;
+  el.play&&el.play().catch(()=>{});
+}
+async function downloadManifestBlob(aid,vid){
+  const m=await api(`/download-manifest?asset=${encodeURIComponent(aid)}&variant=${encodeURIComponent(vid||'')}`),parts=[];
+  for(const p of m.parts){const r=await fetch(p.url,{credentials:'same-origin'});if(!r.ok)throw new Error('Playback chunk failed');parts.push(await r.blob())}
+  const url=URL.createObjectURL(new Blob(parts,{type:m.type||'video/mp4'}));
+  setTimeout(()=>URL.revokeObjectURL(url),300000);
+  return url;
+}
+async function downloadMedia(aid,vid){try{const m=await api(`/download-manifest?asset=${encodeURIComponent(aid)}&variant=${encodeURIComponent(vid||'')}`),parts=[];for(const p of m.parts){const r=await fetch(p.url,{credentials:'same-origin'});if(!r.ok)throw new Error('Download chunk failed');parts.push(await r.blob())}const url=URL.createObjectURL(new Blob(parts,{type:m.type})),a=document.createElement('a');a.href=url;a.download=m.name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000)}catch(e){alert(e.message)}}
+function openVideoReview(aid){const a=assets.find(x=>x.asset_id===aid),existing=(state.historicalPublications||[]).filter(h=>h.asset_id===aid);modal('Existing video review',`<div class="banner">Historical posts stay historical. A replacement is a new prospective action.</div><div class="form"><label>Platform</label><select id="hp">${PLATFORMS.map(p=>`<option>${esc(p)}</option>`).join('')}</select><label>Existing post/listing reference</label><input id="href"><label>Existing title</label><input id="htitle"><div class="actions"><button class="secondary" onclick="addHistorical('${aid}')">ADD HISTORICAL RECORD</button></div></div><h3>Recorded existing publications</h3>${existing.length?existing.map(h=>`<div class="row"><div><b>${esc(h.platform)}</b><div class="tiny">${esc(h.external_reference)}</div></div><button class="primary" onclick="runHistoricalReview('${h.historical_publication_id}')">REVIEW</button></div>`).join(''):'<div class="sub">None recorded yet.</div>'}`)}async function addHistorical(aid){try{await command('HISTORICAL_PUBLICATION',{asset_id:aid,platform:document.getElementById('hp').value,external_reference:document.getElementById('href').value,title:document.getElementById('htitle').value});closeModal();await load();openVideoReview(aid)}catch(e){alert(e.message)}}async function runHistoricalReview(hid){try{const r=await command('HISTORICAL_REVIEW',{historical_publication_id:hid});modal('Historical video decision',`${pill(r.recommendation)}<div class="banner">${esc(r.reason)}</div>${[['Derivative complete',r.derivative_complete?'YES':'NO'],['Teasers',r.teaser_count],['Tracking ready',r.tracking_ready?'YES':'NO'],['Prospective update allowed',r.prospective_action_allowed?'YES':'NO']].map(([k,v])=>`<div class="kv"><b>${k}</b><div>${esc(v)}</div></div>`).join('')}<div class="actions"><button class="primary" ${r.prospective_action_allowed?'':'disabled'} onclick="makeHistoricalUpdate('${hid}')">CREATE PROSPECTIVE UPDATE</button></div>`)}catch(e){alert(e.message)}}async function makeHistoricalUpdate(hid){try{await command('HISTORICAL_UPDATE',{historical_publication_id:hid});closeModal();await load();view='today';render()}catch(e){alert(e.message)}}
+const PLACEMENT_LABEL={BIO:'Bio / profile',PINNED_POST:'Pinned post',POST:'Regular post',VIDEO_DESCRIPTION:'Video description',CREATOR_PROFILE:'Creator profile',MESSAGE:'Direct message',BUTTON:'Linktree button',NATIVE_POST:'Native paid post',NATIVE_MESSAGE:'Native paid message',NATIVE_FEED:'Paid feed',NATIVE_LISTING:'ManyVids listing',FYP:'Fansly FYP',SUGGESTIONS:'Fansly Suggestions',SEARCH:'Fansly Search',NATIVE_PROFILE:'Fansly profile / native monetization',LIVE_ROOM:'Live room / native tips'};
+function placementLabel(r){return PLACEMENT_LABEL[r.placement||r.intended_placement]||r.placement||r.intended_placement||'Platform-native placement'}
+function routeHelp(r){
+  const p=r.placement||r.intended_placement||'';
+  if(r.attribution_scope==='INTERNAL'){
+    if(r.source==='Fansly'&&p==='FYP')return {where:'Nothing to paste. Make the prescribed post eligible for Fansly FYP and measure the built-in FYP tracking result.',tracking:'Fansly provides an internal FYP Tracking Link/result stream.'};
+    if(r.source==='Fansly'&&p==='SUGGESTIONS')return {where:'Nothing to paste. This route measures discovery from Fansly Account Suggestions.',tracking:'Fansly provides a built-in Suggestions tracking source.'};
+    if(r.source==='Fansly'&&p==='SEARCH')return {where:'Nothing to paste. This route measures people who find the creator through Fansly Search.',tracking:'Fansly provides a built-in Search tracking source.'};
+    if(r.source==='Chaturbate')return {where:'Nothing external to paste. Run the reactivation session and measure native tips, followers and session effort. External routing stays out of LUXX until a currently permitted placement is verified.',tracking:'Native Chaturbate monetization only for this route.'};
+    return {where:'Nothing to paste. This route is measured inside the platform.',tracking:'Native platform measurement.'};
+  }
+  if(r.source==='OnlyFans Free'&&r.destination==='OnlyFans Paid')return {where:`Create this tracking link while logged into the PAID OnlyFans account. Name it ${r.route_id.toLowerCase()}. Copy it, switch to the FREE account, then paste it specifically in the ${placementLabel(r)} placement.`,tracking:'The tracking link belongs to the destination Paid account; the placement on Free tells LUXX where the conversion started.'};
+  if(r.source==='X'&&r.destination==='Fansly')return {where:`Fansly → Creator Dashboard → Tracking Links → create ${r.route_id.toLowerCase()} → Copy. Paste that link in X ${placementLabel(r)}.`,tracking:'Fansly can attribute downstream claims, follows, subscriptions and revenue to this placement-specific link.'};
+  if(r.source==='Pornhub'&&r.destination==='Fansly')return {where:`Fansly → Creator Dashboard → Tracking Links → create ${r.route_id.toLowerCase()} → Copy. Paste it in the permitted Pornhub ${placementLabel(r)} placement.`,tracking:'Fansly reports downstream results for that unique inbound link.'};
+  if(r.source==='Linktree')return {where:`In Linktree, edit the ${r.destination} button and paste the destination/tracking URL. This route is only for that one button.`,tracking:'Each Linktree button is verified separately.'};
+  return {where:`Create or copy the destination tracking URL, then paste it only in ${r.source} → ${placementLabel(r)}. Use the route name ${r.route_id.toLowerCase()} when the destination lets you name tracking links.`,tracking:'One source + one placement + one destination = one route. LUXX does not combine Bio, Pinned and Post traffic anymore.'};
+}
+function routesHtml(){const rows=(state.routes||[]).filter(r=>!r.legacy_replaced_by);const order=['X','Pornhub','OnlyFans Free','OnlyFans Paid','Fansly','ManyVids','Chaturbate','Linktree'];return `<div class="card"><div class="banner"><strong>ROUTES = source + placement + destination.</strong> Bio, pinned post and regular post are now separate measurable routes. Do not reuse one tracking link across placements if the destination supports unique tracking links.</div>${order.map(src=>{const rs=rows.filter(r=>r.source===src).sort((a,b)=>(a.priority??100)-(b.priority??100));return rs.length?`<h3>${esc(src)}</h3>${rs.map(r=>`<div class="row"><div><b>${esc(placementLabel(r))} → ${esc(r.destination)}</b><div class="tiny">${esc(r.route_id)} · ${r.attribution_scope==='INTERNAL'?'measured inside platform':'placement-specific route'} · ${esc(r.verification_status)} / ${esc(r.active_status)}</div></div><button class="secondary" onclick="openRoute('${r.route_id}')">SET UP / VERIFY</button></div>`).join('')}`:''}).join('')}</div>`}
+function openRoute(id){const r=state.routes.find(x=>x.route_id===id),h=routeHelp(r),internal=r.attribution_scope==='INTERNAL';modal('Set up: '+r.source+' · '+placementLabel(r)+' → '+r.destination,`<div class="form"><div class="banner"><strong>Exact placement:</strong> ${esc(placementLabel(r))}<br><strong>Tracking-link name:</strong> ${esc(r.route_id.toLowerCase())}<br><br><strong>Exactly what to do:</strong><br>${esc(h.where)}<br><br><strong>How LUXX measures it:</strong> ${esc(h.tracking)}</div><label>How well can LUXX track this route?</label><div class="banner ${internal?'success':''}">${internal?'Native platform measurement. LUXX sets precision from the evidence.':'SOURCE/PLACEMENT level by default. LUXX upgrades to exact action attribution only when a unique action binding is proven.'}</div>${internal?'':`<label>Tracking link / destination URL</label><input id="ru" value="${esc(r.tracking_url_or_identifier||'')}" placeholder="Paste the link people will actually tap"><label>Verification test</label><select id="rt"><option value="OPENED_UNIQUE_TRACKING_LINK_AND_CONFIRMED_DESTINATION">Open unique tracking link and confirm destination</option><option value="OPENED_LINK_AND_CONFIRMED_DESTINATION">Open link and confirm destination</option><option value="LIVE_PLACEMENT_CONFIRMED">Confirm live ${esc(placementLabel(r))} placement</option></select><label>Verification evidence</label><select id="re"><option value="DESTINATION_OPENED_CORRECTLY">Destination opened correctly</option><option value="UNIQUE_TRACKING_IDENTIFIER_PRESERVED">Unique tracking identifier preserved</option><option value="LIVE_PLACEMENT_VISUALLY_CONFIRMED">Live placement visually confirmed</option></select><label><input id="rd" type="checkbox" ${r.destination_confirmed?'checked':''}> I opened the link and confirmed the correct destination</label>`}<div class="actions"><button class="primary" onclick="activateRoute('${id}',${internal?'true':'false'})">TEST & ACTIVATE ROUTE</button><button class="secondary" onclick="closeModal()">CANCEL</button></div></div>`)}
+async function activateRoute(id,internal){try{const r=state.routes.find(x=>x.route_id===id);const payload={route_id:id,attribution_scope:r.attribution_scope,native_linkage_capability:!!r.native_linkage_capability,verification_status:'VERIFIED',intended_placement:r.placement||r.intended_placement};if(!internal){payload.tracking_url_or_identifier=document.getElementById('ru').value.trim();payload.test_performed=document.getElementById('rt').value;payload.verification_evidence=document.getElementById('re').value;payload.destination_confirmed=document.getElementById('rd').checked;if(!payload.tracking_url_or_identifier)throw new Error('Paste the tracking/destination link first.');if(!payload.destination_confirmed)throw new Error('Open the link and confirm the correct destination before activating it.');}else{payload.destination_confirmed=true;payload.test_performed='NATIVE_PLATFORM_MEASUREMENT';payload.verification_evidence='NATIVE_ROUTE_CONFIRMED';}await command('ROUTE_UPDATE',payload);closeModal();await load();render()}catch(e){alert(e.message)}}
+function shootReferenceHtml(s){const ids=s.reference_asset_ids||[];return ids.length?`<div class="tiny"><strong>Reference photos:</strong> ${ids.length} selected</div>`:'<div class="tiny">Reference photos not selected yet.</div>'}
+function shootsHtml(){return `<div class="card"><div class="actions"><button id="brandShootBtn" class="primary" onclick="openShoot()">PLAN BRANCH SHOOT</button></div><div class="banner"><strong>Branch rule:</strong> approve the concept, then choose real authorized Library photos as references before building the branch.</div>${(state.brandShoots||[]).length?state.brandShoots.slice().reverse().map(s=>`<div class="row"><div><b>${esc(s.name)}</b><div class="tiny">Gap: ${esc(s.gap)} · ${esc(s.target_platforms.join(', '))}</div>${shootReferenceHtml(s)}</div><div>${pill(s.status)} ${s.status==='DRAFT'?`<button class="secondary" onclick="approveShoot('${s.shoot_id}')">APPROVE</button>`:`<button class="secondary" onclick="chooseShootReferences('${s.shoot_id}')">${(s.reference_asset_ids||[]).length?'CHANGE PHOTOS':'CHOOSE PHOTOS'}</button>`}</div></div>`).join(''):'<div class="sub">No shoot prescriptions.</div>'}</div>`}
+function openShoot(){modal('Plan branch shoot',`<div class="form"><label>Shoot / concept name</label><input id="sn"><label>Documented library or funnel gap</label><textarea id="sg"></textarea><label>Branch direction</label><textarea id="sd"></textarea><label>Target platforms</label><div class="checks">${PLATFORMS.map(p=>`<label><input data-sp="${esc(p)}" type="checkbox"> ${esc(p)}</label>`).join('')}</div><label>Required assets / deliverables</label><textarea id="sr" placeholder="Hero images, vertical teaser, paid full video..."></textarea><label>Notes</label><textarea id="snotes"></textarea><div class="actions"><button class="primary" onclick="saveShoot()">CREATE DRAFT</button></div></div>`)}
+async function saveShoot(){try{await command('BRAND_SHOOT_CREATE',{name:document.getElementById('sn').value,gap:document.getElementById('sg').value,brand_direction:document.getElementById('sd').value,target_platforms:[...document.querySelectorAll('[data-sp]:checked')].map(x=>x.dataset.sp),required_assets:document.getElementById('sr').value,notes:document.getElementById('snotes').value});closeModal();await load();render()}catch(e){alert(e.message)}}
+async function approveShoot(id){try{await command('BRAND_SHOOT_APPROVE',{shoot_id:id});await load();render();chooseShootReferences(id)}catch(e){alert(e.message)}}
+function branchTerms(s){const raw=`${s.name||''} ${s.gap||''} ${s.brand_direction||''} ${s.required_assets||''} ${s.notes||''}`.toLowerCase();const stop=new Set(['the','and','for','with','from','this','that','into','shoot','branch','photo','photos','image','images','content','assets','asset','video','videos','hero','paid','free']);return [...new Set(raw.replace(/[^a-z0-9]+/g,' ').split(' ').filter(x=>x.length>2&&!stop.has(x)))]}
+// Generalised concept match. v1.4.6 hardcoded a couch-versus-boat regex, which passed exactly
+// one demo and could not generalise to any concept nobody had anticipated. Matching now runs
+// against semantic tags when present, falling back to filename/notes/batch text when not.
+function assetConceptText(a){return `${a.name||''} ${a.notes||''} ${a.batch_id||''} ${(a.commercial_role||[]).join(' ')} ${((a.semantic&&a.semantic.tags)||[]).join(' ')} ${(a.semantic&&a.semantic.setting)||''}`.toLowerCase()}
+function branchConceptScore(s,a){
+  const terms=branchTerms(s),hay=assetConceptText(a);
+  const tags=((a.semantic&&a.semantic.tags)||[]).map(t=>String(t).toLowerCase());
+  let hits=0,tagHits=0;
+  for(const t of terms){
+    if(tags.includes(t)){tagHits++;hits++;continue}
+    if(hay.includes(t))hits++;
+  }
+  // Tag matches are evidence about pixels; text matches are evidence about filenames only.
+  let score=tagHits*20+(hits-tagHits)*12;
+  score+=(heroScore(a)??50)/10;
+  return {score,hits,tagHits,matched:terms.filter(t=>hay.includes(t)).slice(0,3)}}
+function chooseShootReferences(id){
+  const s=(state.brandShoots||[]).find(x=>x.shoot_id===id);if(!s)return;
+  const selected=new Set(s.reference_asset_ids||[]);
+  const all=assets.filter(a=>a.media_type==='IMAGE'&&a.authorization_status==='AUTHORIZED'&&a.availability==='AVAILABLE')
+    .map(a=>{const r=branchConceptScore(s,a);return {a,score:r.score,hits:r.hits,tagHits:r.tagHits,matched:r.matched}})
+    .sort((x,y)=>y.score-x.score||(heroScore(y.a)??-1)-(heroScore(x.a)??-1));
+  const matched=all.filter(x=>x.hits>=1),other=all.filter(x=>x.hits<1);
+  // A shortlist, not the whole library. 60 thumbnails is not a decision aid.
+  const enough=matched.length>=3;
+  const candidates=[...matched.slice(0,12),...(enough?[]:other.slice(0,12))];
+  const header=enough
+    ? `<div class="banner success"><strong>${matched.length} photo${matched.length===1?'':'s'} match this concept.</strong> Showing the ${Math.min(12,matched.length)} strongest.</div>`
+    : `<div class="banner"><strong>LUXX found ${matched.length} photo${matched.length===1?'':'s'} matching this concept, which is not enough to build a branch from.</strong> Either broaden the concept, or shoot it fresh. Other authorized photos are listed below if you want to choose manually.</div>`;
+  const cards=candidates.map(x=>{
+    const a=x.a,v=bestThumbVariant(a),src=imageSrc(a),sc=heroScore(a),low=!x.hits;
+    const why=x.hits
+      ? `Matches: ${esc(x.matched.join(', '))}${x.tagHits?' (from image content)':' (from filename / notes only)'}`
+      : 'No concept match, shown as a technical alternate';
+    return `<label class="variantCard" style="cursor:pointer;${low?'opacity:.72':''}"><div class="mediaHero">${src?`<img src="${src}" alt="">`:'IMAGE'}</div><div class="mediaBody"><input type="checkbox" data-branch-ref="${esc(a.asset_id)}" ${selected.has(a.asset_id)?'checked':''}> <b>${esc(a.name||a.asset_id)}</b><div class="tiny">${why} · ${sc==null?'technical score pending':`technical ${sc}`}</div></div></label>`;
+  }).join('');
+  modal('Choose branch reference photos',`<div class="banner"><strong>${esc(s.name)}</strong><br>LUXX ranks concept match first, then technical quality. Matches found in the image content are stronger evidence than matches found only in a filename. Choose the references you actually want.</div>${header}${candidates.length?`<div class="variantGrid">${cards}</div><div class="actions"><button class="primary" onclick="saveShootReferences('${id}')">SAVE REFERENCE PHOTOS</button></div>`:'<div class="banner dangerBanner">No authorized, available photos are ready. Authorize the Library photos first.</div>'}`);
+}
+async function saveShootReferences(id){const ids=[...document.querySelectorAll('[data-branch-ref]:checked')].map(x=>x.dataset.branchRef);if(!ids.length&&!confirm('Save this approved branch with no reference photos selected?'))return;try{await command('BRAND_SHOOT_SET_REFERENCES',{shoot_id:id,asset_ids:ids});closeModal();await load();render()}catch(e){alert(e.message)}}
+// Thresholds count results PER ROUTE / PER ASSET, never in total. 30 actions spread across
+// 12 routes is not evidence about any of them, but v1.4.6 called that "DIRECTIONAL
+// CREATOR-SPECIFIC" on a global count of 12.
+function learnedClaim(id,n){
+  n=Number(n||0);
+  if(!id||!n)return 'Not enough measured data yet';
+  if(n<6)return `${esc(id)} — only ${n} result${n===1?'':'s'}, too few to call`;
+  if(n<16)return `${esc(id)} — early signal from ${n} results`;
+  if(n<30)return `${esc(id)} — ${n} results, creator-specific`;
+  return `${esc(id)} — established across ${n} results`;
+}
+function learningStage(routes){
+  const best=Math.max(0,...(routes||[]).map(r=>Number(r.n||0)));
+  if(best>=30)return `ESTABLISHED — ${best} results on your strongest route`;
+  if(best>=16)return `CREATOR-SPECIFIC — ${best} results on your strongest route`;
+  if(best>=6)return `DIRECTIONAL — ${best} results on your strongest route, not yet conclusive`;
+  return `STARTING — ${best} result${best===1?'':'s'} on your strongest route. LUXX is not comparing yet.`;
+}
+function reportsHtml(){
+  if(!reports)return '';
+  const e=reports.effort,c=reports.calibration,o=reports.overrides,b=reports.since_baseline;
+  let h='';
+  // Is LUXX actually right? Almost nothing in this category will tell you.
+  h+=`<div class="card"><div class="eyebrow">IS LUXX ACTUALLY RIGHT?</div><h3>LUXX grading its own advice</h3><div class="banner">${esc(c.verdict)}</div><div class="tiny">${esc(c.caveat)}</div></div>`;
+  // What an hour of her time is worth
+  if(e){
+    const rate=e.overall_revenue_per_hour;
+    h+=`<div class="card"><div class="eyebrow">YOUR TIME</div><h3>${e.reportable&&rate!=null?money(rate)+' per hour of your effort':'Not enough posts yet to show an hourly rate'}</h3><div class="tiny">${e.total_hours} hours logged across ${e.actions} posts${e.reportable?'':' — LUXX waits for 6 before quoting a rate'}.</div>${e.reportable?`<div class="learnList">${e.routes.filter(r=>r.reportable).slice(0,5).map(r=>`<div><b>${esc(r.route_id)}</b><div class="tiny">${money(r.revenue_per_hour)}/hr · ${r.hours}h · ${r.n} posts</div></div>`).join('')||'<div class="tiny">No single route has 6 posts yet.</div>'}</div>`:''}</div>`;
+  }
+  // The creator disagreeing is a signal about LUXX
+  if(o&&o.flag)h+=`<div class="card"><div class="eyebrow">LUXX MAY BE WRONG HERE</div><div class="banner">${esc(o.flag)}</div>${o.recent_reasons.length?`<details><summary class="tiny">Your recent reasons (${o.recent_reasons.length})</summary>${o.recent_reasons.map(r=>`<div class="line tiny"><b>${esc(r.kind)} · ${esc(r.platform||'')}</b> ${esc(r.reason)}</div>`).join('')}</details>`:''}</div>`;
+  // The next intelligence claim, and the evidence that would falsify it
+  const ce=reports.crop_evidence;
+  if(ce)h+=`<div class="card"><div class="eyebrow">CROPS — WHAT LUXX IS NOT YET ALLOWED TO CLAIM</div><div class="banner">${esc(ce.status)}</div><div class="tiny">${esc(ce.next_claim)}</div>${ce.total?`<div class="tiny">Kept ${ce.kept} · Rejected ${ce.rejected}${ce.by_aspect.length?' · '+ce.by_aspect.map(x=>`${esc(x.aspect)} ${Math.round((x.keep_rate||0)*100)}% kept (${x.n})`).join(' · '):''}</div>`:''}</div>`;
+  // What each JOB actually produced
+  const jp=reports.job_performance||[];
+  if(jp.length)h+='<div class="card"><div class="eyebrow">BY JOB</div>'+jp.map(function(r){
+    return '<div class="row"><div><b>'+esc(r.job)+'</b><div class="tiny">'+r.n+' action'+(r.n===1?'':'s')+' · '+r.hours+'h'
+      +(r.with_denominator?' · '+r.sent_to+' sends counted':'')+' · '+r.conversions+' conversions'
+      +(r.reportable?'':' · not enough yet to judge')+'</div></div><b>'+money(r.revenue)+'</b></div>';
+  }).join('')+'</div>';
+  const cam=reports.cam;
+  if(cam&&cam.sessions)h+='<div class="card"><div class="eyebrow">CAM PILOT</div><div class="row"><div><b>'+cam.sessions+' session'+(cam.sessions===1?'':'s')+'</b><div class="tiny">'+cam.hours+'h · '+cam.followers_gained+' followers · '+(cam.revenue_per_hour!=null?money(cam.revenue_per_hour)+'/hr':'no rate yet')+'</div></div><b>'+money(cam.native_revenue)+'</b></div><div class="tiny">'+esc(cam.note||'')+'</div></div>';
+  // Honest denominator
+  if(b)h+=`<div class="card"><div class="eyebrow">SINCE BASELINE</div>${b.locked?`<h3>${b.actions} action${b.actions===1?'':'s'} in ${b.days} day${b.days===1?'':'s'}</h3><div class="tiny">${esc(b.claimable_note)}</div>`:`<div class="tiny">${esc(b.note)}</div>`}</div>`;
+  return h;
+}
+async function judgeCrop(asset_id,variant_id,aspect,verdict){
+  let reason='';
+  if(verdict==='REJECTED'){reason=prompt('What is wrong with this crop? (helps LUXX learn what a bad crop looks like)')||'';}
+  try{await command('CROP_JUDGE',{asset_id,variant_id,aspect,verdict,reason});await load();alert(verdict==='KEPT'?'Recorded as a good crop.':'Recorded as a bad crop.');render()}catch(e){alert(e.message)}
+}
+async function downloadProofPack(){
+  try{
+    const pack=await command('PROOF_PACK');
+    const blob=new Blob([JSON.stringify(pack,null,2)],{type:'application/json'});
+    const url=URL.createObjectURL(blob),a=document.createElement('a');
+    a.href=url;a.download=`luxx-receipts-${new Date().toISOString().slice(0,10)}.json`;
+    document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
+  }catch(e){alert(e.message)}
+}
+function renderResults(){const el=document.getElementById('view'),rev=(state.revenueEvents||[]).reduce((s,r)=>s+Number(r.gross_amount||0),0),measured=(state.outcomes||[]).filter(o=>o.measurement_state==='MEASURED'),clicks=measured.reduce((s,o)=>s+Number(o.raw?.tracked_clicks||0),0),conversions=measured.reduce((s,o)=>s+Number(o.raw?.paid_conversions||0)+Number(o.raw?.free_joins||0)+Number(o.raw?.manyvids_sales||0),0);const routeMap=new Map();for(const a of state.actions||[]){const o=state.outcomes.find(x=>x.action_id===a.action_id&&x.measurement_state==='MEASURED');if(!o)continue;const rr=routeMap.get(a.route_id)||{id:a.route_id||'UNATTRIBUTED',clicks:0,conv:0,rev:0,n:0};rr.clicks+=Number(o.raw?.tracked_clicks||0);rr.conv+=Number(o.raw?.paid_conversions||0)+Number(o.raw?.free_joins||0)+Number(o.raw?.manyvids_sales||0);rr.rev+=(state.revenueEvents||[]).filter(x=>x.action_id===a.action_id).reduce((s,x)=>s+Number(x.gross_amount||0),0);rr.n++;routeMap.set(rr.id,rr)}const routes=[...routeMap.values()].sort((a,b)=>(b.rev*10+b.conv*3+b.clicks)-(a.rev*10+a.conv*3+a.clicks));const assetMap=new Map();for(const a of state.actions||[]){const o=state.outcomes.find(x=>x.action_id===a.action_id&&x.measurement_state==='MEASURED');if(!o)continue;const v=assetMap.get(a.asset_id)||{id:a.asset_id,score:0,n:0};v.score+=Number(o.raw?.paid_conversions||0)*8+Number(o.raw?.free_joins||0)*4+Number(o.raw?.tracked_clicks||0);v.n++;assetMap.set(a.asset_id,v)}const topAsset=[...assetMap.values()].sort((a,b)=>b.score-a.score)[0],best=routes[0];let html=page('RESULTS','What worked, what paid, what LUXX learned','Simple performance first. Full audit data remains available below.');html+=`<div class="grid two"><div class="resultStat"><div class="eyebrow">REVENUE</div><b>${money(rev)}</b><span class="tiny">Recorded revenue</span></div><div class="resultStat"><div class="eyebrow">TRACKED CLICKS</div><b>${clicks}</b><span class="tiny">Measured clicks</span></div><div class="resultStat"><div class="eyebrow">CONVERSIONS</div><b>${conversions}</b><span class="tiny">Joins + paid conversions + sales</span></div><div class="resultStat"><div class="eyebrow">MEASURED ACTIONS</div><b>${measured.length}</b><span class="tiny">Creator learning sample</span></div></div><div class="card"><div class="eyebrow">WHAT LUXX LEARNED</div><h3>Current directional learning</h3><div class="learnList"><div><b>Best current route:</b> ${learnedClaim(best?.id,best?.n)}</div><div><b>Best current PPV treatment:</b> ${reports?.treatment_learning?.best?esc(reports.treatment_learning.best.label):'Not enough comparable PPV sends yet'}</div>
+      <div><b>Best asset where the file was actually seen first:</b> ${(()=>{const v=reports?.visible_asset_learning;return v?.best?learnedClaim(v.best.id,v.best.n):'Not enough measured data yet'})()}</div>
+      <div class="tiny">PPV buyers pay before seeing the file, so unlock revenue never names a hidden photo as the winner.</div><div><b>Learning stage:</b> ${esc(learningStage(routes))}</div><div class="tiny">LUXX changes future recommendations only from measured outcomes; unknown stays unknown.</div></div></div>${reportsHtml()}<div class="card"><div class="eyebrow">ROUTE PERFORMANCE</div>${routes.length?routes.slice(0,12).map((rr,i)=>`<div class="row"><div><b>#${i+1} · ${esc(rr.id)}</b><div class="tiny">${rr.n} measured action${rr.n===1?'':'s'} · ${rr.clicks} clicks · ${rr.conv} conversions</div></div><b>${money(rr.rev)}</b></div>`).join(''):'<div class="sub">No measured route results yet.</div>'}</div><div class="card"><div class="actions"><button id="addRevenueBtn" class="primary" onclick="openRevenue()">ADD REVENUE</button><button id="customOrderBtn" class="secondary" onclick="openCustom()">CUSTOM ORDER</button><button id="exportCsvBtn" class="secondary" onclick="exportData('csv')">EXPORT RESULTS CSV</button><button id="exportJsonBtn" class="secondary" onclick="exportData('json')">BACKUP JSON</button><button id="proofPackBtn" class="secondary" onclick="downloadProofPack()">DOWNLOAD RECEIPTS</button><button class="secondary" onclick="openImport()">RESTORE / IMPORT JSON</button></div></div><div class="card"><h3>Action history</h3>${state.actions.length?state.actions.slice().reverse().map(a=>{const o=state.outcomes.find(x=>x.action_id===a.action_id),rv=state.revenueEvents.filter(x=>x.action_id===a.action_id).reduce((s,x)=>s+Number(x.gross_amount||0),0);return `<div class="row"><div><b>${esc(a.platform)} · ${esc(a.asset_id)}</b><div class="tiny">${esc(a.status)} · ${esc(a.attribution_precision||'')} · ${esc(a.operator_role||'Operator not recorded')} · effort ${a.creator_effort_minutes??'—'} min</div></div><div><b>${money(rv)}</b>${o&&o.measurement_state==='SCHEDULED'?`<button class="primary" onclick="openMeasurement('${o.outcome_id}')">MEASURE</button>`:''}${o&&o.measurement_state==='MEASURED'?`<button class="secondary" onclick="openMeasurement('${o.outcome_id}',true)">CORRECT</button>`:''}</div></div>`}).join(''):'<div class="sub">No action history yet.</div>'}</div>`;el.innerHTML=html}
+async function exportData(f){try{const r=await fetch(API+`/export-data?format=${f}`,{credentials:'same-origin'});if(!r.ok)throw new Error('Export failed');const b=await r.blob(),url=URL.createObjectURL(b),a=document.createElement('a');a.href=url;a.download=f==='csv'?'LUXX_RESULTS_EXPORT.csv':'LUXX_STATE_EXPORT.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000)}catch(e){alert(e.message)}}function openImport(){modal('Import state JSON',`<div class="form"><div class="banner">Import is merge-only for append-only ledgers. Existing historical IDs are not replaced.</div><label>JSON file</label><input id="imp" type="file" accept="application/json,.json"><div class="actions"><button class="primary" onclick="doImport()">IMPORT</button></div></div>`)}async function doImport(){try{const f=document.getElementById('imp').files[0];if(!f)throw new Error('Choose a JSON file.');await api('/import-data',{method:'POST',headers:{'content-type':'application/json'},body:await f.text()});closeModal();await load();render()}catch(e){alert(e.message)}}
+function checklistHtml(){
+  if(!checklist||!checklist.items)return '';
+  const p=checklist.progress||{done:0,total:0};
+  const rows=checklist.items.map(function(it){
+    return '<label class="ckRow'+(it.done?' done':'')+'"><input type="checkbox" '+(it.done?'checked':'')
+      +' onchange="toggleCheck(\''+it.id+'\',this.checked)"><div><b>'+esc(it.label)+'</b>'
+      +(it.done&&it.done_at?'<div class="tiny">done '+fmt(it.done_at)+(it.by?' by '+esc(it.by):'')+'</div>':'')+'</div></label>';
+  }).join('');
+  return '<h3>Launch checklist</h3><div class="banner"><strong>'+p.done+' of '+p.total+' complete.</strong>'
+    +(p.next?' Next: '+esc(p.next.label):' All steps done.')+'</div>'+rows;
+}
+async function toggleCheck(id,done){
+  try{await command('CHECKLIST_SET',{id:id,done:done,by:operatorRole});checklist=await command('CHECKLIST');render();openSetup();}catch(e){alert(e.message)}
+}
+function openBaselineCapture(){
+  const METRICS={'X':['followers','posts'],'Pornhub':['videos','subscribers','views'],'OnlyFans Free':['followers','posts','media'],'OnlyFans Paid':['subscribers','posts'],'ManyVids':['listings','sales','revenue'],'Fansly':['followers','posts'],'Chaturbate':['followers','tokens']};
+  const plats=Object.keys(METRICS);
+  const opts=plats.map(function(p){return '<option>'+esc(p)+'</option>'}).join('');
+  const fields=plats.map(function(p){
+    return '<div id="bl-'+p.replace(/\s/g,'_')+'" class="blFields" style="display:none">'
+      +METRICS[p].map(function(m){return '<label>'+m+'</label><input id="bm-'+p.replace(/\s/g,'_')+'-'+m+'" type="number" step="any">'}).join('')
+      +'</div>';
+  }).join('');
+  const cov=(state.baseline&&state.baseline.snapshots||[]).map(function(x){return esc(x.platform)}).join(', ')||'none yet';
+  modal('Capture platform baseline','<div class="form">'
+    +'<div class="banner">Enter the <strong>exact</strong> numbers you can see right now. LUXX does not pre-fill guesses. Leave a field blank if you cannot see it.</div>'
+    +'<div class="tiny">Captured so far: '+cov+'</div>'
+    +'<label>Platform</label><select id="blPlat" onchange="showBaselineFields()">'+opts+'</select>'
+    +fields
+    +'<label>Evidence reference (screenshot filename)</label><input id="blEv">'
+    +'<label>Notes</label><textarea id="blNotes"></textarea>'
+    +'<div class="actions"><button class="primary" onclick="saveBaselineSnapshot()">SAVE THIS PLATFORM</button></div></div>');
+  showBaselineFields();
+}
+function showBaselineFields(){
+  const sel=document.getElementById('blPlat');if(!sel)return;
+  document.querySelectorAll('.blFields').forEach(function(d){d.style.display='none'});
+  const el=document.getElementById('bl-'+sel.value.replace(/\s/g,'_'));if(el)el.style.display='block';
+}
+async function saveBaselineSnapshot(){
+  const p=document.getElementById('blPlat').value;
+  const metrics={};
+  document.querySelectorAll('[id^="bm-'+p.replace(/\s/g,'_')+'-"]').forEach(function(i){
+    if(i.value!=='')metrics[i.id.split('-').slice(2).join('-')]=i.value;
+  });
+  try{await command('BASELINE_SNAPSHOT',{platform:p,metrics:metrics,evidence_reference:document.getElementById('blEv').value,notes:document.getElementById('blNotes').value});
+    await load();closeModal();render();alert('Baseline saved for '+p);}catch(e){alert(e.message)}
+}
+function openHistoricalImport(){
+  modal('Import historical publications','<div class="form">'
+    +'<div class="banner">Paste rows exported from the creator dashboards. LUXX stores them as HISTORICAL and never deletes or rewrites them. It will <strong>suggest</strong> a matching master but will not link one without your confirmation.</div>'
+    +'<label>Format</label><select id="hiFmt"><option value="json">JSON array</option><option value="csv">CSV with header row</option></select>'
+    +'<label>Rows</label><textarea id="hiText" rows="10" placeholder=\'[{"platform":"Pornhub","title":"Lake House Afternoon","url":"https://...","published_at":"2025-11-14","runtime_seconds":451,"views":2140}]\'></textarea>'
+    +'<div class="actions"><button class="primary" onclick="runHistoricalImport()">IMPORT</button></div>'
+    +'<div id="hiOut" class="tiny"></div></div>');
+}
+async function runHistoricalImport(){
+  const fmt=document.getElementById('hiFmt').value,txt=document.getElementById('hiText').value;
+  let rows=[];
+  try{
+    if(fmt==='json'){rows=JSON.parse(txt);if(!Array.isArray(rows))throw new Error('JSON must be an array of rows.');}
+    else{rows=await command('HIST_PARSE_CSV',{text:txt});}
+  }catch(e){document.getElementById('hiOut').textContent='Could not read the rows: '+e.message;return}
+  try{
+    const r=await command('HIST_IMPORT',{rows:rows});
+    let msg='Imported '+r.imported+' record'+(r.imported===1?'':'s')+'.';
+    if(r.errors&&r.errors.length)msg+=' '+r.errors.length+' row(s) rejected: '+r.errors.map(function(e){return 'row '+e.row+' '+e.error}).join('; ');
+    document.getElementById('hiOut').textContent=msg;
+    await load();render();
+  }catch(e){document.getElementById('hiOut').textContent=e.message}
+}
+async function suggestMatch(hid){
+  try{
+    const r=await command('HIST_SUGGEST_MATCH',{historical_publication_id:hid});
+    const cands=(r.candidates||[]).map(function(c){
+      return '<div class="row"><div><b>'+esc(c.name||c.asset_id)+'</b><div class="tiny">'+esc(c.why.join(' · '))+'</div></div>'
+        +'<button class="primary" onclick="confirmMatch(\''+hid+'\',\''+c.asset_id+'\')">CONFIRM THIS</button></div>';
+    }).join('')||'<div class="sub">No plausible master found. Upload the original file first.</div>';
+    modal('Match to a LUXX master','<div class="banner"><strong>'+esc(r.confidence)+'</strong> — '+esc(r.note)+'</div>'+cands);
+  }catch(e){alert(e.message)}
+}
+async function confirmMatch(hid,aid){
+  try{await command('HIST_LINK',{historical_publication_id:hid,asset_id:aid,confirmed:true});closeModal();await load();render();}catch(e){alert(e.message)}
+}
+async function setReview(hid,status){
+  try{await command('HIST_REVIEW',{historical_publication_id:hid,review_status:status});await load();render();}catch(e){alert(e.message)}
+}
+function historicalHtml(){
+  const rows=(state.historicalPublications||[]);
+  const list=rows.slice().reverse().map(function(h){
+    const stats=[h.views!=null?h.views+' views':'',h.sales!=null?h.sales+' sales':'',h.revenue!=null?money(h.revenue):'',h.current_price!=null?'listed '+money(h.current_price):''].filter(Boolean).join(' · ');
+    const match=h.asset_id?('matched to '+esc(h.asset_id)+(h.match_confirmed?' ✓':' (unconfirmed)')):'not matched';
+    return '<div class="row"><div><b>'+esc(h.platform)+' · '+esc(h.title||h.external_reference||'untitled')+'</b>'
+      +'<div class="tiny">'+esc(stats||'no stats recorded')+'</div>'
+      +'<div class="tiny">'+match+(h.review_status?' · '+esc(h.review_status):'')+'</div></div>'
+      +'<div><button class="secondary" onclick="suggestMatch(\''+h.historical_publication_id+'\')">MATCH</button>'
+      +'<button class="secondary" onclick="setReview(\''+h.historical_publication_id+'\',\'KEEP\')">KEEP</button>'
+      +'<button class="secondary" onclick="setReview(\''+h.historical_publication_id+'\',\'RE-EDIT\')">RE-EDIT</button>'
+      +'<button class="secondary" onclick="setReview(\''+h.historical_publication_id+'\',\'RETIRE\')">RETIRE</button></div></div>';
+  }).join('')||'<div class="sub">No historical publications recorded yet.</div>';
+  return '<div class="card"><div class="actions"><button id="histImportBtn" class="primary" onclick="openHistoricalImport()">IMPORT HISTORICAL PUBLICATIONS</button></div>'
+    +'<div class="banner">Existing Pornhub videos and ManyVids listings live here as historical truth. They are never deleted by LUXX.</div>'
+    +list+'</div>';
+}
+function openCamSession(){
+  modal('Log cam session','<div class="form">'
+    +'<div class="banner">Chaturbate native measurement only. LUXX does not infer OnlyFans signups from a cam shift, and does not place an external link into Chaturbate.</div>'
+    +'<div class="banner">'+esc(camAvailabilityLabel())+'</div>'
+    +'<div class="tiny">Record what actually happened. Saturday and Sunday cam is not available. Unknown values stay blank — blank is not zero.</div>'
+    +'<label>Start</label><input id="cs1" type="datetime-local"><label>End</label><input id="cs2" type="datetime-local">'
+    +'<label>Effort minutes</label><input id="cs3" type="number" min="0" value="180">'
+    +'<label>Followers at start</label><input id="cs4" type="number"><label>Followers at end</label><input id="cs5" type="number">'
+    +'<label>Tips / tokens</label><input id="cs6" type="number"><label>Native revenue (USD)</label><input id="cs7" type="number" step="any">'
+    +'<label>Theme used (optional)</label><select id="cs9"><option value="">No theme / not recorded</option>'
+    +['Bookish / Nerdy Daytime','Getting Ready / Casual','Morning Coffee / Chat','Behind-the-Scenes Shoot Planning'].map(function(t){return '<option>'+t+'</option>'}).join('')
+    +'</select><div class="tiny">A theme is an optional GUESS / DEFAULT idea. No theme is claimed to monetize better until measured cam results support it.</div>'
+    +'<label>Notes</label><textarea id="cs8"></textarea>'
+    +'<div class="actions"><button class="primary" onclick="saveCamSession()">SAVE SESSION</button></div></div>');
+}
+async function saveCamSession(){
+  const g=function(i){return document.getElementById(i).value};
+  try{await command('CAM_SESSION',{started_at:g('cs1'),ended_at:g('cs2'),effort_minutes:g('cs3'),
+    followers_start:g('cs4'),followers_end:g('cs5'),tips_tokens:g('cs6'),native_revenue:g('cs7'),notes:g('cs8'),theme:g('cs9')});
+    closeModal();await load();render();}catch(e){alert(e.message)}
+}
+
+
+// --- CAM AVAILABILITY (inside SETUP; no new primary navigation) ---------------
+// Exact weekday availability is confirmed with the creator, then entered here.
+// Saturday and Sunday are not offered, anywhere, ever.
+const CAM_DAY_CODES=['MON','TUE','WED','THU','FRI'];
+function camAvailabilityCfg(){return (state&&state.settings&&state.settings.camAvailability)||{configured:false,days:[],earliest_start:'',latest_end:'',timezone:''}}
+function camAvailabilityLabel(){
+  const c=camAvailabilityCfg();
+  if(!c.configured)return 'SETUP REQUIRED — CAM AVAILABILITY NOT FINALIZED. LUXX will not invent a cam time.';
+  return 'Cam availability: '+c.days.join(', ')+' · '+c.earliest_start+'–'+c.latest_end+' '+(c.timezone||'');
+}
+function camAvailabilityHtml(){
+  const c=camAvailabilityCfg();
+  const tz=c.timezone||(state&&state.settings&&state.settings.creatorTimezone)||'America/Chicago';
+  return '<h3>Cam availability</h3>'
+    +'<div class="banner'+(c.configured?' success':'')+'">'+esc(camAvailabilityLabel())+'</div>'
+    +'<div class="tiny">Weekdays only. Saturday and Sunday cam is unavailable and cannot be enabled. Until this is set, TODAY schedules no LIVE job and assumes no time. Once set, the time is still a GUESS / DEFAULT until measured results say otherwise.</div>'
+    +'<label>Allowed weekdays</label><div class="checks">'
+    +CAM_DAY_CODES.map(function(d){return '<label><input type="checkbox" data-camday="'+d+'" '+((c.days||[]).indexOf(d)>=0?'checked':'')+'> '+d+'</label>'}).join('')
+    +'</div>'
+    +'<label>Earliest available start (24h HH:MM)</label><input id="camStart" type="time" value="'+esc(c.earliest_start||'')+'">'
+    +'<label>Latest available end (24h HH:MM)</label><input id="camEnd" type="time" value="'+esc(c.latest_end||'')+'">'
+    +'<label>Timezone</label><input id="camTz" value="'+esc(tz)+'">'
+    +'<div class="actions"><button id="saveCamAvailBtn" class="primary" onclick="saveCamAvailability()">SAVE CAM AVAILABILITY</button></div>';
+}
+async function saveCamAvailability(){
+  const days=[].slice.call(document.querySelectorAll('[data-camday]')).filter(function(x){return x.checked}).map(function(x){return x.dataset.camday});
+  try{
+    await command('CAM_AVAILABILITY_SET',{days:days,earliest_start:document.getElementById('camStart').value,
+      latest_end:document.getElementById('camEnd').value,timezone:document.getElementById('camTz').value});
+    closeModal();await load();openSetup();
+  }catch(e){alert(e.message)}
+}
+
+// --- IMPORT BASELINE (inside SETUP; no new primary navigation) ----------------
+// One structured file, then a human review, then CAPTURE, then LOCK.
+function baselineImportHtml(){
+  const b=(state&&state.baseline)||{};
+  const snaps=(b.snapshots||[]);
+  const imported=snaps.filter(function(x){return x.source==='IMPORT'});
+  const na=snaps.reduce(function(a,x){return a+((x.not_available||[]).length)},0);
+  return '<h3>Import baseline</h3>'
+    +'<div class="banner'+(b.locked?' dangerBanner':'')+'">'+(b.locked
+      ? 'BASELINE IS LOCKED. Import cannot overwrite a locked baseline.'
+      : 'IMPORT → REVIEW → CAPTURE BASELINE → LOCK BASELINE. Import never captures and never locks by itself.')+'</div>'
+    +'<div class="tiny">JSON: {"rows":[{"platform":"X","metric":"followers","value":36,"evidence_reference":"screenshot"}]}. CSV header: platform,metric,value,unit,evidence_reference,notes. A number you could not obtain is written NOT_AVAILABLE and stays NOT AVAILABLE — never zero. Old reference seeds are never promoted into the launch baseline.</div>'
+    +'<label>Baseline file (.json or .csv)</label><input id="blImpFile" type="file" accept=".json,.csv,application/json,text/csv" '+(b.locked?'disabled':'')+'>'
+    +'<label>Or paste the file contents</label><textarea id="blImpText" '+(b.locked?'disabled':'')+'></textarea>'
+    +'<div class="actions"><button id="importBaselineBtn" class="secondary" '+(b.locked?'disabled':'')+' onclick="runBaselineImport()">IMPORT BASELINE</button></div>'
+    +'<div id="blImpOut" class="tiny">'+(imported.length?('Imported '+imported.length+' platform(s) pending review · '+na+' value(s) recorded NOT AVAILABLE.'):'')+'</div>'
+    +(snaps.length?('<div class="tiny">'+snaps.map(function(x){
+        const m=Object.keys(x.metrics||{}).map(function(k){return k+'='+x.metrics[k]}).join(', ');
+        const nas=(x.not_available||[]).length?(' · NOT AVAILABLE: '+x.not_available.join(', ')):'';
+        return '<div class="kv"><b>'+esc(x.platform)+'</b><div>'+esc(m||'no numeric values')+esc(nas)+' · '+esc(x.review_state||'ENTERED')+'</div></div>';
+      }).join('')+'</div>'):'');
+}
+async function runBaselineImport(){
+  const f=document.getElementById('blImpFile'),t=document.getElementById('blImpText');
+  let text=(t&&t.value||'').trim();
+  // Anything already typed into the baseline fields must survive the refresh below.
+  const held=setupDraft();
+  try{
+    if(!text&&f&&f.files&&f.files[0])text=await f.files[0].text();
+    if(!text){alert('Choose a baseline file or paste its contents.');return}
+    const r=await command('BASELINE_IMPORT',{text:text});
+    closeModal();await load();openSetup();restoreSetupDraft(held);
+    const out=document.getElementById('blImpOut');
+    if(out)out.textContent='Imported '+r.imported+' row(s) across '+r.platforms.join(', ')+'. '+r.next_step+' Nothing was locked.';
+  }catch(e){alert(e.message)}
+}
+// The operator's in-progress SETUP typing, carried across a modal refresh.
+function setupDraft(){
+  const g=i=>{const el=document.getElementById(i);return el?el.value:null};
+  return {be:g('be'),bi:g('bi'),bn:g('bn')};
+}
+function restoreSetupDraft(d){
+  if(!d)return;
+  for(const k of ['be','bi','bn']){
+    const el=document.getElementById(k);
+    if(el&&d[k]!=null&&d[k]!==''&&!el.value)el.value=d[k];
+  }
+}
+
+// The 28-day plan is a config document, not code. It is loaded once, deliberately, by
+// the producer. Import is idempotent: running it twice does not duplicate the month.
+async function loadHoldSheet(){
+  if(!confirm('Load the 28-day plan into TODAY? Days already loaded are skipped.'))return;
+  try{
+    const sheet=await (await fetch('/config/LUXX001_HOLD_SHEET_28DAY.json',{cache:'no-store'})).json();
+    const r=await api('/action',{method:'POST',headers:{'content-type':'application/json'},
+      body:JSON.stringify({op:'HOLD_SHEET_IMPORT',payload:sheet})});
+    const res=r&&r.result,made=Array.isArray(res)?res.length:0,fresh=(res&&res.refreshed)||0;
+    await load();render();
+    alert(made?`Loaded ${made} jobs across ${sheet.days.length} days.`
+      :fresh?`Updated ${fresh} jobs with the current instructions. Nothing you already recorded was changed.`
+      :'Already up to date.');
+  }catch(e){alert('Could not load the plan: '+String(e&&e.message||e));}
+}
+// Cam is Wednesday and Friday, 10:00 to 1:00 Central. Monday is off. Eight lives in
+// 28 days. Setting it here writes the same shape the SETUP form writes.
+async function setCamWedFri(){
+  if(!confirm('Set cam to Wednesday and Friday, 10:00 AM to 1:00 PM Central? Monday, Tuesday and Thursday become unavailable.'))return;
+  try{
+    await api('/action',{method:'POST',headers:{'content-type':'application/json'},
+      body:JSON.stringify({op:'CAM_AVAILABILITY_SET',payload:{days:['WED','FRI'],
+        earliest_start:'10:00',latest_end:'13:00',timezone:'America/Chicago',
+        day_windows:{WED:{start:'10:00',end:'13:00'},FRI:{start:'10:00',end:'13:00'}},
+        unavailable_days:['MON','TUE','THU']}})});
+    await load();render();
+    alert('Cam set: Wednesday and Friday, 10:00 AM to 1:00 PM Central.');
+  }catch(e){alert('Could not set cam hours: '+String(e&&e.message||e));}
+}
+
+function openSetup(){modal('Setup / readiness',`<div class="form">
+  <div class="banner"><b>Month plan</b><div class="tiny" style="margin-top:4px">Loads the 28-day hold sheet into TODAY. Cam is Wednesday and Friday, 10:00 AM to 1:00 PM Central.</div>
+  <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+    <button class="secondary" onclick="setCamWedFri()">Set cam Wed + Fri 10–1</button>
+    <button class="secondary" onclick="loadHoldSheet()">Load 28-day plan</button>
+  </div></div>
+  <div class="banner ${state.baseline.locked?'success':''}">${state.baseline.locked?'BASELINE LOCKED '+esc(fmt(state.baseline.locked_at)):'Baseline must be captured and locked before prospective recommendations.'}</div><label>Baseline evidence/reference</label><input id="be" value="${esc(state.baseline.evidence_reference||'')}"><label>Inventory mapping reference</label><input id="bi" value="${esc(state.baseline.inventory_mapping_reference||'')}"><label>Notes</label><textarea id="bn">${esc(state.baseline.notes||'')}</textarea><div class="actions"><button id="captureBaselineBtn" class="secondary" ${state.baseline.locked?'disabled':''} onclick="captureBase()">CAPTURE BASELINE</button><button id="lockBaselineBtn" class="primary" ${!state.baseline.captured||state.baseline.locked?'disabled':''} onclick="lockBase()">LOCK BASELINE</button></div><h3>Your local time</h3><div class="banner">LUXX needs your timezone before it can suggest a posting time from your own results. Until it is set, LUXX shows a labelled default window and does not claim a learned time.</div><label>Timezone</label><select id="tzSel">${['','America/Los_Angeles','America/Denver','America/Chicago','America/New_York','America/Toronto','Europe/London','Europe/Dublin','Europe/Paris','Europe/Berlin','Europe/Madrid','Australia/Sydney','Australia/Melbourne','Pacific/Auckland'].map(z=>`<option value="${z}" ${((state.settings&&state.settings.creatorTimezone)||'')===z?'selected':''}>${z||'Not set — use labelled defaults'}</option>`).join('')}</select><div class="actions"><button class="secondary" onclick="detectTz()">USE THIS DEVICE'S TIMEZONE</button><button id="saveTzBtn" class="primary" onclick="saveTz()">SAVE TIMEZONE</button></div>${camAvailabilityHtml()}${baselineImportHtml()}${checklistHtml()}<div class="actions"><button class="secondary" onclick="openBaselineCapture()">CAPTURE PLATFORM BASELINE</button></div><h3>Account reference baseline</h3>${state.accounts.map(a=>`<div class="row"><div><b>${esc(a.platform)}</b><div class="tiny">${esc(a.seed)} · ${esc(a.role)}</div></div>${pill(a.status)}</div>`).join('')}<div class="actions"><button id="selfTestBtn" class="secondary" onclick="runHealth()">SYSTEM HEALTH</button><button class="secondary" onclick="logout()">LOG OUT</button></div></div>`)}async function captureBase(){
+  const be=document.getElementById('be'),bi=document.getElementById('bi'),bn=document.getElementById('bn');
+  const ev=(be&&be.value||'').trim(),inv=(bi&&bi.value||'').trim();
+  // Fail in the form rather than as a bare 400 from the server.
+  if(!ev||!inv){alert('Enter both the baseline evidence/reference and the inventory mapping reference before capturing.');return}
+  try{await command('BASELINE_CAPTURE',{evidence_reference:ev,inventory_mapping_reference:inv,notes:(bn&&bn.value)||''});
+    closeModal();await load();openSetup()}catch(e){alert(e.message)}}async function lockBase(){try{await command('BASELINE_LOCK');closeModal();await load();render()}catch(e){alert(e.message)}}async function runHealth(){try{const h=await api('/health');alert(`LUXX ${h.version}\nParent ${h.parent.name}\nStorage/API reachable.`)}catch(e){alert(e.message)}}async function logout(){await api('/logout');location.reload()}
+function startPoll(){if(poll)return;poll=setInterval(async()=>{try{// One cheap listing call. No asset reads unless something actually changed.
+    const idx=await api('/assets-index');
+    if(idx.signature===libSignature&&idx.count===assets.length)return;
+    libSignature=idx.signature;
+    assets=await fetchAllAssets();
+    try{recommendation=await command('RECOMMEND')}catch{}
+    try{todayList=await command('TODAY_LIST',{limit:5})}catch{}
+    try{todayPlan=await command('TODAY_PLAN',{})}catch{}
+    render()}catch{}},4000)}
+boot();
+</script></body></html>

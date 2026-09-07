@@ -1,0 +1,864 @@
+{
+  "name": "LUXX Creator 001 \u2014 28 day hold sheet",
+  "creator": "LUXX001",
+  "from": "2026-09-07",
+  "to": "2026-10-04",
+  "built_on": "Her live baselines only. Not the app default week.",
+  "locked_rules": [
+    "Cam Wednesday and Friday only, 10:00-13:00 CT. Eight lives in 28 days.",
+    "X and Pornhub traffic goes to OnlyFans Free only. OF Paid, ManyVids and Chaturbate stay native. Fansly stays off.",
+    "No face on X or Pornhub unless a face-safe file already exists. If it does not, skip the upload.",
+    "Do not wait on LUXX teasers. Post vault files.",
+    "PPV stays $10 until the Sunday numbers say otherwise. Week 4 best-of is $12.",
+    "If a day slips, move it to the next non-cam day. Never stack a missed cam onto Friday.",
+    "X is three posts a week \u2014 Tuesday, Thursday, Saturday. Twelve in 28 days, never seven a week.",
+    "The sheet sets the price. PPV is $10 all month; the week 4 best-of is $12. The creator never chooses a price.",
+    "Pornhub uses two different codes: c7 in the Official Website field, c10 in video descriptions. One code, one placement."
+  ],
+  "days": [
+    {
+      "date": "2026-09-07",
+      "steps": [
+        {
+          "name": "OF Paid \u00b7 post the file below",
+          "site": "OF_PAID",
+          "target": 1,
+          "note": "Upload it, name the scene in the caption, set the price to $10 if this is a PPV. Post.",
+          "earns": true,
+          "price": "$10",
+          "needs_file": true
+        },
+        {
+          "name": "OF Free \u00b7 post the teaser below",
+          "site": "OF_FREE",
+          "target": 1,
+          "note": "Upload it. Caption is a short tease saying there is new content on the paid page. No links in the text.",
+          "earns": false,
+          "needs_file": true
+        },
+        {
+          "name": "ManyVids \u00b7 fix all 7 listings",
+          "site": "MANYVIDS",
+          "target": 7,
+          "note": "For each of the 7: 1) Title says what the scene IS, not the filename. 2) Turn the preview ON. 3) Set the price. 4) Fill every tag box. Count one per listing finished.",
+          "earns": false,
+          "needs_file": false
+        },
+        {
+          "name": "DM 25 Free fans",
+          "site": "DMS",
+          "target": 25,
+          "note": "Same PPV offer to 25 people on the free page. Count each one sent.",
+          "earns": true,
+          "price": "$10",
+          "needs_file": false
+        }
+      ]
+    },
+    {
+      "date": "2026-09-08",
+      "steps": [
+        {
+          "name": "DM next 25 Free + all 4 Paid \u00b7 same offer",
+          "site": "DMS",
+          "target": 29,
+          "note": "Send the same offer to each person. Count each one sent.",
+          "earns": true,
+          "price": "$10",
+          "needs_file": false
+        },
+        {
+          "name": "OF Free \u00b7 assigned file",
+          "site": "OF_FREE",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the FREE page.\nCaption: a short tease that says there is new content on the paid page. No links."
+        },
+        {
+          "name": "X \u00b7 assigned no-face file. No link in the text",
+          "site": "X",
+          "target": 1,
+          "note": "Post the file below to X with one line of text.\nDo NOT paste a link in the post. Your profile Website field already points at OnlyFans Free.\nNo face in this file. If you are not sure, do not post it.",
+          "earns": false,
+          "needs_file": true
+        },
+        {
+          "name": "OF Paid \u00b7 post the ManyVids hero MV-1",
+          "site": "OF_PAID",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the PAID page as a wall post.\nName the scene in the caption. Post."
+        }
+      ]
+    },
+    {
+      "date": "2026-09-09",
+      "steps": [
+        {
+          "name": "Chaturbate 10:00-1:00 CT \u00b7 tip menu up",
+          "site": "CHATURBATE",
+          "target": 1,
+          "note": "On time. Two paid shows if the room is spending. Off at 1:00, no staying longer.",
+          "earns": true,
+          "needs_file": false
+        },
+        {
+          "name": "OF Paid \u00b7 just off cam post",
+          "site": "OF_PAID",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the PAID page as a wall post.\nName the scene in the caption. Post."
+        },
+        {
+          "name": "OF Free \u00b7 just off cam post",
+          "site": "OF_FREE",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the FREE page.\nCaption: a short tease that says there is new content on the paid page. No links."
+        },
+        {
+          "name": "DM everyone who tipped \u00b7 thank + Paid/PPV",
+          "site": "DMS",
+          "note": "Send the same offer to each person. Count each one sent.",
+          "earns": true,
+          "price": "$10",
+          "needs_file": false
+        }
+      ]
+    },
+    {
+      "date": "2026-09-10",
+      "steps": [
+        {
+          "name": "DM tippers you missed",
+          "site": "DMS",
+          "note": "Send the same offer to each person. Count each one sent.",
+          "earns": true,
+          "price": "$10",
+          "needs_file": false
+        },
+        {
+          "name": "OF Paid \u00b7 assigned file",
+          "site": "OF_PAID",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the PAID page as a wall post.\nName the scene in the caption. Post."
+        },
+        {
+          "name": "Pornhub \u00b7 rewrite videos 1-4",
+          "site": "PORNHUB",
+          "target": 4,
+          "note": "Open each of videos 1-4 on Pornhub and do all four, one video at a time:\n1. TITLE \u2014 say what happens in the video. Plain words people search. No filename, no emoji.\n2. TAGS \u2014 fill every tag box. Use the words in your title plus the obvious ones.\n3. DESCRIPTION \u2014 two or three lines about the video. The LAST line is this link on its own:\n   https://onlyfans.com/luxx4free/c10\n4. OFFICIAL WEBSITE field \u2014 set it to a DIFFERENT link:\n   https://onlyfans.com/luxx4free/c7\nThe two links are not the same. c10 goes in the description, c7 goes in the website field.\nCount one each time you finish a video and hit save.",
+          "earns": false,
+          "needs_file": false
+        },
+        {
+          "name": "X \u00b7 assigned no-face file. No link in the text",
+          "site": "X",
+          "target": 1,
+          "note": "Post the file below to X with one line of text.\nDo NOT paste a link in the post. Your profile Website field already points at OnlyFans Free.\nNo face in this file. If you are not sure, do not post it.",
+          "earns": false,
+          "needs_file": true
+        }
+      ]
+    },
+    {
+      "date": "2026-09-11",
+      "steps": [
+        {
+          "name": "Chaturbate 10:00-1:00 CT \u00b7 tip menu up",
+          "site": "CHATURBATE",
+          "target": 1,
+          "note": "On time. Two paid shows if the room is spending. Off at 1:00, no staying longer.",
+          "earns": true,
+          "needs_file": false
+        },
+        {
+          "name": "OF Paid \u00b7 just off cam post",
+          "site": "OF_PAID",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the PAID page as a wall post.\nName the scene in the caption. Post."
+        },
+        {
+          "name": "OF Free \u00b7 just off cam post",
+          "site": "OF_FREE",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the FREE page.\nCaption: a short tease that says there is new content on the paid page. No links."
+        },
+        {
+          "name": "DM everyone who tipped \u00b7 thank + Paid/PPV",
+          "site": "DMS",
+          "note": "Send the same offer to each person. Count each one sent.",
+          "earns": true,
+          "price": "$10",
+          "needs_file": false
+        }
+      ]
+    },
+    {
+      "date": "2026-09-12",
+      "steps": [
+        {
+          "name": "Pornhub \u00b7 rewrite videos 5-8",
+          "site": "PORNHUB",
+          "target": 4,
+          "note": "Open each of videos 5-8 on Pornhub and do all four, one video at a time:\n1. TITLE \u2014 say what happens in the video. Plain words people search. No filename, no emoji.\n2. TAGS \u2014 fill every tag box. Use the words in your title plus the obvious ones.\n3. DESCRIPTION \u2014 two or three lines about the video. The LAST line is this link on its own:\n   https://onlyfans.com/luxx4free/c10\n4. OFFICIAL WEBSITE field \u2014 set it to a DIFFERENT link:\n   https://onlyfans.com/luxx4free/c7\nThe two links are not the same. c10 goes in the description, c7 goes in the website field.\nCount one each time you finish a video and hit save.",
+          "earns": false,
+          "needs_file": false
+        },
+        {
+          "name": "ManyVids \u00b7 new thumbnail on each of the 7",
+          "site": "MANYVIDS",
+          "target": 7,
+          "note": "Open each listing, pick a frame where her face or body is clear and lit, save it as the cover. Count one per listing.",
+          "earns": false,
+          "needs_file": false
+        },
+        {
+          "name": "DM 25 more Free",
+          "site": "DMS",
+          "target": 25,
+          "note": "Send the same offer to each person. Count each one sent.",
+          "earns": true,
+          "price": "$10",
+          "needs_file": false
+        },
+        {
+          "name": "X \u00b7 assigned no-face file. No link in the text",
+          "site": "X",
+          "target": 1,
+          "note": "Post the file below to X with one line of text.\nDo NOT paste a link in the post. Your profile Website field already points at OnlyFans Free.\nNo face in this file. If you are not sure, do not post it.",
+          "earns": false,
+          "needs_file": true
+        }
+      ]
+    },
+    {
+      "date": "2026-09-13",
+      "steps": [
+        {
+          "name": "Sunday numbers \u00b7 fill $ and counts for the week",
+          "site": "OF_FREE",
+          "note": "Numbers only. No posting unless TODAY shows a leftover file.",
+          "earns": false,
+          "needs_file": false
+        }
+      ]
+    },
+    {
+      "date": "2026-09-14",
+      "steps": [
+        {
+          "name": "ManyVids \u00b7 upload MV-8, assigned full video",
+          "site": "MANYVIDS",
+          "target": 1,
+          "earns": true,
+          "needs_file": false,
+          "note": "Upload the full video to ManyVids.\n1. TITLE \u2014 what happens in it, plain words.\n2. Turn the PREVIEW on.\n3. Set the price.\n4. Fill every tag box.\nPublish, then count it."
+        },
+        {
+          "name": "OF Paid \u00b7 that scene as PPV $10",
+          "site": "OF_PAID",
+          "target": 1,
+          "earns": true,
+          "price": "$10",
+          "needs_file": false,
+          "note": "Upload the file below to the PAID page as a PPV message.\nName the scene in the caption. Set the price to the amount shown above. Send."
+        },
+        {
+          "name": "DM 25",
+          "site": "DMS",
+          "target": 25,
+          "note": "Send the same offer to each person. Count each one sent.",
+          "earns": true,
+          "price": "$10",
+          "needs_file": false
+        }
+      ]
+    },
+    {
+      "date": "2026-09-15",
+      "steps": [
+        {
+          "name": "OF Free \u00b7 teaser for MV-8",
+          "site": "OF_FREE",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the FREE page.\nCaption: a short tease that says there is new content on the paid page. No links."
+        },
+        {
+          "name": "X \u00b7 assigned no-face",
+          "site": "X",
+          "target": 1,
+          "note": "Post the file below to X with one line of text.\nDo NOT paste a link in the post. Your profile Website field already points at OnlyFans Free.\nNo face in this file. If you are not sure, do not post it.",
+          "earns": false,
+          "needs_file": true
+        },
+        {
+          "name": "DM 25",
+          "site": "DMS",
+          "target": 25,
+          "note": "Send the same offer to each person. Count each one sent.",
+          "earns": true,
+          "price": "$10",
+          "needs_file": false
+        }
+      ]
+    },
+    {
+      "date": "2026-09-16",
+      "steps": [
+        {
+          "name": "Chaturbate 10:00-1:00 CT \u00b7 tip menu up",
+          "site": "CHATURBATE",
+          "target": 1,
+          "note": "On time. Two paid shows if the room is spending. Off at 1:00, no staying longer.",
+          "earns": true,
+          "needs_file": false
+        },
+        {
+          "name": "OF Paid \u00b7 just off cam post",
+          "site": "OF_PAID",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the PAID page as a wall post.\nName the scene in the caption. Post."
+        },
+        {
+          "name": "OF Free \u00b7 just off cam post",
+          "site": "OF_FREE",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the FREE page.\nCaption: a short tease that says there is new content on the paid page. No links."
+        },
+        {
+          "name": "DM everyone who tipped \u00b7 thank + Paid/PPV",
+          "site": "DMS",
+          "note": "Send the same offer to each person. Count each one sent.",
+          "earns": true,
+          "price": "$10",
+          "needs_file": false
+        }
+      ]
+    },
+    {
+      "date": "2026-09-17",
+      "steps": [
+        {
+          "name": "Pornhub \u00b7 upload teaser 1, 30-90s. Description + Official Website = OF Free",
+          "site": "PORNHUB",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below as a new Pornhub video.\n1. TITLE \u2014 what happens in it, in plain searchable words.\n2. TAGS \u2014 fill every box.\n3. DESCRIPTION \u2014 two or three lines, and the LAST line is this link alone:\n   https://onlyfans.com/luxx4free/c10\n4. OFFICIAL WEBSITE \u2014 leave it as it is. It already has c7.\nNo face in this file. If you are not sure, do not upload it."
+        },
+        {
+          "name": "OF Paid \u00b7 assigned file",
+          "site": "OF_PAID",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the PAID page as a wall post.\nName the scene in the caption. Post."
+        },
+        {
+          "name": "X \u00b7 assigned no-face file. No link in the text",
+          "site": "X",
+          "target": 1,
+          "note": "Post the file below to X with one line of text.\nDo NOT paste a link in the post. Your profile Website field already points at OnlyFans Free.\nNo face in this file. If you are not sure, do not post it.",
+          "earns": false,
+          "needs_file": true
+        }
+      ]
+    },
+    {
+      "date": "2026-09-18",
+      "steps": [
+        {
+          "name": "Chaturbate 10:00-1:00 CT \u00b7 tip menu up",
+          "site": "CHATURBATE",
+          "target": 1,
+          "note": "On time. Two paid shows if the room is spending. Off at 1:00, no staying longer.",
+          "earns": true,
+          "needs_file": false
+        },
+        {
+          "name": "OF Paid \u00b7 just off cam post",
+          "site": "OF_PAID",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the PAID page as a wall post.\nName the scene in the caption. Post."
+        },
+        {
+          "name": "OF Free \u00b7 just off cam post",
+          "site": "OF_FREE",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the FREE page.\nCaption: a short tease that says there is new content on the paid page. No links."
+        },
+        {
+          "name": "DM everyone who tipped \u00b7 thank + Paid/PPV",
+          "site": "DMS",
+          "note": "Send the same offer to each person. Count each one sent.",
+          "earns": true,
+          "price": "$10",
+          "needs_file": false
+        }
+      ]
+    },
+    {
+      "date": "2026-09-19",
+      "steps": [
+        {
+          "name": "ManyVids \u00b7 upload MV-9",
+          "site": "MANYVIDS",
+          "target": 1,
+          "earns": true,
+          "needs_file": false,
+          "note": "Upload the full video to ManyVids.\n1. TITLE \u2014 what happens in it, plain words.\n2. Turn the PREVIEW on.\n3. Set the price.\n4. Fill every tag box.\nPublish, then count it."
+        },
+        {
+          "name": "Pornhub \u00b7 teaser 2, link OF Free",
+          "site": "PORNHUB",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below as a new Pornhub video.\n1. TITLE \u2014 what happens in it, in plain searchable words.\n2. TAGS \u2014 fill every box.\n3. DESCRIPTION \u2014 two or three lines, and the LAST line is this link alone:\n   https://onlyfans.com/luxx4free/c10\n4. OFFICIAL WEBSITE \u2014 leave it as it is. It already has c7.\nNo face in this file. If you are not sure, do not upload it."
+        },
+        {
+          "name": "DM 25",
+          "site": "DMS",
+          "target": 25,
+          "note": "Send the same offer to each person. Count each one sent.",
+          "earns": true,
+          "price": "$10",
+          "needs_file": false
+        },
+        {
+          "name": "X \u00b7 assigned no-face file. No link in the text",
+          "site": "X",
+          "target": 1,
+          "note": "Post the file below to X with one line of text.\nDo NOT paste a link in the post. Your profile Website field already points at OnlyFans Free.\nNo face in this file. If you are not sure, do not post it.",
+          "earns": false,
+          "needs_file": true
+        }
+      ]
+    },
+    {
+      "date": "2026-09-20",
+      "steps": [
+        {
+          "name": "Sunday numbers",
+          "site": "OF_FREE",
+          "note": "Upload the file below to the FREE page.\nCaption: a short tease that says there is new content on the paid page. No links.",
+          "earns": false,
+          "needs_file": false
+        }
+      ]
+    },
+    {
+      "date": "2026-09-21",
+      "steps": [
+        {
+          "name": "ManyVids \u00b7 retitle or reprice the listing that got views. No new film",
+          "site": "MANYVIDS",
+          "target": 1,
+          "earns": false,
+          "needs_file": false,
+          "note": "Open the listing that got the most views this month. Change ONE thing: either a clearer title or a lower price. Not both, so you can tell which one moved it. Save."
+        },
+        {
+          "name": "OF Paid \u00b7 that same winner as PPV $10",
+          "site": "OF_PAID",
+          "target": 1,
+          "earns": true,
+          "price": "$10",
+          "needs_file": false,
+          "note": "Upload the file below to the PAID page as a PPV message.\nName the scene in the caption. Set the price to the amount shown above. Send."
+        },
+        {
+          "name": "DM 30 who already opened something",
+          "site": "DMS",
+          "target": 30,
+          "note": "Send the same offer to each person. Count each one sent.",
+          "earns": true,
+          "price": "$10",
+          "needs_file": false
+        }
+      ]
+    },
+    {
+      "date": "2026-09-22",
+      "steps": [
+        {
+          "name": "OF Free \u00b7 assigned file",
+          "site": "OF_FREE",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the FREE page.\nCaption: a short tease that says there is new content on the paid page. No links."
+        },
+        {
+          "name": "X \u00b7 assigned no-face",
+          "site": "X",
+          "target": 1,
+          "note": "Post the file below to X with one line of text.\nDo NOT paste a link in the post. Your profile Website field already points at OnlyFans Free.\nNo face in this file. If you are not sure, do not post it.",
+          "earns": false,
+          "needs_file": true
+        }
+      ]
+    },
+    {
+      "date": "2026-09-23",
+      "steps": [
+        {
+          "name": "Chaturbate 10:00-1:00 CT \u00b7 tip menu up",
+          "site": "CHATURBATE",
+          "target": 1,
+          "note": "On time. Two paid shows if the room is spending. Off at 1:00, no staying longer.",
+          "earns": true,
+          "needs_file": false
+        },
+        {
+          "name": "OF Paid \u00b7 just off cam post",
+          "site": "OF_PAID",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the PAID page as a wall post.\nName the scene in the caption. Post."
+        },
+        {
+          "name": "OF Free \u00b7 just off cam post",
+          "site": "OF_FREE",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the FREE page.\nCaption: a short tease that says there is new content on the paid page. No links."
+        },
+        {
+          "name": "DM everyone who tipped \u00b7 thank + Paid/PPV",
+          "site": "DMS",
+          "note": "Send the same offer to each person. Count each one sent.",
+          "earns": true,
+          "price": "$10",
+          "needs_file": false
+        }
+      ]
+    },
+    {
+      "date": "2026-09-24",
+      "steps": [
+        {
+          "name": "ManyVids \u00b7 upload MV-10",
+          "site": "MANYVIDS",
+          "target": 1,
+          "earns": true,
+          "needs_file": false,
+          "note": "Upload the full video to ManyVids.\n1. TITLE \u2014 what happens in it, plain words.\n2. Turn the PREVIEW on.\n3. Set the price.\n4. Fill every tag box.\nPublish, then count it."
+        },
+        {
+          "name": "Pornhub \u00b7 teaser 3, link OF Free",
+          "site": "PORNHUB",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below as a new Pornhub video.\n1. TITLE \u2014 what happens in it, in plain searchable words.\n2. TAGS \u2014 fill every box.\n3. DESCRIPTION \u2014 two or three lines, and the LAST line is this link alone:\n   https://onlyfans.com/luxx4free/c10\n4. OFFICIAL WEBSITE \u2014 leave it as it is. It already has c7.\nNo face in this file. If you are not sure, do not upload it."
+        },
+        {
+          "name": "OF Paid \u00b7 assigned file",
+          "site": "OF_PAID",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the PAID page as a wall post.\nName the scene in the caption. Post."
+        },
+        {
+          "name": "X \u00b7 assigned no-face file. No link in the text",
+          "site": "X",
+          "target": 1,
+          "note": "Post the file below to X with one line of text.\nDo NOT paste a link in the post. Your profile Website field already points at OnlyFans Free.\nNo face in this file. If you are not sure, do not post it.",
+          "earns": false,
+          "needs_file": true
+        }
+      ]
+    },
+    {
+      "date": "2026-09-25",
+      "steps": [
+        {
+          "name": "Chaturbate 10:00-1:00 CT \u00b7 tip menu up",
+          "site": "CHATURBATE",
+          "target": 1,
+          "note": "On time. Two paid shows if the room is spending. Off at 1:00, no staying longer.",
+          "earns": true,
+          "needs_file": false
+        },
+        {
+          "name": "OF Paid \u00b7 just off cam post",
+          "site": "OF_PAID",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the PAID page as a wall post.\nName the scene in the caption. Post."
+        },
+        {
+          "name": "OF Free \u00b7 just off cam post",
+          "site": "OF_FREE",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the FREE page.\nCaption: a short tease that says there is new content on the paid page. No links."
+        },
+        {
+          "name": "DM everyone who tipped \u00b7 thank + Paid/PPV",
+          "site": "DMS",
+          "note": "Send the same offer to each person. Count each one sent.",
+          "earns": true,
+          "price": "$10",
+          "needs_file": false
+        }
+      ]
+    },
+    {
+      "date": "2026-09-26",
+      "steps": [
+        {
+          "name": "DM the remaining Free list",
+          "site": "DMS",
+          "note": "Send the same offer to each person. Count each one sent.",
+          "earns": true,
+          "price": "$10",
+          "needs_file": false
+        },
+        {
+          "name": "OF Paid or Free \u00b7 assigned vault set only",
+          "site": "OF_PAID",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the PAID page as a wall post.\nName the scene in the caption. Post."
+        },
+        {
+          "name": "X \u00b7 assigned no-face file. No link in the text",
+          "site": "X",
+          "target": 1,
+          "note": "Post the file below to X with one line of text.\nDo NOT paste a link in the post. Your profile Website field already points at OnlyFans Free.\nNo face in this file. If you are not sure, do not post it.",
+          "earns": false,
+          "needs_file": true
+        }
+      ]
+    },
+    {
+      "date": "2026-09-27",
+      "steps": [
+        {
+          "name": "Sunday numbers",
+          "site": "OF_FREE",
+          "note": "If something was $0 for two weeks it comes off next month. The producer decides, not the creator.",
+          "earns": false,
+          "needs_file": false
+        }
+      ]
+    },
+    {
+      "date": "2026-09-28",
+      "steps": [
+        {
+          "name": "OF Paid \u00b7 best scene of the month as PPV $12",
+          "site": "OF_PAID",
+          "target": 1,
+          "earns": true,
+          "price": "$12",
+          "needs_file": false,
+          "note": "Upload the file below to the PAID page as a PPV message.\nName the scene in the caption. Set the price to the amount shown above. Send."
+        },
+        {
+          "name": "DM 30",
+          "site": "DMS",
+          "target": 30,
+          "note": "Send the same offer to each person. Count each one sent.",
+          "earns": true,
+          "price": "$10",
+          "needs_file": false
+        }
+      ]
+    },
+    {
+      "date": "2026-09-29",
+      "steps": [
+        {
+          "name": "OF Free \u00b7 assigned file",
+          "site": "OF_FREE",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the FREE page.\nCaption: a short tease that says there is new content on the paid page. No links."
+        },
+        {
+          "name": "X \u00b7 assigned no-face",
+          "site": "X",
+          "target": 1,
+          "note": "Post the file below to X with one line of text.\nDo NOT paste a link in the post. Your profile Website field already points at OnlyFans Free.\nNo face in this file. If you are not sure, do not post it.",
+          "earns": false,
+          "needs_file": true
+        },
+        {
+          "name": "OF Paid \u00b7 post the best ManyVids link",
+          "site": "OF_PAID",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the PAID page as a PPV message.\nName the scene in the caption. Set the price to the amount shown above. Send."
+        }
+      ]
+    },
+    {
+      "date": "2026-09-30",
+      "steps": [
+        {
+          "name": "Chaturbate 10:00-1:00 CT \u00b7 tip menu up",
+          "site": "CHATURBATE",
+          "target": 1,
+          "note": "On time. Two paid shows if the room is spending. Off at 1:00, no staying longer.",
+          "earns": true,
+          "needs_file": false
+        },
+        {
+          "name": "OF Paid \u00b7 just off cam post",
+          "site": "OF_PAID",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the PAID page as a wall post.\nName the scene in the caption. Post."
+        },
+        {
+          "name": "OF Free \u00b7 just off cam post",
+          "site": "OF_FREE",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the FREE page.\nCaption: a short tease that says there is new content on the paid page. No links."
+        },
+        {
+          "name": "DM everyone who tipped \u00b7 thank + Paid/PPV",
+          "site": "DMS",
+          "note": "Send the same offer to each person. Count each one sent.",
+          "earns": true,
+          "price": "$10",
+          "needs_file": false
+        }
+      ]
+    },
+    {
+      "date": "2026-10-01",
+      "steps": [
+        {
+          "name": "Pornhub \u00b7 teaser 4, link OF Free",
+          "site": "PORNHUB",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below as a new Pornhub video.\n1. TITLE \u2014 what happens in it, in plain searchable words.\n2. TAGS \u2014 fill every box.\n3. DESCRIPTION \u2014 two or three lines, and the LAST line is this link alone:\n   https://onlyfans.com/luxx4free/c10\n4. OFFICIAL WEBSITE \u2014 leave it as it is. It already has c7.\nNo face in this file. If you are not sure, do not upload it."
+        },
+        {
+          "name": "Pornhub \u00b7 rewrite the 2 weakest titles from week 1",
+          "site": "PORNHUB",
+          "target": 2,
+          "earns": false,
+          "needs_file": false,
+          "note": "Open each of the 2 weakest titles from week 1 on Pornhub and do all four, one video at a time:\n1. TITLE \u2014 say what happens in the video. Plain words people search. No filename, no emoji.\n2. TAGS \u2014 fill every tag box. Use the words in your title plus the obvious ones.\n3. DESCRIPTION \u2014 two or three lines about the video. The LAST line is this link on its own:\n   https://onlyfans.com/luxx4free/c10\n4. OFFICIAL WEBSITE field \u2014 set it to a DIFFERENT link:\n   https://onlyfans.com/luxx4free/c7\nThe two links are not the same. c10 goes in the description, c7 goes in the website field.\nCount one each time you finish a video and hit save."
+        },
+        {
+          "name": "X \u00b7 assigned no-face file. No link in the text",
+          "site": "X",
+          "target": 1,
+          "note": "Post the file below to X with one line of text.\nDo NOT paste a link in the post. Your profile Website field already points at OnlyFans Free.\nNo face in this file. If you are not sure, do not post it.",
+          "earns": false,
+          "needs_file": true
+        }
+      ]
+    },
+    {
+      "date": "2026-10-02",
+      "steps": [
+        {
+          "name": "Chaturbate 10:00-1:00 CT \u00b7 tip menu up",
+          "site": "CHATURBATE",
+          "target": 1,
+          "note": "On time. Two paid shows if the room is spending. Off at 1:00, no staying longer.",
+          "earns": true,
+          "needs_file": false
+        },
+        {
+          "name": "OF Paid \u00b7 just off cam post",
+          "site": "OF_PAID",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the PAID page as a wall post.\nName the scene in the caption. Post."
+        },
+        {
+          "name": "OF Free \u00b7 just off cam post",
+          "site": "OF_FREE",
+          "target": 1,
+          "earns": false,
+          "needs_file": true,
+          "note": "Upload the file below to the FREE page.\nCaption: a short tease that says there is new content on the paid page. No links."
+        },
+        {
+          "name": "DM everyone who tipped \u00b7 thank + Paid/PPV",
+          "site": "DMS",
+          "note": "Send the same offer to each person. Count each one sent.",
+          "earns": true,
+          "price": "$10",
+          "needs_file": false
+        }
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "steps": [
+        {
+          "name": "DM sweep \u00b7 list on the card",
+          "site": "DMS",
+          "note": "Send the same offer to each person. Count each one sent.",
+          "earns": true,
+          "price": "$10",
+          "needs_file": false
+        },
+        {
+          "name": "X \u00b7 assigned no-face file. No link in the text",
+          "site": "X",
+          "target": 1,
+          "note": "Post the file below to X with one line of text.\nDo NOT paste a link in the post. Your profile Website field already points at OnlyFans Free.\nNo face in this file. If you are not sure, do not post it.",
+          "earns": false,
+          "needs_file": true
+        }
+      ]
+    },
+    {
+      "date": "2026-10-04",
+      "steps": [
+        {
+          "name": "Month count \u00b7 8 cams, 10 MV listings, 8 PH rewrites + 4 teasers, OF $ and subs",
+          "site": "OF_FREE",
+          "note": "Upload the file below to the FREE page.\nCaption: a short tease that says there is new content on the paid page. No links.",
+          "earns": false,
+          "needs_file": true
+        }
+      ]
+    }
+  ]
+}
