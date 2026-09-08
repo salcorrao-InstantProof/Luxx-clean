@@ -24,7 +24,6 @@ const placeSrc = fs.existsSync('LUXX001_ROUTE_PLACEMENTS_FINAL.json')
 if (!fs.existsSync(placeSrc)) throw new Error('Missing LUXX001_ROUTE_PLACEMENTS_FINAL.json');
 fs.mkdirSync('public/config', {recursive: true});
 fs.copyFileSync(placeSrc, 'public/config/LUXX001_ROUTE_PLACEMENTS_FINAL.json');
-console.log('materialized public/config/LUXX001_ROUTE_PLACEMENTS_FINAL.json');
 
 const indexPath = 'public/index.html';
 let html = fs.readFileSync(indexPath, 'utf8');
@@ -42,7 +41,7 @@ html = html.replace(
 );
 html = html.replace(
   'async function loadHoldSheet(){',
-  `async function installRoutePlacements(ask){\n  if(ask && !confirm('Write the Sep 5 tracking URLs onto the matching routes in LUXX? Already-recorded work is not erased.'))return;\n  try{\n    const doc=await (await fetch('/config/LUXX001_ROUTE_PLACEMENTS_FINAL.json',{cache:'no-store'})).json();\n    const r=await api('/action',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({op:'ROUTE_CONFIG_IMPORT',payload:doc})});\n    const res=r&&r.result;\n    await load();render();\n    if(ask)alert('Tracking routes installed. Applied '+(res&&res.applied?res.applied.length:0)+', skipped '+(res&&res.skipped?res.skipped.length:0)+'.');\n  }catch(e){if(ask)alert(e.message);}\n}\nasync function ensureRoutePlacements(){\n  const has=(state.routes||[]).some(r=>String(r.tracking_url_or_identifier||'').includes('luxx4free/c6'));\n  if(!has) await installRoutePlacements(false);\n}\nasync function loadHoldSheet(){`
+  `async function installRoutePlacements(ask){\n  if(ask && !confirm('Write the Sep 5 tracking URLs onto the matching routes in LUXX? Already-recorded work is not erased.'))return;\n  try{\n    const doc=await (await fetch('/config/LUXX001_ROUTE_PLACEMENTS_FINAL.json',{cache:'no-store'})).json();\n  const r=await api('/action',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({op:'ROUTE_CONFIG_IMPORT',payload:doc})});\n    const res=r&&r.result;\n    await load();render();\n    if(ask)alert('Tracking routes installed. Applied '+(res&&res.applied?res.applied.length:0)+', skipped '+(res&&res.skipped?res.skipped.length:0)+'.');\n  }catch(e){if(ask)alert(e.message);}\n}\nasync function ensureRoutePlacements(){\n  const has=(state.routes||[]).some(r=>String(r.tracking_url_or_identifier||'').includes('luxx4free/c6'));\n  if(!has) await installRoutePlacements(false);\n}\nasync function loadHoldSheet(){`
 );
 html = html.replace(
   'setTimeout(()=>{refreshToday();syncLibraryConsent().catch(()=>{})},0)}',
@@ -56,11 +55,9 @@ html = html.replace(
 );
 fs.writeFileSync(indexPath, html);
 
-const videoPath = 'netlify/lib/video.mjs';
-let video = fs.readFileSync(videoPath, 'utf8');
-video = video.split("-map','0:a?").join("-map','0:a:0");
-video = video.split('-map 0:a?').join('-map 0:a:0');
-fs.writeFileSync(videoPath, video);
+// Do not rewrite -map 0:a? to 0:a:0. Optional audio must stay optional.
+// APAC / silent files belong in the video.mjs ladder (copy → AAC → video-only → full),
+// with audio_dropped on the variant when video-only fires.
 
 const domainPath = 'netlify/lib/domain.mjs';
 let domain = fs.readFileSync(domainPath, 'utf8');
