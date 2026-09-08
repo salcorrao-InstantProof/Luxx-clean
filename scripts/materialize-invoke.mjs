@@ -73,6 +73,24 @@ const notePlus = noteNeedle
   + "${sheetHow(t)?`<div class=\"jobNote\"><b>Do this</b><div>${esc(sheetHow(t))}</div></div>`:''}"
   + "${sheetCaption(t)?`<div class=\"jobNote\"><b>Caption / message</b><div>${esc(sheetCaption(t))}</div><button class=\"secondary\" onclick=\"copyCaption(sheetCaption(t))\">COPY</button></div>`:''}";
 html = html.replace(noteNeedle, notePlus);
+const kickHelper = `function needsDropletRenderer(asset){\n  const size=Number(asset&&asset.size||0);\n  if(!Number.isFinite(size)||size<=0)return true;\n  return size*2.4>480*1024*1024;\n}\nasync function kickIfFits(job_id,asset){\n  if(!job_id)return {skipped:true,waiting_for_droplet:true};\n  if(needsDropletRenderer(asset))return {skipped:true,started:false,waiting_for_droplet:true};\n  return api('/kick-media-job',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({job_id})});\n}\n`;
+html = html.replace('async function retryAuto(id){', kickHelper+'async function retryAuto(id){');
+html = html.replace(
+  "await api('/kick-media-job',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({job_id})});",
+  'await kickIfFits(job_id,a);'
+);
+html = html.replace(
+  "const kr=await api('/kick-media-job',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({job_id:res.asset.job_id})});",
+  "const kr=await kickIfFits(res.asset.job_id,res.asset); if(kr&&kr.waiting_for_droplet){kicked=kr;kickErr=null;break;}"
+);
+html = html.replace(
+  "async function retryAuto(id){try{const j=await api('/start-media-job',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({asset_id:id,kind:'AUTO_VIDEO'})});await api('/kick-media-job',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({job_id:j.job.job_id})});closeModal();alert('Video processing started.');}catch(e){alert(e.message)}}",
+  "async function retryAuto(id){try{const asset=(state.assets||[]).find(x=>x.asset_id===id)||{asset_id:id};const j=await api('/start-media-job',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({asset_id:id,kind:'AUTO_VIDEO'})});const kr=await kickIfFits(j.job.job_id,asset);closeModal();alert(kr&&kr.waiting_for_droplet?'Queued for the video worker. Watch the droplet.':'Video processing started.');}catch(e){alert(e.message)}}"
+);
+html = html.replace(
+  "a.status==='PROCESSING_FAILED'?'Processing failed':'Processing '+(a.processing_job?.progress||0)+'%'",
+  "a.status==='PROCESSING_FAILED'?'Processing failed':((a.processing_job&&(a.processing_job.status==='QUEUED'||a.processing_job.waiting_for_droplet))?'Waiting for renderer':'Processing '+(a.processing_job?.progress||0)+'%')"
+);
 fs.writeFileSync(indexPath, html);
 
 const domainPath = 'netlify/lib/domain.mjs';
