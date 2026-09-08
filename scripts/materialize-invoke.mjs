@@ -11,6 +11,10 @@ const copies = [
 
 for (const [from, to] of copies) {
   if (!fs.existsSync(from)) throw new Error(`INVOKE source missing at repo root: ${from}`);
+  const src = fs.statSync(from);
+  if (from === 'video.mjs' && src.size < 20000) {
+    throw new Error(`video.mjs is ${src.size} bytes — truncated. Need the 33488-byte ladder. Refusing to deploy.`);
+  }
   fs.mkdirSync(path.dirname(to), {recursive: true});
   fs.copyFileSync(from, to);
   const st = fs.statSync(to);
@@ -54,10 +58,6 @@ html = html.replace(
   "${t.note?`<div class=\"jobNote\">${esc(t.note)}</div>`:''}${sheetHow(t)?`<div class=\"jobNote\"><b>Do this</b><div>${esc(sheetHow(t))}</div></div>`:''}${sheetCaption(t)?`<div class=\"jobNote\"><b>Caption / message</b><div>${esc(sheetCaption(t))}</div><button class=\"secondary\" onclick=\"copyCaption(sheetCaption({site:'"+t.site+"',price:'"+String(t.price||'').replace(/'/g,'')+"'}))\">COPY</button></div>`:''}"
 );
 fs.writeFileSync(indexPath, html);
-
-// Do not rewrite -map 0:a? to 0:a:0. Optional audio must stay optional.
-// APAC / silent files belong in the video.mjs ladder (copy → AAC → video-only → full),
-// with audio_dropped on the variant when video-only fires.
 
 const domainPath = 'netlify/lib/domain.mjs';
 let domain = fs.readFileSync(domainPath, 'utf8');
