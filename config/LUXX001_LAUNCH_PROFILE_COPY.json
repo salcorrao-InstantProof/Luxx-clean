@@ -14,8 +14,8 @@
     {
       "platform": "X",
       "account": "luxx4pleasure",
-      "prescribed_bio": "submissive, insatiable princess. previews here. free page for more ↓",
-      "prescribed_cta": "free page for more ↓",
+      "prescribed_bio": "submissive, insatiable princess. previews here. free page for more \u2193",
+      "prescribed_cta": "free page for more \u2193",
       "intended_destination": "OnlyFans Free",
       "route_ids": ["X_BIO_TO_OF_FREE_01"],
       "tracking_url": "https://onlyfans.com/luxx4free/c6",
@@ -32,8 +32,8 @@
     {
       "platform": "OnlyFans Free",
       "account": "luxx4free",
-      "prescribed_bio": "Free previews and new drops. Want more? My paid page is below ↓",
-      "prescribed_cta": "Want more? My paid page is below ↓",
+      "prescribed_bio": "Free previews and new drops. Want more? My paid page is below \u2193",
+      "prescribed_cta": "Want more? My paid page is below \u2193",
       "intended_destination": "OnlyFans Paid",
       "route_ids": ["OF_FREE_BIO_TO_OF_PAID_01"],
       "tracking_url": "https://onlyfans.com/luxx4pleasure/c4",
@@ -49,7 +49,7 @@
     {
       "platform": "OnlyFans Paid",
       "account": "luxx4pleasure",
-      "prescribed_bio": "VIP side of Luxx4Pleasure ❤️ Paid posts and PPV in messages. Stay here for the content I save for subscribers.",
+      "prescribed_bio": "VIP side of Luxx4Pleasure \u2764\ufe0f Paid posts and PPV in messages. Stay here for the content I save for subscribers.",
       "prescribed_cta": "NONE OUTBOUND",
       "intended_destination": "Native OnlyFans Paid",
       "route_ids": ["OF_PAID_FEED_01", "OF_PAID_PPV_MESSAGE_01"],
@@ -66,7 +66,7 @@
     {
       "platform": "Pornhub",
       "account": "luxx4pleasure",
-      "prescribed_bio": "Luxx4Pleasure ❤️ Follow for new videos and previews. My free page is in my Official Website link.",
+      "prescribed_bio": "Luxx4Pleasure \u2764\ufe0f Follow for new videos and previews. My free page is in my Official Website link.",
       "prescribed_cta": "My free page is in my Official Website link.",
       "intended_destination": "OnlyFans Free",
       "route_ids": ["PH_PROFILE_TO_OF_FREE_01"],
@@ -84,7 +84,7 @@
     {
       "platform": "ManyVids",
       "account": "luxx4pleasure",
-      "prescribed_bio": "Luxx4Pleasure video store ❤️ Browse the catalog and pick the scene you want.",
+      "prescribed_bio": "Luxx4Pleasure video store \u2764\ufe0f Browse the catalog and pick the scene you want.",
       "prescribed_cta": "Browse the catalog",
       "intended_destination": "Native ManyVids catalog",
       "route_ids": ["MV_LISTING_01"],
@@ -101,7 +101,7 @@
     {
       "platform": "Fansly",
       "account": "Luxx4Pleasure",
-      "prescribed_bio": "Luxx4Pleasure ❤️ Extra posts when I add them. Follow if you want another place to find me.",
+      "prescribed_bio": "Luxx4Pleasure \u2764\ufe0f Extra posts when I add them. Follow if you want another place to find me.",
       "prescribed_cta": "Follow",
       "intended_destination": "Native Fansly",
       "route_ids": [],
@@ -119,7 +119,7 @@
     {
       "platform": "Chaturbate",
       "account": "luxx4pleasure",
-      "prescribed_bio": "Luxx4Pleasure ❤️ Live Mon & Fri, 10 AM–1 PM CT. Follow so you know when I'm on.",
+      "prescribed_bio": "Luxx4Pleasure \u2764\ufe0f Live Wed and Fri, 10 AM\u20131 PM CT. Follow so you know when I'm on.",
       "prescribed_cta": "Follow so you know when I'm on.",
       "intended_destination": "Native Chaturbate",
       "route_ids": ["CB_NATIVE_TIPS_01"],
@@ -136,7 +136,7 @@
     {
       "platform": "Linktree",
       "account": "luxx4pleasure",
-      "prescribed_bio": "Luxx4Pleasure ❤️ Free page, VIP, videos, Fansly and X — pick where you want to find me.",
+      "prescribed_bio": "Luxx4Pleasure \u2764\ufe0f Free page, VIP, videos, Fansly and X \u2014 pick where you want to find me.",
       "prescribed_cta": "Choose destination",
       "intended_destination": "Multi-destination secondary hub",
       "route_ids": ["LINKTREE_BUTTON_TO_OF_FREE_01", "LINKTREE_BUTTON_TO_OF_PAID_01", "LINKTREE_BUTTON_TO_FANSLY_01", "LINKTREE_BUTTON_TO_MV_01", "LINKTREE_BUTTON_TO_X_01"],
