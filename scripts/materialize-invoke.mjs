@@ -59,10 +59,11 @@ html = html.replace(
 );
 const capFn = `function sheetCaption(t){\n  const price=t.price||'$10';\n  if(t.site==='OF_FREE')return 'This is the free-page view. Turn around and it is on paid.';\n  if(t.site==='OF_PAID')return 'Caught me with these pulled to the side. '+price+' if you want to keep looking.';\n  if(t.site==='X')return 'New drop. Link in bio.';\n  if(t.site==='DMS')return 'I put something on the paid page I did not leave on free. '+price+'.';\n  if(t.site==='PORNHUB')return 'Full version and more on my OnlyFans. Official Website link below.';\n  if(t.site==='MANYVIDS')return 'Full scene on ManyVids. Preview on.';\n  if(t.site==='CHATURBATE')return 'Tip menu is up. Two paid shows if the room is spending.';\n  return '';\n}\nfunction sheetHow(t){\n  if(t.site==='DMS')return 'Lock a $10 PPV in OnlyFans. Attach the Paid photo yourself. LUXX does not attach a file on this card.';\n  if(t.site==='OF_FREE')return 'Post the privacy-safe photo. No link in the caption.';\n  if(t.site==='OF_PAID')return 'Post the privacy-safe photo. Set PPV to the price on this card if it is locked.';\n  return '';\n}\n`;
 html = html.replace('function renderTodaySheet', capFn+'function renderTodaySheet');
-html = html.replace(
-  "${t.note?`<div class=\"jobNote\">${esc(t.note)}</div>`:''}",
-  "${t.note?`<div class=\"jobNote\">${esc(t.note)}</div>`:''}${sheetHow(t)?`<div class=\"jobNote\"><b>Do this</b><div>${esc(sheetHow(t))}</div></div>`:''}${sheetCaption(t)?`<div class=\"jobNote\"><b>Caption / message</b><div>${esc(sheetCaption(t))}</div><button class=\"secondary\" onclick=\"copyCaption(sheetCaption({site:'"+t.site+"',price:'"+String(t.price||'').replace(/'/g,'')+"'}))\">COPY</button></div>`:''}"
-);
+const noteNeedle = "${t.note?`<div class=\"jobNote\">${esc(t.note)}</div>`:''}";
+const notePlus = noteNeedle
+  + "${sheetHow(t)?`<div class=\"jobNote\"><b>Do this</b><div>${esc(sheetHow(t))}</div></div>`:''}"
+  + "${sheetCaption(t)?`<div class=\"jobNote\"><b>Caption / message</b><div>${esc(sheetCaption(t))}</div><button class=\"secondary\" onclick=\"copyCaption(sheetCaption(t))\">COPY</button></div>`:''}";
+html = html.replace(noteNeedle, notePlus);
 fs.writeFileSync(indexPath, html);
 
 const domainPath = 'netlify/lib/domain.mjs';
