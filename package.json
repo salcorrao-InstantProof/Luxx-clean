@@ -13,7 +13,7 @@
   },
   "scripts": {
     "test": "node tests/run-all.mjs",
-    "build": "node scripts/verify-root-ffmpeg-deps.mjs && node scripts/materialize-invoke.mjs",
+    "build": "node scripts/verify-root-ffmpeg-deps.mjs && node scripts/materialize-invoke.mjs && node scripts/apply-nocam.mjs",
     "verify:ffmpeg-deps": "node scripts/verify-root-ffmpeg-deps.mjs"
   }
 }
