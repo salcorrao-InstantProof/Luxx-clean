@@ -1,0 +1,16 @@
+[Unit]
+Description=LUXX video worker
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/luxx-worker/luxx-worker
+ExecStart=/bin/bash /root/luxx-worker/luxx-worker/start.sh
+Restart=always
+RestartSec=15
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
