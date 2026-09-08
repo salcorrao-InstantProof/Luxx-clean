@@ -1,6 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+const ladderUpload = 'video LADDER 33488.js';
+if (fs.existsSync(ladderUpload) && fs.statSync(ladderUpload).size >= 20000) {
+  fs.copyFileSync(ladderUpload, 'video.mjs');
+  console.log('promoted', ladderUpload, 'to video.mjs (', fs.statSync('video.mjs').size, 'bytes)');
+}
+
 const copies = [
   ['video.mjs', 'netlify/lib/video.mjs'],
   ['domain.mjs', 'netlify/lib/domain.mjs'],
