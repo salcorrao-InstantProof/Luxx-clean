@@ -1,10 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const ladderUpload = 'video LADDER 33488.js';
-if (fs.existsSync(ladderUpload) && fs.statSync(ladderUpload).size >= 20000) {
-  fs.copyFileSync(ladderUpload, 'video.mjs');
-  console.log('promoted', ladderUpload, 'to video.mjs (', fs.statSync('video.mjs').size, 'bytes)');
+const videoSources = ['video CLEANDISK.js', 'video_CLEANDISK.mjs', 'video LADDER 33488.js'];
+for (const src of videoSources) {
+  if (fs.existsSync(src) && fs.statSync(src).size >= 20000) {
+    fs.copyFileSync(src, 'video.mjs');
+    console.log('promoted', src, 'to video.mjs (', fs.statSync('video.mjs').size, 'bytes)');
+    break;
+  }
 }
 
 const copies = [
@@ -19,7 +22,7 @@ for (const [from, to] of copies) {
   if (!fs.existsSync(from)) throw new Error(`INVOKE source missing at repo root: ${from}`);
   const src = fs.statSync(from);
   if (from === 'video.mjs' && src.size < 20000) {
-    throw new Error(`video.mjs is ${src.size} bytes — truncated. Need the 33488-byte ladder. Refusing to deploy.`);
+    throw new Error(`video.mjs is ${src.size} bytes — truncated. Need the clean-disk renderer. Refusing to deploy.`);
   }
   fs.mkdirSync(path.dirname(to), {recursive: true});
   fs.copyFileSync(from, to);
