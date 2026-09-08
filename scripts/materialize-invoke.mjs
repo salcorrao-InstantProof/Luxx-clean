@@ -75,6 +75,18 @@ fs.writeFileSync(indexPath, html);
 const domainPath = 'netlify/lib/domain.mjs';
 let domain = fs.readFileSync(domainPath, 'utf8');
 const needle = "if(usedOnSite(a,site))return false;\n    return true;";
-const insert = "if(usedOnSite(a,site))return false;\n    if(platform&&a.platform_eligibility_source==='MANUAL'&&!(a.platform_eligibility||[]).includes(platform))return false;\n    return true;";
+const insert = "if(usedOnSite(a,site,state))return false;\n    if(platform&&a.platform_eligibility_source==='MANUAL'&&!(a.platform_eligibility||[]).includes(platform))return false;\n    return true;";
 if (domain.includes(needle)) domain = domain.replace(needle, insert);
+domain = domain.replace(
+  'function usedOnSite(asset,site){\n  const platform=SITE_TO_PLATFORM[site];\n  if(!platform)return false;\n  return (asset.used_on||[]).includes(platform);\n}',
+  'function usedOnSite(asset,site,state){\n  const platform=SITE_TO_PLATFORM[site];\n  if(!platform)return false;\n  if((asset.used_on||[]).includes(platform))return true;\n  const id=asset.asset_id;\n  return (state&&state.tasks||[]).some(t=>t&&t.asset_id===id&&t.site===site);\n}'
+);
+domain = domain.replace(
+  'if(bound)taken.add(bound.asset_id);',
+  'if(bound){taken.add(bound.asset_id);if(t.needs_file&&!t.asset_id)t.asset_id=bound.asset_id;}'
+);
+domain = domain.replace(
+  "appendAudit(state,'TASK',t.task_id,'TASK_COMPLETE',{done:t.done,money,count});",
+  "if(t.done&&t.asset_id){state.actions=state.actions||[];state.actions.push({action_id:uid('ACT'),asset_id:t.asset_id,status:'EXECUTED',executed_at:new Date().toISOString(),source:'HOLD_SHEET',site:t.site,task_id:t.task_id});}\n  appendAudit(state,'TASK',t.task_id,'TASK_COMPLETE',{done:t.done,money,count,asset_id:t.asset_id||null});"
+);
 fs.writeFileSync(domainPath, domain);
