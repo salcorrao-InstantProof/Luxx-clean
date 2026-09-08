@@ -28,6 +28,11 @@ for (const [from, to] of copies) {
   console.log(`materialized ${to} (${st.size} bytes)`);
 }
 
+if (fs.existsSync('LUXX_CTA_PACK.md')) {
+  fs.mkdirSync('public/config', {recursive: true});
+  fs.copyFileSync('LUXX_CTA_PACK.md', 'public/config/LUXX_CTA_PACK.md');
+}
+
 const placeSrc = fs.existsSync('LUXX001_ROUTE_PLACEMENTS_FINAL.json')
   ? 'LUXX001_ROUTE_PLACEMENTS_FINAL.json'
   : 'config/LUXX001_ROUTE_PLACEMENTS_FINAL.json';
@@ -58,7 +63,7 @@ html = html.replace(
   'setTimeout(()=>{refreshToday();syncLibraryConsent().catch(()=>{});ensureRoutePlacements().catch(()=>{})},0)}'
 );
 html = html.replace(/<button class="secondary" onclick="openVideoReview\('\$\{a\.asset_id\}'\)">REVIEW EXISTING<\/button>/g, '');
-const capFn = `function sheetCaption(t){\n  const price=t.price||'$10';\n  if(t.site==='OF_FREE')return 'This is the free-page view. Turn around and it is on paid.';\n  if(t.site==='OF_PAID')return 'Caught me with these pulled to the side. '+price+' if you want to keep looking.';\n  if(t.site==='X')return 'New drop. Link in bio.';\n  if(t.site==='DMS')return 'I put something on the paid page I did not leave on free. '+price+'.';\n  if(t.site==='PORNHUB')return 'Full version and more on my OnlyFans. Official Website link below.';\n  if(t.site==='MANYVIDS')return 'Full scene on ManyVids. Preview on.';\n  if(t.site==='CHATURBATE')return 'Tip menu is up. Two paid shows if the room is spending.';\n  return '';\n}\nfunction sheetHow(t){\n  if(t.site==='DMS')return 'Lock a $10 PPV in OnlyFans. Attach the Paid photo yourself. LUXX does not attach a file on this card.';\n  if(t.site==='OF_FREE')return 'Post the privacy-safe photo. No link in the caption.';\n  if(t.site==='OF_PAID')return 'Post the privacy-safe photo. Set PPV to the price on this card if it is locked.';\n  return '';\n}\n`;
+const capFn = `function sheetCaption(t){\n  if(t.caption)return t.caption;\n  const n=String(t.name||'');\n  if(/MV-1/i.test(n))return 'this is MV-1. if you only open one file of mine, make it this.';\n  if(t.site==='X')return 'face stays off. the rest of me does not.';\n  if(t.site==='OF_FREE')return /cam/i.test(n)?'just off cam. this page gets the short version. paid got what happened after.':'short version lives here. the uncut one does not.';\n  if(t.site==='OF_PAID')return /cam/i.test(n)?'just logged off. still warm and it is someone\\'s fault.':'this one is staying on paid. not cropping it.';\n  if(t.site==='DMS')return /tip/i.test(n)?'{name}, thank you for {tip} tonight. if that was fun, the paid page is where the rest lives.':'hey — new scene going out tonight. $10, no pressure either way.';\n  if(t.site==='PORNHUB')return 'no face. short cut of the longer file. last line is https://onlyfans.com/luxx4free/c10';\n  if(t.site==='MANYVIDS')return 'title says the scene, preview on, tags filled.';\n  if(t.site==='CHATURBATE')return 'back after a break — be gentle or don\\'t';\n  return '';\n}\nfunction sheetHow(t){\n  if(t.site==='DMS')return 'Same $10 offer. Broadcast, not just-for-you. Attach from the app. Change one word per send.';\n  if(t.site==='OF_FREE')return 'Post the privacy-safe file. No link in the caption.';\n  if(t.site==='OF_PAID')return 'Post the privacy-safe file on paid. Copy the caption.';\n  if(t.site==='X')return 'One line. No link. Skip if you see face.';\n  return '';\n}\n`;
 html = html.replace('function renderTodaySheet', capFn+'function renderTodaySheet');
 const noteNeedle = "${t.note?`<div class=\"jobNote\">${esc(t.note)}</div>`:''}";
 const notePlus = noteNeedle
