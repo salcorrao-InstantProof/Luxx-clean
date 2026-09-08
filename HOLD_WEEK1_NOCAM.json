@@ -1,0 +1,75 @@
+{
+  "rule0": "Cam Wednesday and Friday only, 10:00-13:00 CT — except 2026-09-09 and 2026-09-11 this week (no live; posting instead). Six lives left in the 28 days.",
+  "days": {
+    "2026-09-09": [
+      {
+        "name": "OF Paid · assigned wall post",
+        "site": "OF_PAID",
+        "target": 1,
+        "earns": false,
+        "needs_file": true,
+        "note": "No cam this week. Post a PHOTO or a ready video on OnlyFans Paid as a wall post. Caption from the card. NO tracking link."
+      },
+      {
+        "name": "OF Free · assigned tease",
+        "site": "OF_FREE",
+        "target": 1,
+        "earns": false,
+        "needs_file": true,
+        "note": "Post the PHOTO on the card to OnlyFans Free. Caption: full video is already on paid. this page only gets this. NO link."
+      },
+      {
+        "name": "DM 25 Free + all Paid · $10 PPV",
+        "site": "DMS",
+        "target": 29,
+        "earns": true,
+        "price": "$10",
+        "needs_file": false,
+        "note": "Same $10 PPV to 25 Free fans and every Paid fan. Broadcast, not custom. Count each send. NO tracking link."
+      },
+      {
+        "name": "ManyVids · titles and preview ON",
+        "site": "MANYVIDS",
+        "target": 7,
+        "earns": false,
+        "needs_file": false,
+        "note": "Open each of the 7 listings. Title says the scene. Preview ON. Tags filled. Count one per listing you finish."
+      }
+    ],
+    "2026-09-11": [
+      {
+        "name": "OF Paid · assigned wall post",
+        "site": "OF_PAID",
+        "target": 1,
+        "earns": false,
+        "needs_file": true,
+        "note": "No cam this week. Post a PHOTO or a ready video on OnlyFans Paid as a wall post. Caption from the card. NO tracking link."
+      },
+      {
+        "name": "OF Free · assigned tease",
+        "site": "OF_FREE",
+        "target": 1,
+        "earns": false,
+        "needs_file": true,
+        "note": "Post the PHOTO on the card to OnlyFans Free. Caption: full video is already on paid. this page only gets this. NO link."
+      },
+      {
+        "name": "DM 25 Free · $10 PPV",
+        "site": "DMS",
+        "target": 25,
+        "earns": true,
+        "price": "$10",
+        "needs_file": false,
+        "note": "Same $10 PPV to 25 Free fans. Count each send. NO tracking link."
+      },
+      {
+        "name": "Pornhub · rewrite any of 1-4 still open",
+        "site": "PORNHUB",
+        "target": 4,
+        "earns": false,
+        "needs_file": false,
+        "note": "If Thursday left any of videos 1-4 unfinished, finish them. Description last line https://onlyfans.com/luxx4free/c10 Official Website https://onlyfans.com/luxx4free/c7. Skip if all four are saved."
+      }
+    ]
+  }
+}
