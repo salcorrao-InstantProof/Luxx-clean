@@ -13,7 +13,7 @@
   },
   "scripts": {
     "test": "node tests/run-all.mjs",
-    "build": "node scripts/verify-root-ffmpeg-deps.mjs && node scripts/materialize-invoke.mjs && node scripts/apply-nocam.mjs && node scripts/apply-chicago-today.mjs",
+    "build": "node scripts/verify-root-ffmpeg-deps.mjs && node scripts/materialize-invoke.mjs && node scripts/apply-nocam.mjs && node scripts/apply-chicago-today.mjs && node scripts/apply-library-ops.mjs",
     "verify:ffmpeg-deps": "node scripts/verify-root-ffmpeg-deps.mjs"
   }
 }
