@@ -1,13 +1,14 @@
 import fs from 'node:fs';
-const p = 'public/index.html';
-if (!fs.existsSync(p)) process.exit(0);
-let t = fs.readFileSync(p, 'utf8');
-const old = "const today=new Date().toISOString().slice(0,10);";
-const neu = "const today=new Date().toLocaleDateString('en-CA',{timeZone:'America/Chicago'});";
-if (t.includes(old)) {
-  t = t.replace(old, neu);
+const chicago = "new Date().toLocaleDateString('en-CA',{timeZone:'America/Chicago'})";
+const utc = "new Date().toISOString().slice(0,10)";
+for (const p of ['public/index.html', 'netlify/lib/domain.mjs']) {
+  if (!fs.existsSync(p)) continue;
+  let t = fs.readFileSync(p, 'utf8');
+  if (!t.includes(utc)) {
+    console.log(p, 'no UTC today stamp');
+    continue;
+  }
+  t = t.split(utc).join(chicago);
   fs.writeFileSync(p, t);
-  console.log('TODAY date set to America/Chicago');
-} else {
-  console.log('TODAY date line not found or already patched');
+  console.log(p, 'TODAY stamps set to America/Chicago');
 }
